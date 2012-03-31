@@ -6,7 +6,8 @@
   <style type="text/css">
     html {
       background: #222;
-      color: white;
+      color: #ccc;
+      font-family: sans-serif;
     }
     body {
       max-width: 800px;
@@ -15,12 +16,25 @@
     body > dl {
       margin-top: 15%;
       font-size: 1.1em;
-      font-family: serif;
       line-height: 1.5;
+    }
+    dt {
+      margin-top: 2em;
+    }
+    dd dt {
+      margin-top: 1em;
     }
     a {
       color: white;
       font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1pt dotted #999;
+    }
+    a:hover {
+      border-bottom: 1px solid white;
+    }
+    small {
+      font-size: 0.7em;
     }
   </style>
 </head>
@@ -39,7 +53,31 @@
       <a href="https://github.com/fabi1cazenave/dotFiles">dotFiles</a>
     </dt>
     <dd>
-      <p> My configuration files for bash, xterm, readline, i3, Vim… </p>
+      My Vim-centric configuration files for bash, xterm, readline, i3…
+    </dd>
+
+    <!-- Vim, what else? -->
+    <dt>
+      <a href="http://www.vim.org">Vim</a>, what else? Some home-made stuff:
+    </dt>
+    <dd>
+      <dl>
+        <dt>
+          <a href="https://github.com/fabi1cazenave/suckless.vim">suckless.vim</a>
+          <small>(plugin)</small> 
+        </dt>
+        <dd> dwm/wmii/i3-like window management in Vim </dd>
+        <dt>
+          <a href="https://github.com/fabi1cazenave/autoSession.vim">autoSession.vim</a>
+          <small>(plugin)</small>
+        </dt>
+        <dd> seamless session management </dd>
+        <dt>
+          <a href="https://github.com/fabi1cazenave/kalahari.vim">kalahari.vim</a>
+          <small>(colorscheme)</small>
+        </dt>
+        <dd> dark theme based on desert </dd>
+      </dl>
     </dd>
 
     <!-- GNU pad -->
@@ -47,30 +85,8 @@
       <a href="https://github.com/fabi1cazenave/gnupad">GNU Pad</a>
     </dt>
     <dd>
-      <p> A set of configuration files to let Emacs, Vim and nano behave in a
-      more standard/notepad way. </p>
-    </dd>
-
-    <!-- Vim, what else? -->
-    <dt>
-      <a href="http://www.vim.org">Vim</a>, what else?
-    </dt>
-    <dd>
-      <p> Various home-made Vim stuff… </p>
-      <dl>
-        <dt>
-          <a href="https://github.com/fabi1cazenave/suckless.vim">suckless.vim</a>
-        </dt>
-        <dd> Plugin —  dwm/wmii/i3-like window management in Vim. </dd>
-        <dt>
-          <a href="https://github.com/fabi1cazenave/autoSession.vim">autoSession.vim</a>
-        </dt>
-        <dd> Plugin — seamless session management. </dd>
-        <dt>
-          <a href="https://github.com/fabi1cazenave/kalahari.vim">kalahari.vim</a>
-        </dt>
-        <dd> Colorscheme — dark theme based on desert. </dd>
-      </dl>
+      A set of configuration files to let Emacs, Vim and nano behave in a
+      more standard/notepad way.
     </dd>
 
   </dl>
