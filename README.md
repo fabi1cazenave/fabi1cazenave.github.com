@@ -6,16 +6,16 @@ Quick overview of my github repositories.
   web-friendly localization library (used in B2G/Gaia)
 * Vim stuff:  
    • [suckless.vim](https://github.com/fabi1cazenave/suckless.vim)
-     (plugin) dwm/wmii/i3-like window management
+     (plugin) dwm/wmii/i3-like window management  
    • [autoSession.vim](https://github.com/fabi1cazenave/autoSession.vim)
-     (plugin) seamless session management
+     (plugin) seamless session management  
    • [mozilla.vim](https://github.com/fabi1cazenave/mozilla.vim)
-     (syntax) syntax files for Mozilla contributors and web developers
+     (syntax) syntax files for Mozilla contributors and web developers  
    • [kalahari.vim](https://github.com/fabi1cazenave/kalahari.vim)
      (colorscheme) dark theme based on desert
 * Configuration files:  
    • [dotFiles](https://github.com/fabi1cazenave/dotFiles):
-     my Vim-centric configuration files for bash, xterm, readline, i3…
+     my Vim-centric configuration files for bash, xterm, readline, i3…  
    • [gnupad](https://github.com/fabi1cazenave/gnupad):
-     a set of configuration files to let Emacs, Vim and nano behave in a more standard/notepad way.
+     a set of configuration files to let Emacs, Vim and nano behave in a more standard/notepad way.  
 
