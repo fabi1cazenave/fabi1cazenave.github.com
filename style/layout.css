@@ -1,0 +1,103 @@
+html {
+  font-family: sans-serif;
+  color: #bbb;
+}
+
+
+/**
+ * Links
+ */
+
+a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1pt dotted #999;
+}
+
+a:hover {
+  border-bottom: 1px solid white;
+}
+
+
+/**
+ * The Book of Mozilla
+ */
+
+#mozilla {
+  margin-top: 15%;
+  font-size: 1.2em;
+  font-family: serif;
+}
+
+#mozilla p {
+  text-align: center;
+  line-height: 1.5;
+}
+
+#mozilla em {
+  font-size: 1.1em;
+  line-height: 0;
+}
+
+#mozilla footer {
+  font-size: 1.65em;
+  font-family: serif;
+  text-align: right;
+}
+
+#mozilla footer cite {
+  font-weight: bold;
+}
+
+
+/**
+ * Project list
+ */
+
+#projects {
+  margin-top: 10%;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+#projects dt {
+  margin-top: 2em;
+}
+
+#projects dd dt {
+  margin-top: 1em;
+}
+
+#projects small {
+  font-size: 0.7em;
+}
+
+* html #projects { /* IE6 */
+  width: 800px;
+  margin: auto;
+}
+
+
+/**
+ * "Fork me" ribbon
+ */
+
+#github {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 149px;
+  height: 149px;
+  background: url(forkme.png);
+  border: none;
+}
+
+* html #github { /* IE6 */
+  background: url(forkme.gif);
+}
+
+#github span {
+  display: none;
+}
+
