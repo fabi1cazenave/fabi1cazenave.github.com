@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <title>webL10n</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+    <style type="text/css">
+      .slide table {
+        width: 100%;
+      }
+      .slide table th {
+        font-weight: bold;
+      }
+      .slide table li {
+        list-style-type: none;
+        font-size: 0.9em;
+      }
+      .slide table li:before {
+        content: '';
+      }
+      header h2 ~ * {
+        font-size: smaller;
+      }
+    </style>
+  </head>
+  <body class="list">
+    <header class="caption">
+      <h1>webL10n</h1>
+      <p class="footer">Fabien Cazenave — [kazé] or <a
+        href="http://twitter.com/#!/fabi1cazenave">@fabi1cazenave</a> </p>
+    </header>
+
+    <!--
+      - Simply copy the whole block for each slide you want.
+      - Special slides get extra classes. Each slide needs an ID
+      - to allow for bookmarking and target jumping.
+      -
+      - Images, videos and SVG objects are automatically centred
+      - when you add a class of "middle"
+      -
+      - If you add a "cover" class images are taking over the whole
+      - screen resized to height. Add a "w" class to resize to width.
+      -->
+
+    <div id="cover" class="slide"><div>
+      <section>
+        <header>
+          <h2>webL10n</h2>
+          <div>
+            <p> javascript i18n / l10n library </p>
+          </div>
+        </header>
+        <img src="pictures/mozilla-basecamp.png" class="middle" alt="Icons of B2G, Firefox OS and Mozilla Apps">
+        <footer class="byline">Fabien Cazenave (:kazé / <a
+          href="http://twitter.com/">@fabi1cazenave</a>) — FOSDEM 2013, Brussels</footer>
+      </section>
+    </div></div>
+
+    <div id="intro" class="slide"><div>
+      <section>
+        <header>
+          <h2>Powered by webL10n</h2>
+        </header>
+        <ul>
+          <li> Firefox OS / Gaia </li>
+          <li> Etherpad Lite </li>
+          <li> PDF.js </li>
+        </ul>
+        <pre style="text-align: center"> Welcome {{user}}, you have {{n}} new message(s) </pre>
+        <footer class="notes">
+          Introduce yourself, who you are and why you are the person to give that talk
+        </footer>
+      </section>
+    </div></div>
+
+    <div id="formats" class="slide"><div>
+      <section>
+        <header>
+          <h2>Existing localization formats</h2>
+          <p> here are the three formats we use in Mozilla projects:</p>
+        </header>
+        <table>
+          <tr>
+            <th style="width: 33%"> <code>*.properties</code> </th>
+            <th style="width: 33%"> <code>*.dtd</code> </th>
+            <th style="width: 33%"> <code>*.po</code> </th>
+          </tr>
+          <tr>
+            <th> (Java)   </th>
+            <th> (XHTML)  </th>
+            <th> (gettext)  </th>
+          </tr>
+          <tr>
+            <td>
+              <ul>
+                <li> [+] bullet-proof </li>
+                <li> [+] idiot-proof </li>
+                <li> [-] no pluralization support on Elmo </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li> [+] easy to use </li>
+                <li> [-] special chars must be escaped </li>
+                <li> [-] requires XML </li>
+                <li> [-] many limitations </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li> [+] the first i18n project </li>
+                <li> [+] the <i>de facto</i> standard </li>
+                <li> [-] tools can be messy </li>
+                <li> [-] l10n people don’t like it (NIH-effect?) </li>
+                <li> [+] <a href="http://slexaxton.github.com/Jed/">JED</a> </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="lol" class="slide"><div>
+      <section>
+        <header>
+          <h2>The <code>*.lol</code> format</h2>
+          <p> courtesy of the “<a href="https://wiki.mozilla.org/L20n">l20n</a>” project </p>
+        </header>
+        <ul>
+          <li> in development since ~5 years </li>
+          <li> has nice advanced features (macros &lt;3) </li>
+          <li> compatibility-breaker by design </li>
+          <li> <strong>very</strong> disruptive syntax </li>
+          <li> no real deployment so far </li>
+        </ul>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="lol-dark-side" class="slide"><div>
+      <section>
+        <header>
+          <h2>*.lol dark side</h2>
+        </header>
+        <ul>
+          <li> non-webish / unsupported syntax </li>
+          <li> very constraining for developers:
+            <ul>
+              <li> requires a web server for the content negotiation </li>
+              <li> no natural way to handle multi-locale files </li>
+              <li> the JS implementation relies on an <code>eval()</code> </li>
+              <li> [F5] is broken </li>
+            </ul>
+        </li>
+        </ul>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="webL10n" class="slide"><div>
+      <section>
+        <header>
+          <h2>webL10n goals</h2>
+        </header>
+        <ul>
+          <li> feel natural / webish / non-disruptive </li>
+          <li> forward-compatible with <code>*.properties</code> </li>
+          <li> consistent with other Mozilla projects (JetPack, l20n…)  </li>
+          <li> relies on existing standards as much as possible </li>
+          <li> maximum flexibility for developers &amp; localizers </li>
+        </ul>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="webL10n-html" class="slide"><div>
+      <section>
+        <header>
+          <h2> Localized HTML document </h2>
+        </header>
+        <img src="pictures/html-document.png" style="margin-top: -1em;"
+          alt="source code of a localized HTML document" />
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="webL10n-data" class="slide"><div>
+      <section>
+        <header>
+          <h2> L10n resources… </h2>
+        </header>
+        <p> … can be sent by the server (content negotiation): </p>
+        <img src="pictures/l10n-resources-server-side.png" style="margin-top: -1em;" alt="" />
+        <p> … or can be selected by the client (multi-locale files): </p>
+        <img src="pictures/l10n-resources-client-side.png" style="margin-top: -1em;" alt="" />
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="webL10n-simple" class="slide"><div>
+      <section>
+        <header>
+          <h2>DOM hooks</h2>
+        </header>
+        <pre><code>&lt;p data-<mark>l10n-id</mark>="welcome"&gt;</code>
+          <code>  Welcome to Firefox OS!</code>
+          <code>&lt;/p&gt;</code></pre>
+        <br />
+        <pre><code><mark>[en-US]</mark></code>
+          <code>welcome = Welcome to Firefox OS!</code>
+          <code><mark>[fr]</mark></code>
+          <code>welcome = Bienvenue sur Firefox OS !</code></pre>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="webL10n-arguments" class="slide"><div>
+      <section>
+        <header>
+          <h2>String substitution: basics</h2>
+        </header>
+        <pre><code>&lt;p data-<mark>l10n-id</mark>="welcome"&gt;</code>
+          <code>  Welcome to Firefox OS! &lt;/p&gt;</code></pre>
+        <br />
+        <pre><code>brandShortName = Firefox OS</code>
+          <code><mark>[en-US]</mark></code>
+          <code>welcome = Welcome to <mark class="important">{{brandShortName}}</mark>!</code>
+          <code><mark>[fr]</mark></code>
+          <code>welcome = Bienvenue sur <mark class="important">{{brandShortName}}</mark> !</code></pre>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="webL10n-scope" class="slide"><div>
+      <section>
+        <header>
+          <h2>String substitution: scope</h2>
+        </header>
+        <pre><code>&lt;p data-<mark>l10n-args</mark>='<mark class="important">{ "brandShortName": "B2G OS" }</mark>'</code>
+          <code>   data-<mark>l10n-id</mark>="welcome"&gt;Welcome to B2G OS!&lt;/p&gt;</code></pre>
+        <br />
+        <pre>
+          <code>brandShortName = Firefox OS</code>
+          <code><mark>[en-US]</mark></code>
+          <code>welcome = Welcome to <mark class="important">{{brandShortName}}</mark>!</code>
+          <code><mark>[fr]</mark></code>
+          <code>welcome = Bienvenue sur <mark class="important">{{brandShortName}}</mark> !</code></pre>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="webL10n-plural" class="slide"><div>
+      <section>
+        <header>
+          <h2>Pluralization</h2>
+          <p>
+            <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules"
+              title="Unicode Common Locale Data Repository">Unicode CLDR:</a>
+            zero|one|two|few|many|other
+          </p>
+        </header>
+        <pre><code>&lt;p data-<mark>l10n-id</mark>="messages"</code>
+          <code>   data-<mark>l10n-args</mark>='<mark class="important">{ "count": "12" }</mark>'&gt;</code>
+          <code>      You have 12 new messages. &lt;/p&gt;</code></pre>
+        <pre><code>messages = {[ plural(count) ]}</code>
+          <code>messages[zero]  = No new messages.</code>
+          <code>messages[one]   = You have a new message.</code>
+          <code>messages[other] = You have <mark class="important">{{count}}</mark> new messages.</code></pre>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="api" class="slide"><div>
+      <section>
+        <header>
+          <h2> JavaScript API </h2>
+        </header>
+        <img src="pictures/javascript-api.png" style="margin-top: -1em;"
+          alt="JavaScript example using the l10n API" />
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="firefoxos" class="slide"><div>
+      <section>
+        <header>
+          <h2> Firefox OS specific features </h2>
+        </header>
+        <ul>
+          <li> different API (Mounir &lt;3) </li>
+          <li> <code>l10n_date.js</code> module to handle date/time </li>
+          <li> build-time optimizations:
+            <ul>
+              <li> pre-translation of HTML pages </li>
+              <li> inline JSON dictionary </li>
+            </ul>
+          </li>
+        </ul>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="next" class="slide"><div>
+      <section>
+        <header>
+          <h2> What’s next? </h2>
+        </header>
+        <ul>
+          <li> number, currency, custom macros </li>
+          <li> integration with a templating engine
+            (<a href="http://olado.github.com/doT/">doT.js</a>,
+            <a href="http://handlebarsjs.com/">handlebars.js</a>…)
+          </li>
+          <li> “media queries” </li>
+          <li> node.js support </li>
+          <li> have some decent project page… </li>
+        </ul>
+        <footer class="notes"> </footer>
+      </section>
+    </div></div>
+
+    <div id="thanks" class="slide"><div>
+      <section>
+        <header>
+          <h2>Thanks</h2>
+          <p> <a
+            href="https://github.com/fabi1cazenave/webL10n">https://github.com/fabi1cazenave/webL10n</a>
+          </p>
+        </header>
+        <img src="pictures/thanks.jpg" class="right" alt="lovely duck">
+        <p style="clear: both;">
+          <a href="http://twitter.com/#!/fabi1cazenave">@fabi1cazenave</a> / kaze
+        </p>
+        <footer class="notes">
+          Say thanks, add a URL where to get the slides, and where people in the audience
+          can contact you.
+        </footer>
+      </section>
+    </div></div>
+
+    <!--
+      - To hide progress bar from entire presentation
+      - just remove “progress” element.
+      -->
+
+    <div class="progress"><div></div></div>
+    <script src="scripts/script.js"></script>
+    <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+  </body>
+</html>
+

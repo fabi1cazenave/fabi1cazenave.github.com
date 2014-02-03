@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-US" class="fade">
+<head>
+  <meta charset="UTF-8">
+  <title>State of Firefox OS</title>
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+  <style type="text/css">
+    div[id$='bullets'].slide > div::after {
+      content: 'For Information only, do NOT present';
+      background: rgba(200,0,0,0.5);
+      color: #fff;
+      position: absolute;
+      top: 20px;
+      right: 0;
+      padding: 5px 20px;
+      transform: rotate(90deg) translate(52%,-150px);
+      border-radius: 5px;
+    }
+    .full div[id$='bullets'].slide > div::after {
+      animation: wiggle alternate 1s infinite;
+    }
+    @keyframes wiggle {
+      from {
+        transform: rotate(90deg) translate(52%,-150px);
+      }
+      to {
+        transform: rotate(90deg) translate(52%,-160px);
+      }
+    }
+    .demourl {
+      bottom: 10px;
+    }
+  </style>
+</head>
+<body class="list">
+
+  <header class="caption">
+    <h1>State of Firefox OS</h1>
+    <p class="footer">
+      Fabien Cazenave [:kazé],
+      <a href="http://twitter.com/fabi1cazenave">@fabi1cazenave</a>
+      <!-- <a href="kaze@mozilla.com">kaze@mozilla.com</a> -->
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>
+      This slide deck is using the shower system - roll over the previews to
+      see the notes and click any slide to go into presentation mode.
+      Then use keys to navigate.
+      <button onclick="goFullScreen()">Go fullscreen</button>
+    </p>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+      What we did in 2013, the cool stuff we got, the great stuff we’re going to
+      get in 2014, and how to get a free tablet.
+    </p>
+  </aside>
+
+  <!--
+    - Simply copy the whole block for each slide you want.
+    - Special slides get extra classes. Each slide needs an ID
+    - to allow for bookmarking and target jumping.
+    -->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2>State of Firefox OS</h2>
+      </header>
+      <img src="pictures/fxos/firefoxos.png"
+           class="middle" height="400" alt="">
+      <small class="byline">
+        Fabien Cazenave [:kazé], FOSDEM, Brussells, 2014-02-01
+      </small>
+      <footer class="notes">
+        This is a simple cover slide with an image in the middle
+      </footer>
+    </section>
+  </div></div>
+
+<!--
+- Devices
+-->
+
+  <div id="zomgDevices" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>Firefox OS Devices</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2013goal" class="slide"><div>
+    <section>
+      <header>
+        <h2>2013 Goal: “ship a phone”</h2>
+      </header>
+      <img src="pictures/fxos/firefoxos.png"
+           alt="Firefox OS"
+           class="middle" height="450">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2013achievement" class="slide"><div>
+    <section>
+      <header>
+        <h2>ZTE, Alcatel, LG</h2>
+      </header>
+      <img src="pictures/devices/devices.png"
+           alt="ZTE Open, Alcatel One Touch, LG FireWeb"
+           title="ZTE Open, Alcatel One Touch, LG FireWeb"
+           class="middle" width="100%">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2013domination" class="slide"><div>
+    <section>
+      <img src="pictures/ducks/duckAttack.jpg"
+           alt="duck attack!"
+           title="Firefox OS flooding the market"
+           class="middle" width="100%">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="worldDomination" class="slide"><div>
+    <section>
+      <header>
+        <h2>Spreading Firefox OS</h2>
+      </header>
+      <ul>
+        <li><strong>3 phones</strong>: <br>
+        ZTE Open, Alcatel One Touch, LG Fireweb </li>
+        <li><strong>14 countries</strong>: <br>
+        Brazil, Colombia, Germany, Greece, Hungary, Italy, Mexico, Montenegro,
+        Peru, Poland, Serbia, Spain, Uruguay, Venezuela </li>
+        <li><strong>17 operators</strong>: <br>
+        América Móvil, China Unicom, Deutsche Telekom, Etisalat, Hutchison
+        Three Group, KDDI, Korea Telecom, MegaFon, Qtel, SingTel, Smart, Sprint,
+        Telecom Italia Group, Telefónica, Telenor, TMN and VimpelCom. </li>
+        <!-- <li>4 manufacturers</li> -->
+      </ul>
+      <footer class="notes">
+        17 Operators spanning the globe have committed to distributing Firefox
+        OS devices.  As a result, more countries and mobile phone operators will
+        be selling Firefox OS in the future. Our operator partners will
+        distribute the phones through a variety of locally-specific channels.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="developerDevices" class="slide"><div>
+    <section>
+      <header>
+        <h2>Developer Devices</h2>
+      </header>
+      <img src="pictures/devices/geeksphone-keon-peak.jpg"
+           alt="GeeksPhone devices"
+           class="right" height="450">
+      <ul>
+        <li>GeeksPhone Keon &amp; Peak</li>
+        <li>+ a few unofficially supported devices —
+        Nexus S &amp; Nexus 4 work pretty well. </li>
+      </ul>
+      <p> We focus on shipping phones rather than supporting existing devices. </p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+<!--
+- 2013 improvements
+-->
+
+  <div id="zomg2013" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>What we did in 2013</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="visualImprovements" class="slide"><div>
+    <section>
+      <header>
+        <h2>Visual Refresh</h2>
+      </header>
+      <img src="pictures/devices/visual_refresh.png"
+           alt="Firefox OS"
+           class="middle" height="450">
+      <footer class="notes">
+        Easier on the eye.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="commsImprovements" class="slide"><div>
+    <section>
+      <header>
+        <h2>Communication Improvements</h2>
+      </header>
+      <ul>
+        <li> MMS support </li>
+        <li> Conf call </li>
+        <li> Dual SIM </li>
+        <li> Fixed Dialing Number mode </li>
+        <li> Import contacts from Gmail and Outlook… </li>
+        <li> Export contacts as vCard or to a SIM card </li>
+      </ul>
+      <p> ⇒ Now on par with other smartphones for the telephony part. </p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="otherImprovements" class="slide"><div>
+    <section>
+      <header>
+        <h2>Other App Improvements</h2>
+      </header>
+      <ul>
+        <li> New lockscreen </li>
+        <li> e-mail: notifications, drafts, attachments </li>
+        <li> Download manager (from browser, e-mail…) </li>
+        <li> Support for multi-resolution display </li>
+        <li> Do Not Track 3-state setting </li>
+        <li> Performance improvements in app launch latencies and scrolling </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="releaseCycle" class="slide"><div>
+    <section>
+      <header>
+        <h2>So Long b2g18,<br>
+        and thanks for all the fish!</h2>
+      </header>
+      <ul>
+        <li> Firefox OS 1.0: Gecko b2g18 </li>
+        <li> Firefox OS 1.1: Gecko b2g18 </li>
+        <li> Firefox OS 1.2: Gecko 26 <small>(flex-box!)</small></li>
+        <li> Firefox OS 1.3: Gecko 28 </li>
+      </ul>
+      <p> ⇒ Now on a healthy 12-week release cycle. </p>
+      <footer class="notes">
+        It’s been difficult to adapt Gaia to a very different Gecko, which made
+        the 1.2 version kind of tricky. On the positive side, we’re now in a
+        position where we can benefit from Gecko improvements much sooner.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="developerTools" class="slide"><div>
+    <section>
+      <header>
+        <h2>Developer Tools</h2>
+      </header>
+      <img src="pictures/fxos/mobiletools.png" class="right"
+          width="45%" alt="Developer tools menu">
+      <ul>
+        <li> Application Manager </li>
+        <li> Remote Debugger </li>
+        <li> Remote Inspector </li>
+      </ul>
+      <p> Works for Firefox for Android, too. </p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="asyncPanAndZoom" class="slide"><div>
+    <section>
+      <header>
+        <h2>Async Pan &amp; Zoom (APZ)</h2>
+      </header>
+      <ul>
+        <li> perform panning and zooming asynchronously, <br>
+        on the compositor thread rather than the main thead </li>
+        <li> landed right before the X-mas break </li>
+        <li> still fixing a few issues on the front-end side, see <a
+          href="https://bugzilla.mozilla.org/show_bug.cgi?id=949585">bug
+        949585</a> </li>
+        <li> can be enabled/disabled in the Developer Settings panel </li>
+      </ul>
+      <a href="https://wiki.mozilla.org/Platform/GFX/APZ">wiki.mozilla.org/Platform/GFX/APZ</a>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+<!--
+- 2014 roadmap
+-->
+
+  <div id="zomg2014" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>Cool stuff coming in 2014</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="haida" class="slide"><div>
+    <section>
+      <header>
+        <h2>Haida</h2>
+      </header>
+      <ul>
+        <li> Edge gestures: (*) quick application switching </li>
+        <li> RocketBar: (*) search among user’s bookmarks, history, contacts, Marketplace, Everything.me… </li>
+        <li> Browser integration into System </li>
+        <li> Customization: replaceable homescreen, customizable lockscreen </li>
+      </ul>
+      <p> <a
+        href="https://wiki.mozilla.org/FirefoxOS/Haida">wiki.mozilla.org/FirefoxOS/Haida</a>
+        <br> (*) can be enabled in the Developer Settings panel
+      </p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="api" class="slide"><div>
+    <section>
+      <header>
+        <h2> New Web APIs </h2>
+      </header>
+      <ul>
+        <li> DataStore API
+          (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=871445">bug
+            871445</a>), required by Haida
+          <ul>
+            <li>
+              <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=918827">bug
+                918827</a>: move Facebook Contacts to DataStore
+            </li>
+            <li>
+              <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=937349">bug
+                937349</a>: move Bookmarks and History to DataStore
+            </li>
+            <li>
+              <a href="https://wiki.mozilla.org/WebAPI/DataStore">wiki.mozilla.org/WebAPI/DataStore</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li> Shared Workers
+          (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=916204">bug 916204</a>)
+          <ul>
+            <li> enable WebAPIs in workers: DataStore, IndexedDB, DeviceStorage,
+            mozContacts, TCPSocket, Notifications… </li>
+          </ul>
+        </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="tabletUI" class="slide"><div>
+    <section>
+      <header>
+        <h2> *YOUR* Tablet UI </h2>
+      </header>
+      If you want to <a
+      href="https://hacks.mozilla.org/2014/01/mozilla-launches-contribution-program-to-help-deliver-firefox-os-to-tablets/">help
+      building Firefox OS on tablets</a> (developers, localizers, testers)
+      Mozilla will provide you as much support as possible, including:
+      <ul>
+        <li> a reference device <br>
+              (InFocus 10″, 1280×800x24bit, 16GB Storage, 2GB RAM) </li>
+        <li> mentoring and guidance on where we need contributions </li>
+        <li> nightly builds </li>
+      </ul>
+      Check <a
+      href="https://hacks.mozilla.org/">hacks.mozilla.org</a> in the
+      next weeks!
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+
+<!--
+- Thanks!
+-->
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks!</h2>
+      </header>
+      <img src="pictures/ducks/superCoinCoin.jpg" class="right"
+          height="75%" alt="Mighty Duck!">
+      <ul class="nobull">
+        <li>Fabien Cazenave</li>
+        <li>Firefox OS front-end engineer</li>
+        <li><a href="http://twitter.com/fabi1cazenave">@fabi1cazenave</a></li>
+        <li><a href="mailto:kaze@mozilla.com">kaze@mozilla.com</a></li>
+        <!-- <li><strong>Slides</strong>: {slideurl}</li> -->
+      </ul>
+
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <!--
+    - To hide progress bar from entire presentation
+    - just remove the div.progress element.
+    -->
+  <div class="progress"><div></div></div>
+
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
