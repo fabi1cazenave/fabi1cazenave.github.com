@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="fr" class="fade">
+<head>
+  <meta charset="UTF-8">
+  <title>Firefox OS</title>
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+  <style type="text/css">
+    div[id$='bullets'].slide > div::after {
+      content: 'For Information only, do NOT present';
+      background: rgba(200,0,0,0.5);
+      color: #fff;
+      position: absolute;
+      top: 20px;
+      right: 0;
+      padding: 5px 20px;
+      transform: rotate(90deg) translate(52%,-150px);
+      border-radius: 5px;
+    }
+    .full div[id$='bullets'].slide > div::after {
+      animation: wiggle alternate 1s infinite;
+    }
+    @keyframes wiggle {
+      from {
+        transform: rotate(90deg) translate(52%,-150px);
+      }
+      to {
+        transform: rotate(90deg) translate(52%,-160px);
+      }
+    }
+    .demourl {
+      bottom: 10px;
+    }
+  </style>
+</head>
+<body class="list">
+
+  <!--
+    - Introduction
+    -->
+
+  <header class="caption">
+    <h1>Firefox OS</h1>
+    <p class="footer">
+      Fabien Cazenave [:kazé],
+      <a href="http://twitter.com/fabi1cazenave">@fabi1cazenave</a>
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>
+      This slide deck is using the shower system - roll over the previews to
+      see the notes and click any slide to go into presentation mode.
+      Then use keys to navigate.
+      <button onclick="goFullScreen()">Go fullscreen</button>
+    </p>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+      Firefox OS : la plateforme et les enjeux.
+    </p>
+  </aside>
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2>Firefox OS</h2>
+      </header>
+      <img src="pictures/fxos/firefoxos.png"
+           class="middle" height="400" alt="">
+      <small class="byline">
+        Fabien Cazenave [:kazé], JDLL, Lyon, 2014-04-07
+      </small>
+      <footer class="notes">
+        This is a simple cover slide with an image in the middle
+      </footer>
+    </section>
+  </div></div>
+
+  <!--
+    - Keep Calm And Trust HTML5
+    -->
+
+  <div id="whatmozilladid" class="slide"><div>
+    <section>
+      <header>
+        <h2>Ce qu'a fait Mozilla&hellip;</h2>
+      </header>
+      <img src="pictures/mozillaoverview/ie6.png" alt="About Internet Explorer 6 info">
+      →
+      <img src="pictures/mozillaoverview/browserlympics.png" alt="Browser Logos">
+      <footer class="notes">
+        Explain that without Mozilla, Internet Explorer would be the dominant browser,
+        that we are a not-for-profit organisation to keep the web open and that without
+        us the web would be a corporate-only environment.
+        Firefox (and Opera) also paved the way for other browsers both to be released
+        open source and support web standards. Even IE now does a lot to support and
+        also promote web standards.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="manifesto" class="slide"><div>
+    <section>
+      <header>
+        <h2>Le Manifeste Mozilla</h2>
+      </header>
+      <ul>
+        <li class="active">Internet est une <strong>ressource publique mondiale</strong> qui doit <strong>demeurer ouverte</strong> et <strong>accessible</strong></li>
+        <li><strong>Internet doit enrichir la vie</strong> de tout le monde.</li>
+        <li>La <strong>sécurité</strong> des personnes sur Internet est <strong>fondamentale</strong> et ne peut pas être considérée comme optionnelle</li>
+        <li>Chacun doit avoir la <strong>possibilité de façonner son utilisation</strong> d'Internet</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="a-new-challenge" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Un nouvel objectif</h2>
+      </header>
+      <img src="pictures/mozillaoverview/responsive.jpg" class="middle" alt="Responsive Design">
+      <small class="credits"><a href="http://www.flickr.com/photos/indyplanets/5693612984/">Photo by Jason Weaver</a></small>
+      <footer class="notes">
+        One very obvious change in the last years was that the web became much more mobile.
+        Instead of desktop machines we use laptops, smart phones and tablets and all of
+        these devices get more powerful by the month. They all come with different resolutions
+        and connectivity issues, though and Mozilla is happy to take on the challenge of
+        moving the open web from immobile machines to on-the-go computing.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="brokenpromise" class="slide"><div>
+    <section>
+      <header>
+        <h2>Des promesses non tenues</h2>
+      </header>
+      <img src="pictures/mozillaoverview/html5promise.png" class="middle" alt="Smartphone equals HTML5">
+      <footer class="notes">
+        When a certain company very loudly proclaimed that the desktop is dead
+        and smartphones are the future and that HTML5 is the new standard to
+        power smartphones we were very happy and interested indeed. Finally
+        web standards got a platform that is on the bleeding edge and very
+        beautiful and we all were ready to chip in to make this an open
+        experience that empowers everyone to build for these new devices.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="business-realities" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>La réalité</h2>
+      </header>
+      <img src="pictures/mozillaoverview/apps.jpg" class="middle" alt="Apps">
+      <small class="credits">
+        <a href="http://www.flickr.com/photos/msvg/5385759365/">Photo by Michael Gil</a>
+      </small>
+      <footer class="notes">
+        However, when native apps took off a lot of companies realised that there
+        is money to be made by not keeping things open. Apps can do more than
+        HTML5 can because the OS and hardware providers grant them more access and
+        control the experience. If you control the software and the hardware, you
+        can build great, but very bespoke products. If you allow for open technologies
+        to be used, you lose control and you make less money as a hardware provider.
+        As a developer, you shouldn't have to go that route.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="mobile-platforms" class="slide"><div>
+    <section>
+      <header>
+        <h2>Plateformes mobiles propriétaires</h2>
+      </header>
+      <img src="pictures/platforms/silos2.jpg" class="middle" alt="Android / iOS / other">
+      <footer class="notes">
+        When a certain company very loudly proclaimed that the desktop is dead
+        and smartphones are the future and that HTML5 is the new standard to
+        power smartphones we were very happy and interested indeed. Finally
+        web standards got a platform that is on the bleeding edge and very
+        beautiful and we all were ready to chip in to make this an open
+        experience that empowers everyone to build for these new devices.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="mobile-platforms-expl" class="slide"><div>
+    <section>
+      <header>
+        <h2>Plateformes mobiles propriétaires</h2>
+      </header>
+      <ul>
+        <li>le logiciel est spécifique au matériel</li>
+        <li>les modèles de revenus sont limités</li>
+        <li>la relation client passe par le “store”</li>
+        <li>« à prendre ou à laisser »</li>
+        <li>utilisateurs et développeurs sont prisonniers du silo</li>
+      </ul>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="deserves" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>La plateforme mobile qu’on mérite</h2>
+      </header>
+      <img src="pictures/fxos/keep-calm-and-trust-html5.jpg"
+           alt="Keep calm and trust HTML5"
+           class="middle shadow" height="450">
+      <footer class="notes">
+        Explain that unlike other platforms, HTML5 is not a second class citizen
+        in Firefox OS but that the system itself, the UI of the OS, is written
+        in HTML5. Instead of hoping for support of HTML5 features, the OS is
+        very much dependent on them.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="deserves-expl" class="slide"><div>
+    <section>
+      <header>
+        <h2>La plateforme mobile qu’on mérite</h2>
+      </header>
+      <ul>
+        <li>le logiciel est multiplate-formes et multi-supports</li>
+        <li>pour l’utilisateur : découvrabilité et continuité entre bureau et mobile</li>
+        <li>pour le développeur : une techno déjà maîtrisée, ouverte et normalisée</li>
+        <li>pas de silo : relation directe entre client et développeurs/éditeurs</li>
+      </ul>
+      <footer class="notes"> </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos-architecture" class="slide"><div>
+    <section>
+      <header>
+        <h2>Architecture</h2>
+      </header>
+      <img src="pictures/architecture/Mozilla-Firefox-OS-architecture.jpg" class="middle" alt="Firefox OS architecture">
+      <footer class="notes">
+        Firefox OS is build with three components:
+        Gonk is the Linux layer talking to the hardware (the same Android uses)
+        Gecko is the rendering and JavaScript engine (same as Firefox) and
+        Gaia is the interface - everything you see - written in HTML5
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="newmarket" class="slide h cover"><div>
+    <section>
+      <header>
+        <h2>Un nouveau marché</h2>
+      </header>
+      <img src="pictures/fxos/hobbes-earth.jpg"
+           alt="World wide web"
+           class="middle shadow" height="450">
+      <footer class="notes">
+        Firefox OS is - and this is important to say - not targeting the same
+        markets as iOS and Android. Its main purpose is to bring web
+        connectivity to markets that can't afford other platforms or aren't even
+        supported by them. That's why Firefox OS users are not comparing what
+        you do as App developers to the latest iOS or Android releases. Your job
+        as app developers for Firefox OS is to bring the first impression of the
+        web to lots and lots of new users. Not an easy task, but also a very
+        rewarding one. Instead of copying Angry Birds and not getting the
+        hardware performance you need you could be the new Angry Birds for a
+        totally new audience.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="forall" class="slide"><div>
+    <section>
+      <header>
+        <h2>Mise à jour du monde mobile</h2>
+      </header>
+      <ul>
+        <li>Ciblé sur les nouveaux marchés émergeants</li>
+        <li>Appareils très bon marché</li>
+        <li>Technologies Web d'un bout à l'autre</li>
+        <li>18 partenaires mobiles, 4 partenaires matériels</li>
+      </ul>
+      <footer class="notes">
+        Firefox OS was created to bring users of feature phones into the
+        web-enabled mobile world. It is meant to cater to the markets not
+        covered by iOS and Android. Yes, you can buy cheap Androids world-wide
+        but the version of Android they support doesn't have an out-of-the-box
+        browser that allows you to do interesting things on the web. Much like
+        Firefox and Opera for Android allow more users world-wide to have a
+        great web experience without having the latest hardware, Firefox OS goes
+        further. Its main goal is to bring millions of new users to the web on
+        their mobile devices without getting a second-grade experience.
+      </footer>
+    </section>
+  </div></div>
+
+  <!--
+    - 2013
+    -->
+
+  <div id="devices-2013" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>2013</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2013goal" class="slide"><div>
+    <section>
+      <header>
+        <h2>“Ship a f****ing phone”</h2>
+      </header>
+      <img src="pictures/fxos/firefoxos.png"
+           alt="Firefox OS"
+           class="middle" height="450">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2013achievement" class="slide"><div>
+    <section>
+      <header>
+        <h2>ZTE, Alcatel, LG</h2>
+      </header>
+      <img src="pictures/devices/devices-2013.png"
+           alt="ZTE Open, Alcatel One Touch, LG FireWeb"
+           title="ZTE Open, Alcatel One Touch, LG FireWeb"
+           class="middle" width="100%">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2013domination" class="slide"><div>
+    <section>
+      <img src="pictures/ducks/duckAttack.jpg"
+           alt="duck attack!"
+           title="Firefox OS flooding the market"
+           class="middle" width="100%">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="developer-phones" class="slide"><div>
+    <section>
+      <header>
+        <h2>Téléphones développeurs</h2>
+      </header>
+      <img src="pictures/phones/pic_home.jpg" class="right shadow" alt="Keon, Peak">
+      <ul>
+        <li><strong>Keon</strong> <br>
+        Snapdragon S1 à 1 GHz, 512 Mo RAM, écran 3.5", 91 €</li>
+        <li><strong>Peak/Peak+</strong> <br>
+        Snapdragon S4×2 à 1,2 GHz, 512 Mo/1 Go RAM, écran 4.3", 149 €</li>
+      </ul>
+      <p class="demourl">
+        <a href="http://www.geeksphone.com/">http://www.geeksphone.com/</a>
+      </p>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <!--
+    - 2014
+    -->
+
+  <div id="devices-2014" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>2014</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2014preview" class="slide"><div>
+    <section>
+      <header>
+        <h2>Alcatel, ZTE</h2>
+      </header>
+      <img src="pictures/devices/devices-2014.png"
+           alt="Alcatel One Touch, ZTE Open"
+           title="Alcatel One Touch, ZTE Open"
+           class="middle">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2014-range" class="slide"><div>
+    <section>
+      <header>
+        <h2>Téléphones à venir</h2>
+      </header>
+      <ul>
+        <li> QualComm Snapdragon :
+          <ul>
+            <li>Alcatel OneTouch Fire C, Fire E, Fire S, Fire 7 tablet</li>
+            <li>ZTE Open C and Open II</li>
+            <li>Huawei</li>
+            <li>LG</li>
+          </ul>
+        </li>
+        <li> Spreadtrum SC6821 ⇒ téléphones à 25$ </li>
+      </ul>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2014-ref-device" class="slide"><div>
+    <section>
+      <header>
+        <h2>“Flame” reference device</h2>
+      </header>
+      <img src="pictures/devices/hacks-flame.png" class="right"
+          height="75%" alt="flame">
+      <ul>
+        <li>QC MSM8210 Snapdragon, 1.2GHZ Dual core</li>
+        <li>4.5” screen (FWVGA 854×480 pixels)</li>
+        <li>Cameras: Rear: 5MP / Front: 2MP</li>
+        <li>3G UMTS quad-band (850/900/1900/2100)</li>
+        <li>8GB memory</li>
+        <li>256MB - 1GB RAM (adjustable by developer)</li>
+        <li>A-GPS, NFC</li>
+        <li>Dual SIM Support</li>
+        <li>WiFi: 802.11 b/g/n, Bluetooth, Micro USB</li>
+      </ul>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="fxos2014-tablets" class="slide"><div>
+    <section>
+      <header>
+        <h2>Tablettes</h2>
+      </header>
+      <img src="pictures/devices/tablets-2014.png" class="right"
+          height="75%" alt="FxOS tablets">
+      <ul>
+        <li><strong>VIA Vixen</strong> <br>
+        ARM Cortex A9 Dual-Core 1.2Ghz <br>
+        RAM: 1GB, Storage: 8GB <br>
+        Écran 7" 1024x600
+        </li>
+        <li><strong>Foxconn InFocus</strong> <br>
+        ARM Cortex A7 Quad-Core 1.2GHz<br>
+        RAM: 2GB, Storage: 16GB<br>
+        Screen: 10.1" IPS 1280x800<br>
+        </li>
+      </ul>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <!--
+    - Developers
+    -->
+
+  <div id="fxos-developers" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>Développer</h2>
+      </header>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="app-overview" class="slide"><div>
+    <section>
+      <header>
+        <h2> Une app = un site web </h2>
+      </header>
+      <img src="pictures/fxos/apps.png" class="right" height="400"
+           alt="Firefox OS apps">
+      <ul class="inner">
+        <li class="active"> + un manifeste </li>
+        <li> + des Web API </li>
+        <li> + des Web Activities </li>
+      </ul>
+    </section>
+  </div></div>
+
+  <div id="app-manifest" class="slide"><div>
+    <section>
+      <header>
+        <h2 style="text-transform: lowercase;">app.manifest</h2>
+      </header>
+      <pre style="font-size: 0.6em;">
+<code>{</code>
+<code>  "name": "Mon application",</code>
+<code>  "description": "Une description courte de l'application",</code>
+<code>  "launch_path": "/",</code>
+<code>  "icons": { "128": "/img/icone-128.png" },</code>
+<code>  "developer": {</code>
+<code>    "name": "Votre nom ou organisation",</code>
+<code>    "url": "http://votre-site-web.org"</code>
+<code>  },</code>
+<code>  "default_locale": "fr"</code>
+<code>}</code></pre>
+      <p class="demourl">
+        <a href="https://developer.mozilla.org/fr/docs/Applications/Manifeste">https://developer.mozilla.org/fr/docs/Applications/Manifeste</a>
+      </p>
+      <footer class="notes"> </footer>
+    </section>
+  </div></div>
+
+  <div id="threekinds" class="slide"><div>
+    <section>
+      <header>
+        <h2>Trois niveaux d'accès&hellip;</h2>
+      </header>
+      <ul>
+        <li><mark>Apps hébergées</mark> - stockées sur votre serveur, faciles à
+        mettre à jour, accès limité aux WebAPIs.</li>
+        <li><mark>Apps privilégiées</mark> - vérifiées par le magasin
+        d'applications (Marketplace) et signées.</li>
+        <li><mark>Apps certifiées</mark> - parties de l'OS, uniquement par
+        Mozilla et ses partenaires.</li>
+      </ul>
+      <p class="demourl"><a href="https://developer.mozilla.org/en-US/docs/Apps/App_permissions">App permissions</a></p>
+    <footer class="notes">
+      There are three different type of apps in Firefox OS: Hosted Apps, Privileged apps and Certified apps. The first kind is hosted on your own server and has access to a limited amount of extra functionality Firefox OS offers on top of what HTML5 gives you. Privileged apps have much more access to the hardware and must be hosted by Mozilla. Certified apps are part of the operating system and are only built by Mozilla and partners.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="zomgapis" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>WebAPIs</h2>
+      </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="webapilist" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web API (apps hébergées)</h2>
+      </header>
+      <ul class="inline">
+        <li>Vibration API</li>
+        <li>Screen Orientation</li>
+        <li>Geolocation API</li>
+        <li>Mouse Lock API</li>
+        <li>Open WebApps</li>
+        <li>Network Information API</li>
+        <li>Battery Status API</li>
+        <li>Alarm API</li>
+        <li>Push Notifications API</li>
+        <li>WebFM API / FMRadio</li>
+        <li>WebPayment</li>
+        <li>IndexedDB</li>
+        <li>Ambient light sensor</li>
+        <li>Proximity sensor</li>
+        <li>Notification</li>
+        <li>…</li>
+      </ul>
+      <p class="demourl">
+        <a href="https://hacks.mozilla.org/2013/02/using-webapis-to-make-the-web-layer-more-capable/">Utilisation des WebAPI</a>
+      </p>
+      <footer class="notes">
+        Hosted applications, meaning HTML5 apps you run on your own server, get
+        the full functionality of HTML5 and additional API support shown here.
+        All of these APIs are defined on the Mozilla Wiki and proposals to the
+        standard bodies. Some of them have already been implemented in other
+        other browsers, like the geolocation API. For now, however, only Firefox
+        OS gives you all of them. These APIs bring much needed extra
+        functionality to the HTML5 stack.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="battery" class="slide"><div>
+    <section>
+      <header>
+        <h2>Exemple&nbsp;: la batterie</h2>
+      </header>
+        <pre>
+          <code>var b = navigator.battery;</code>
+          <code>if (b) {</code>
+          <code>  var level = Math.round(b.level * 100) + "%",</code>
+          <code>      charging = (b.charging) ? "" : "not ",</code>
+          <code>      chargeTime = parseInt(b.chargingTime / 60, 10),</code>
+          <code>      dischargeTime = parseInt(b.dischargingTime/60,10);</code>
+          <code>  b.addEventListener("levelchange", show);</code>
+          <code>  b.addEventListener("chargingchange", show);</code>
+          <code>  b.addEventListener("chargingtimechange", show);</code>
+          <code>  b.addEventListener("dischargingtimechange", show);</code>
+          <code>}</code>
+        </pre>
+      <footer class="notes">
+        This is an example of how to use one of those APIs. They come with properties, methods and fire a lot of events which makes it easy to include them in your own solutions. And as you can see using a simple if statement around your code ensures that only environments that support it execute your code.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="webapilistprivileged" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web APIs (apps privilégiées)</h2>
+      </header>
+      <ul>
+        <li>Device Storage API</li>
+        <li>Browser API</li>
+        <li>TCP Socket API</li>
+        <li>Contacts API</li>
+        <li>systemXHR</li>
+        <li>…</li>
+      </ul>
+      <p class="demourl">
+        <a href="https://hacks.mozilla.org/2013/02/using-webapis-to-make-the-web-layer-more-capable/">Utilisation des WebAPI</a>
+      </p>
+      <footer class="notes">
+        Privileged apps have access to more APIs and those dealing with content of more sensitive nature like storing information on the device's file system, accessing the contacts list or loading third party data from the web. To recap, privileged apps need to be packaged up, submitted to the marketplace and delivered from Mozilla's infrastructure. We can not allow just any server on the web to access the user's address book as that would allow the creation of malware in a very easy fashion.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="webapilistcertified" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web APIs (apps certifiées)</h2>
+      </header>
+      <ul class="inline">
+        <li>WebTelephony</li>
+        <li>WebSMS</li>
+        <li>Idle API</li>
+        <li>Settings API</li>
+        <li>Power Management API</li>
+        <li>Mobile Connection API</li>
+        <li>WiFi Information API</li>
+        <li>WebBluetooth</li>
+        <li>Permissions API</li>
+        <li>Network Stats API</li>
+        <li>Camera API</li>
+        <li>Time/Clock API</li>
+        <li>Attention screen</li>
+        <li>Voicemail</li>
+        <li>…</li>
+      </ul>
+      <p class="demourl">
+        <a href="https://hacks.mozilla.org/2013/02/using-webapis-to-make-the-web-layer-more-capable/">Using WebAPIs to make the web layer more capable</a>
+      </p>
+      <footer class="notes">
+        Certified apps are the apps that make up the operating system itself. They are only built by Mozilla and partners and have full access to the hardware of the device, for example to make phone calls or change permissions on the device.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="zomgactivities" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>Web Activities</h2>
+      </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="activities" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web activities</h2>
+      </header>
+      <ul class="lots">
+        <li>configure</li>
+        <li>costcontrol</li>
+        <li>dial</li>
+        <li>open</li>
+        <li>pick</li>
+        <li>record</li>
+        <li>save-bookmark</li>
+        <li>share</li>
+        <li>view</li>
+        <li>new + type (sms, contact, &hellip;) </li>
+        <li>…</li>
+      </ul>
+      <footer class="notes">
+        If you want to access the camera or the address book without packaging
+        your application, there is an alternative called Web Activities. These
+        are much like Web Intents were for Chrome, but more focused on real use
+        cases of the web rather than Android. Using Web Activities you can
+        access the hardware without having to authenticate on the user's behalf.
+        Instead, the users get prompted to use the apps they always use to give
+        you what your app wants.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="imageactivity" class="slide"><div>
+    <section>
+      <header>
+        <h2>Obtenir une image du téléphone</h2>
+      </header>
+      <img src="pictures/fxos/pick-activity.jpg" alt="Pick activity" class="right shadow">
+      <pre>
+        <code>var getphoto = new MozActivity({</code>
+        <code>  name: "pick",</code>
+        <code>  data: {</code>
+        <code>    type: ["image/png",</code>
+        <code>           "image/jpg", </code>
+        <code>           "image/jpeg"]</code>
+        <code>  }</code>
+        <code>});</code>
+      </pre>
+      <footer class="notes">
+        The 'pick' activity is most probably the most useful one, as it allows
+        you to tell the user that you want something from the device. In this
+        case we define in the MIME type array that we are expecting an image.
+        This would result in the screenshot shown on the right - the user gets
+        asked to give us an image, either from the wallpaper or the photos
+        folder or by taking a new photo with the camera.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="callactivity" class="slide"><div>
+    <section>
+      <header>
+        <h2>Préparer un numéro de téléphone</h2>
+      </header>
+      <pre>
+        <code>var call = new MozActivity({</code>
+        <code>  name: "dial",</code>
+        <code>  data: {</code>
+        <code>    number: "+3280033800"</code>
+        <code>  }</code>
+        <code>});</code>
+      </pre>
+      <footer class="notes">
+        This, as an example, is a call activity. When this JavaScript executes,
+        the user will be sent to the dialer app (or Skype, depending on what app
+        was defined as the default one), the number is sent to the app and the
+        user needs to initiate the call. This is the main difference to WebAPIs
+        - the user has the final say. When the call is denied or the user hung
+        up the phone would go back to your app.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="android" class="slide"><div>
+    <section>
+      <header>
+        <h2>Activités pour app hébergées&nbsp;: aussi sous Android</h2>
+      </header>
+      <figure class="middle shadow swing frame">
+        <img src="pictures/fxos/foxkeh-android.png"
+             alt="Foxkeh loves android">
+      </figure>
+      <footer class="notes">
+        The great news is that if you have Firefox on Android, this functionality is also available outside of Firefox OS for you - any Android device will do.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="zomgtools" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>Outils</h2>
+      </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="devtools" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>L'éditeur est le navigateur&thinsp;!</h2>
+      </header>
+      <img src="pictures/fxos/devtools.jpg"
+           alt="Developer tools"
+           class="middle">
+    <footer class="notes">
+      Browsers now are also developer tools. The tools built into the Firefox OS browser, for example, allow you to create apps in the browser, debug what is happening on the phone and simulate a Firefox OS device on your computer.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="fxossimulator" class="slide h"><div>
+    <section>
+      <header>
+        <h2>Le simulateur Firefox OS</h2>
+      </header>
+      <img src="pictures/fxos/simulator.png"
+           alt="Simulator"
+           class="middle shadow" height="400">
+      <p class="demourl">
+        <a href="https://addons.mozilla.org/fr/firefox/addon/firefox-os-simulator/">
+          Firefox OS Simulator
+        </a>
+      </p>
+    <footer class="notes">
+      The Firefox OS Simulator is an add-on for Firefox which simulates a phone on your computer. You can test the install process and buying and selling applications and you can send apps directly to a connected phone. You can also debug your applications directly from your computer including live CSS changes.
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="more-info" class="slide"><div>
+    <section>
+      <header>
+        <h2>Où trouver plus d'informations&hellip;</h2>
+      </header>
+      <ul class="longlist">
+        <li><strong>Suivez</strong> <a href="http://twitter.com/Boot2Gecko">@Boot2Gecko</a> et <a href="http://twitter.com/mozhacks">@mozhacks</a> sur Twitter</li>
+        <li><strong>Connectez-vous à IRC</strong> : irc.mozilla.org canal #B2G (#frenchmoz / #devfr en français)</li>
+        <li><strong>B2G/Architecture</strong> : <a href="https://wiki.mozilla.org/B2G/Architecture">https://wiki.mozilla.org/B2G/Architecture</a></li>
+        <li><strong>Documentation développeurs</strong> : <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS">https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS</a></li>
+        <li><strong>App Center</strong> : <a href="https://developer.mozilla.org/en-US/Apps">https://developer.mozilla.org/en-US/Apps</a></li>
+        <li><strong>Documentation Web API</strong> : <a href="https://developer.mozilla.org/en-US/docs/Web/Reference/API">https://developer.mozilla.org/en-US/docs/Web/Reference/API</a>
+        / <a href="https://wiki.mozilla.org/WebAPI">https://wiki.mozilla.org/WebAPI</a></li>
+        <li><strong>Actualités</strong> : <a href="http://firefoxosguide.com/">http://firefoxosguide.com/</a></li>
+      </ul>
+      <footer class="notes">
+        There are many ways to keep up to date with Firefox OS/Boot2Gecko.
+        Here are the most important ones.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="what-can-you-do" class="slide"><div>
+    <section>
+      <header>
+        <h2>Que pouvez-vous faire ?</h2>
+      </header>
+      <ul>
+        <li><strong>Coder</strong> &ndash; écrivez des apps, contribuez à Gaia</li>
+        <li><strong>Utiliser</strong> &ndash; utilisez le Marketplace, utilisez les Web API, utilisez FxOS</li>
+        <li><strong>Feedback</strong> &ndash; donner votre avis sur les API, demandez des fonctionnalités, testez et signalez les bugs, &hellip;</li>
+      </ul>
+      <p>
+        ⇒ Firefox OS App Days à Lyon, 21-22 juin 2014
+      </p>
+      <footer class="notes">
+        Firefox OS needs developers to help it out. You can contribute in many ways.
+        The easiest is to play with it and give us feedback as to what you'd want out
+        of it. Of course we love people to code with us, too, and we very much need
+        people to build apps on B2G.
+      </footer>
+    </section>
+  </div></div>
+
+  <!--
+    - Thanks!
+    -->
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Merci !</h2>
+      </header>
+      <img src="pictures/ducks/superCoinCoin.jpg" class="right"
+          height="75%" alt="Mighty Duck!">
+      <ul class="nobull">
+        <li>Fabien Cazenave [:kazé]</li>
+        <li><a href="http://twitter.com/fabi1cazenave">@fabi1cazenave</a></li>
+        <li><a href="mailto:fabien@cazenave.cc">fabien@cazenave.cc</a></li>
+      </ul>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div class="progress"><div></div></div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
