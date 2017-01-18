@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Vim for ducklings</title>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      /*
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      */
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+
+      /* kaze's stuff */
+      .remark-slide-content {
+        background-size: contain;
+      }
+      p, li {
+        font-size: 1.4em;
+        margin-bottom: 1em;
+      }
+      img {
+        max-width: 80%;
+        max-height: 80%;
+      }
+
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+      .inverse ul {
+        margin-top: 2.5em;
+      }
+      .inverse li {
+        text-align: left;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+      .left-column h2:last-of-type, .left-column h3:last-child {
+        color: #000;
+      }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+       */
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+layout: false
+
+# Vim pour les canetons
+
+- survivre à Vim en cas d’apocalypse zombie
+- utiliser Vim comme un canard (ou presque)
+- débuter sur le chemin de l’éveil
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+---
+template: inverse
+
+# Survivre à Vim…
+
+- pour écrire un message de commit
+- en cas d’apocalypse zombie
+- ou pire : quand Xorg / Wayland est tout cassé
+
+---
+## ~/.vimrc
+
+Sans `~/.vimrc` (ou `~/.vim/vimrc`), Vim émule Vi.
+
+Pour y remédier :
+- `:set nocp` (“no compatible”)
+- utiliser une distro convenable (`/etc/vim/vimrc`)
+- utiliser Neovim (`~/.config/nvim/init.vim`)
+
+---
+## Émulation Vi ?
+
+Si vraiment vous voulez revivre les années 60 :
+- les flèches ne fonctionnent pas en mode insertion
+- le mode n’est pas indiqué (surprise !)
+- un seul niveau de “undo”
+- etc…
+
+Vous êtes prévenus :
+`vim -u NONE`
+
+---
+## :help vim-modes
+
+Pour survivre il faut connaître ces trois modes :
+
+- *normal* : visualiser et manipuler du texte
+- *insertion* : ajouter (et supprimer) du texte
+- *commande* : options et commandes complexes
+
+---
+## Cheat mode
+
+- `i` passe en mode *insertion*
+- `Esc` passe en mode *normal*
+
+En mode insertion, Vim se comporte comme un Notepad… mais sans aucun raccourci
+clavier.
+
+Objectif : passer le plus de temps possible en mode *normal*.
+
+---
+## Enregistrer
+
+- mode *normal*
+- Ctrl-S
+
+(It’s a trap ! Remède : Ctrl-Q)
+
+---
+## Enregistrer (pour de vrai)
+
+- mode *normal*
+- “Enregistrer” == `:w` (“write”)
+- “Enregistrer sous…” == `:saveas [nom_de_fichier]`
+
+---
+## Panic mode
+
+Pour quitter Vim sans rien enregistrer :
+
+- mode *normal*
+- `:cq` (“cancel and quit”)
+
+Note : Vim sort avec une erreur (status == 1). Parfait pour annuler un commit.
+
+---
+## Annuler
+
+- mode *normal*
+- Ctrl-Z
+
+(It’s a trap ! Remède : `fg`)
+
+---
+## Annuler (pour de vrai)
+
+- mode *normal*
+- `u` (“undo”)
+
+Redo = Ctrl-R (suggestion : `nmap U <C-R>`).
+
+---
+template: inverse
+
+# Recherche de texte
+
+---
+## Ctrl-F ? F3 ?
+
+En mode *normal* :
+
+- `/` + expression rationnelle pour chercher vers le bas
+- `?` + expression rationnelle pour chercher vers le haut
+- `n` pour aller à l’occurrence suivante
+- `N` pour aller à l’occurrence précédente
+
+Nota : `/` fonctionne dans beaucoup d’autres applications que Vim.
+
+---
+## Options qui tuent
+
+Indispensable :
+- `:set hlsearch` : mise en évidence de la recherche
+- `:set incsearch` : recherche incrémentale (“ find as you type”)
+
+Bonus :
+- `:set ignorecase` : recherche insensible à la casse…
+- `:set smartcase` … sauf si le motif de recherche contient des majuscules
+
+---
+## Commandes qui tuent
+
+En mode *normal* :
+- `*` : cherche le mot sous le curseur (vers le bas)
+- `#` : cherche le mot sous le curseur (vers le haut)
+
+---
+template: inverse
+
+# Couper, Copier, Coller
+
+---
+## Mode *visuel*
+
+En mode *normal* :
+- `v` : sélection de texte caractère par caractère
+- `V` : sélection de texte ligne par ligne
+- `:set mouse=a` : active la sélection à la souris
+
+---
+## Ctrl-X, Ctrl-C, Ctrl-V ?
+
+En mode *visuel* :
+- `d` (“delete”) : coupe la sélection
+- `y` (“yank”) : copie la sélection
+
+En mode *normal* :
+- `p` (“paste”) : colle la sélection après le curseur
+
+---
+## Presse-papiers système
+
+Par défaut, Vim utilise ses propres registres de copie.
+
+`:set clipboard=unnamedplus` permet d’utiliser le presse-papiers système comme
+registre de copie par défaut : beaucoup plus simple quand on débute.
+
+Pour les autres, il y a `:h registers`.
+
+---
+## Commande qui tue
+
+En mode *normal* :
+- `.` : répète la dernière action
+
+’nuf said.
+
+---
+template: inverse
+
+# ~/.vimrc
+
+---
+## Quelques recommandations
+
+- ne pas copier des lignes de vimrc qu’on ne comprend pas (`:h` FTW) ;
+- ne pas utiliser des « distributions Vim » contenant tout un tas de greffons et
+options discutables ;
+- il est toujours bon de savoir utiliser un Vim sans aucun vimrc ni greffon.
+
+Voilà un **exemple** pas tant mal de vimrc. Pour info.
+
+---
+
+```
+" coloration syntaxique
+syntax on
+colorscheme desert
+set background=dark
+
+" aides visuelles
+set number
+set ruler
+
+" recherche incrémentale
+set incsearch
+set hlsearch
+
+" auto-indentation à 2 espaces
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" compléter avec <Tab> en mode commande
+set wildmenu
+set wildmode=longest,full
+
+" options honteuses (pour les faibles)
+set mouse=a
+set clipboard=unnamedplus
+```
+
+---
+template: inverse
+
+# Aller plus loin
+
+« Ce n’est pas le chemin qui est difficile, c’est le difficile qui est chemin. »
+
+(et si c’est Bouddha qui le dit, c’est que c’est vrai)
+
+---
+## Poésie minimaliste
+
+>> On n'appuie pas sur des raccourcis clavier.
+>>
+>> On discute avec vim.
+>>
+>> On lui adresse des demandes précises sur quoi effectuer avec quel morceau.
+>>
+>> Tout ceci de manière annulable, répétable, factorisable, partageable !
+
+[@delapouite](https://twitter.com/Delapouite) — auteur de
+[« Vim en 10 vimutes »](http://delapouite.com/slides/vim-en-10-vimutes/#/vimutes)
+
+---
+## Le chemin de l’éveil
+
+1. repérer une tâche qu’on pourrait mieux faire
+2. trouver une façon de mieux la faire
+3. en faire une habitude
+4. GOTO 1
+
+Pour ça il y a [tupperVim](http://tuppervim.org/) — à Paris, Lyon, Grenoble…
+
+Alternative solo : VimTutor + [VimGolf](https://vimgolf.com/).
+
+---
+template: inverse
+background-image: url(images/superCoinCoin.jpg)
+
+# Ayé.
+
+http://tuppervim.org/
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+    </textarea>
+    <script src="remark.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
