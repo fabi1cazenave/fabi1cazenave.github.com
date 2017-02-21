@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Vim for ducklings</title>
+    <style type="text/css">
+      /*
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      */
+
+      /*
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      */
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+
+      /* kaze's stuff */
+      .remark-slide-content {
+        background-size: contain;
+      }
+      p, li {
+        font-size: 1.4em;
+        margin-bottom: 1em;
+      }
+      img {
+        max-width: 80%;
+        max-height: 80%;
+      }
+
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+      .inverse ul {
+        margin-top: 2.5em;
+      }
+      .inverse li {
+        text-align: left;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+      .left-column h2:last-of-type, .left-column h3:last-child {
+        color: #000;
+      }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+       */
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+layout: false
+
+# Vim pour les canetons (§2)
+
+- comprendre les déplacements
+- utiliser les commandes de base
+- progresser sur le chemin de l’éveil
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+---
+template: inverse
+
+# Les déplacements
+
+---
+## Rappels…
+
+`:help vim-modes`
+
+- *normal* : visualiser et manipuler du texte (`Esc`)
+- *visuel* : sélectionner du texte (`v`)
+- *insertion* : ajouter (et supprimer) du texte (`i`)
+- *commande* : options et commandes complexes (`:`)
+
+Les indispensables :
+- `u`, `Ctrl-r` : annuler, refaire
+- `:w`, `:q`, `:cq` : enregistrer, quitter, quitter sans enregistrer
+
+---
+## Souris, touchpad, pointeur ?
+
+- `:set mouse=a` : active la sélection à la souris
+- mais veut-on vraiment faire un tel effort physique ?
+
+---
+## ←↓↑→
+
+- pro tip : en appuyant sur une flèche, le curseur se déplace dans la direction
+indiquée par la flèche
+- ouais mais non, trop loin
+
+`~/.vimrc`
+```
+    map  <Up>    <Nop>
+    imap <Up>    <Nop>
+    map  <Down>  <Nop>
+    imap <Down>  <Nop>
+    map  <Right> <Nop>
+    imap <Right> <Nop>
+    map  <Left>  <Nop>
+    imap <Left>  <Nop>
+```
+
+---
+## HJKL ?
+
+Pour des raisons historiques :
+- `h` : gauche
+- `j` : bas
+- `k` : haut
+- `l` : droite
+
+Ça fonctionne avec d’autres applications :
+- `jk` : gmail, feed.ly, twitter, emacs, screen, less/more/most…
+- `hjkl` : tweetdeck, Awesome, i3 (*ahem*)…
+
+---
+## JK, vraiment ?
+
+TL;PL : oui, avec modération (= sans répétitions)
+
+- `{`, `}` : sauter à la ligne vide précédente / suivante
+- `/`, `?` : rechercher vers le haut / vers le bas (+ `n`, `N`)
+- `*`, `#` : idem, avec le mot sous le curseur (PRO-TIP !)
+- `gg`, `G` : sauter en début / fin de fichier
+
+`~/.vimrc`
+```
+    " recherche incrémentale
+    set hlsearch
+    set incsearch
+```
+
+---
+## HL, vraiment ?
+
+Mouahahahahaha, nope.
+
+- `w`, `b` : mot suivant / précédent
+- `W`, `B` : MOT suivant / précédent (= délimité par des espaces)
+- `e`, `ge` : fin de mot suivant / précédent
+- `E`, `gE` : fin de MOT suivant / précédent (= délimité par des espaces)
+- `^`, `$` : début / fin de ligne
+
+---
+## Hopopop, ch’uis perdu.
+
+Les indispensables, verticalement :
+
+- `j`, `k` : ligne à ligne
+- `/`, `?` : recherche
+
+Les indispensables, horizontalement :
+
+- `w`, `b` : mot à mot
+- `^`, `$` : début / fin de ligne
+
+Tous les autres :
+
+`:help navigation`
+
+---
+template: inverse
+
+# Poésie minimaliste
+
+On n’appuie pas sur des raccourcis clavier.
+
+On discute avec Vim.
+
+On lui adresse des demandes précises sur quoi effectuer avec quel morceau.
+
+Tout ceci de manière annulable, répétable, factorisable, partageable !
+
+[@delapouite](https://twitter.com/Delapouite) — auteur de
+[« Vim en 10 vimutes »](http://delapouite.com/slides/vim-en-10-vimutes/#/vimutes)
+
+
+---
+## Sélection de texte
+
+Trois variantes de mode *visuel* :
+
+- `v` = caractère par caractère : `w`, `b`, `^`, `$`…
+- `Shift-v` = ligne par ligne : `j`, `k`, `{`, `}`…
+- `Ctrl-v` = sélection rectangulaire
+
+… et `Esc` (ou même opérateur) pour revenir au mode *normal*.
+
+---
+## Règle 0 (niveau : caneton)
+
+`sélection opérateur`
+
+Une fois la sélection effectuée, les opérateurs déclenchent une action :
+
+- `d` : delete (couper)
+- `y` : yank (copier)
+- `p` : paste (coller)
+- `c` : change (couper + passer en mode *insertion*)
+
+Démo !
+
+---
+template: inverse
+
+# Bonus
+
+Arrivés ici, vous en êtes au niveau « caneton ». Félicitations, vous êtes
+autonomes avec Vim !
+
+Les diapos qui suivent visent à atteindre le niveau « colvert ». Ne clignez pas
+des yeux.
+
+---
+## Règle 1
+
+`opérateur mouvement`
+
+- `dw` : efface jusqu’à la fin du mot (“delete word”)
+- `d$` : efface jusqu’à la fin de ligne
+- `yW` : copie jusqu’à la fin du MOT (“yank Word”)
+- `cw` : efface jusqu’à la fin du mot et passe en mode *insertion* (“change word”)
+
+Bonus : `.` pour répéter l’action.
+
+---
+## Règle 1bis
+
+`[répétition] operateur [répétition] mouvement`
+
+- `3dw` : efface un mot, trois fois
+- `d3w` : efface trois mots (bon, OK, c’est pareil)
+- `5d3w` : efface trois mots, cinq fois
+- `c3w` : efface trois mots et passe en mode *insertion*
+
+---
+## text-objects
+
+`modifieur objet`
+
+Modifieur :
+- `i`, `a` :  “in” ou “around”
+
+Objet :
+- `w`, `W` : mot
+- `s`, `p` : phrase, paragraphe (point / ligne vide)
+- `b`, `B` : bloc (parenthèses / accolades)
+- `t` : tag (html/xml)
+- `[`, `]`, `{`, `}`, `(`, `)`, `'`, `"`…
+
+---
+## Règle 2
+
+`opérateur objet`
+
+- `vaw` : sélectionne le mot
+- `daw` : supprime le mot
+- `dip` : supprime le paragraphe (*sans* la ligne de séparation)
+- `dap` : supprime le paragraphe (*avec* la ligne de séparation)
+- `ci'` : change le contenu d’une chaîne
+
+Bonus : `.` pour répéter l’action, encore et derechef.
+
+---
+## Idiomes
+
+Opérateur répété = action sur une ligne :
+
+- `dd` : delete whole line
+- `yy` : yank whole line
+- `cc` : change whole line
+
+Opérateur en majuscule = action jusqu’à la fin de ligne :
+
+- `D` : delete end of line (d$)
+- `C` : change whole line (c$)
+
+---
+template: inverse
+background-image: url(images/superCoinCoin.jpg)
+
+# Ayé.
+
+http://tuppervim.org/
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+    </textarea>
+    <script src="remark.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
