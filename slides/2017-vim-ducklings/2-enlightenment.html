@@ -31,7 +31,9 @@
 
       /* kaze's stuff */
       .remark-slide-content {
-        background-size: contain;
+        background-size:     contain       !important;
+        background-repeat:   no-repeat     !important;
+        background-position: center center !important;
       }
       p, li {
         font-size: 1.4em;
@@ -155,7 +157,7 @@ class: center, middle, inverse
 ---
 layout: false
 
-# Vim pour les canetons (§1)
+# Vim pour les humains
 
 - survivre à Vim en cas d’apocalypse zombie
 - utiliser Vim comme un canard (ou presque)
@@ -164,35 +166,36 @@ layout: false
 .footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
 
 ---
+## Historique
+
+- 1970 : ed (Ken Thompson)
+- 1976 : Vi (Billy Joy)
+- 1988 : Vim (Bram Moolenaar)
+- 2015 : Neovim
+
+---
+## Pourquoi Vim ?
+
+- disponible partout
+- utilisable dans un term
+- ergonomie redoutable
+- “bash as IDE”
+- nerd factor
+
+---
 template: inverse
 
-# Survivre à Vim…
+# Étape #0 : survie
 
 - pour écrire un message de commit
-- en cas d’apocalypse zombie
-- ou pire : quand Xorg / Wayland est tout cassé
+- pour modifier une conf sur un serveur distant
+- pour survivre en cas d’apocalypse zombie
+- pour survivre quand Xorg / Wayland est tout cassé
+- pour débuter sur le chemin de l’éveil
 
 ---
-## ~/.vimrc
-
-Sans `~/.vimrc` (ou `~/.vim/vimrc`), Vim émule Vi.
-
-Pour y remédier :
-- `:set nocp` (“no compatible”)
-- utiliser une distro convenable (`/etc/vim/vimrc`)
-- utiliser Neovim (`~/.config/nvim/init.vim`)
-
----
-## Émulation Vi ?
-
-Si vraiment vous voulez revivre les années 60 :
-- les flèches ne fonctionnent pas en mode insertion
-- le mode n’est pas indiqué (surprise !)
-- un seul niveau de “undo”
-- etc…
-
-Vous êtes prévenus :
-`vim -u NONE`
+template: inverse
+background-image: url(images/duck_in_a_cup.jpg)
 
 ---
 ## :help vim-modes
@@ -201,7 +204,7 @@ Pour survivre il faut connaître ces trois modes :
 
 - *normal* : visualiser et manipuler du texte
 - *insertion* : ajouter (et supprimer) du texte
-- *commande* : options et commandes complexes
+- *commande* : options et commandes complexes (`:`)
 
 ---
 ## Cheat mode
@@ -293,35 +296,144 @@ En mode *normal* :
 ---
 template: inverse
 
-# Couper, Copier, Coller
+# Étape #1 : efficacité
+
+- comprendre les déplacements
+- utiliser les commandes de base
+- progresser sur le chemin de l’éveil
 
 ---
-## Mode *visuel*
+template: inverse
+background-image: url(images/duck_attack.jpg)
 
-En mode *normal* :
-- `v` : sélection de texte caractère par caractère
-- `V` : sélection de texte ligne par ligne
+---
+template: inverse
+
+# Les déplacements
+
+---
+## Souris, touchpad, pointeur ?
+
 - `:set mouse=a` : active la sélection à la souris
+- mais veut-on vraiment faire un tel effort physique ?
 
 ---
-## Ctrl-X, Ctrl-C, Ctrl-V ?
+## ←↓↑→
 
-En mode *visuel* :
-- `d` (“delete”) : coupe la sélection
-- `y` (“yank”) : copie la sélection
+- pro tip : en appuyant sur une flèche, le curseur se déplace dans la direction
+indiquée par la flèche…
+- … ouais mais non, trop loin
 
-En mode *normal* :
-- `p` (“paste”) : colle la sélection après le curseur
+`~/.vimrc`
+```
+    map  <Up>    <Nop>
+    imap <Up>    <Nop>
+    map  <Down>  <Nop>
+    imap <Down>  <Nop>
+    map  <Right> <Nop>
+    imap <Right> <Nop>
+    map  <Left>  <Nop>
+    imap <Left>  <Nop>
+```
 
 ---
-## Presse-papiers système
+## HJKL ?
 
-Par défaut, Vim utilise ses propres registres de copie.
+Pour des raisons historiques :
+- `j` / `k` : bas / haut
+- `h` / `l` : gauche / droite
 
-`:set clipboard=unnamedplus` permet d’utiliser le presse-papiers système comme
-registre de copie par défaut : beaucoup plus simple quand on débute.
+Ça fonctionne avec d’autres applications :
+- `jk` : gmail, feed.ly, twitter, emacs, screen, less/more/most…
+- `hjkl` : tweetdeck, Awesome, i3 (*ahem*), NetHack…
 
-Pour les autres, il y a `:help registers`.
+---
+## JK, vraiment ?
+
+TL;PL : oui, avec modération (= sans répétitions)
+
+- `{`, `}` : sauter à la ligne vide précédente / suivante
+- `/`, `?` : rechercher vers le haut / vers le bas (+ `n`, `N`)
+- `*`, `#` : idem, avec le mot sous le curseur (PRO-TIP !)
+- `gg`, `G` : sauter en début / fin de fichier
+
+`~/.vimrc`
+```
+    " recherche incrémentale
+    set hlsearch
+    set incsearch
+```
+
+---
+## HL, vraiment ?
+
+Mouahahahahaha, nope.
+
+- `w`, `b` : mot suivant / précédent
+- `W`, `B` : MOT suivant / précédent (= délimité par des espaces)
+- `e`, `ge` : fin de mot suivant / précédent
+- `E`, `gE` : fin de MOT suivant / précédent (= délimité par des espaces)
+- `^`, `$` : début / fin de ligne
+
+---
+## Hopopop, ch’uis perdu.
+
+Les indispensables, verticalement :
+
+- `j`, `k` : ligne à ligne
+- `/`, `?` : recherche
+
+Les indispensables, horizontalement :
+
+- `w`, `b` : mot à mot
+- `^`, `$` : début / fin de ligne
+
+Tous les autres :
+
+`:help navigation`
+
+---
+template: inverse
+
+# Commandes de base
+
+Couper, Copier, Coller…
+
+Ctrl-X ? Ctrl-C ? Ctrl-V ?
+
+---
+## Sélection de texte
+
+Trois variantes de mode *visuel* :
+
+- `v` = caractère par caractère : `w`, `b`, `^`, `$`…
+- `Shift-v` = ligne par ligne : `j`, `k`, `{`, `}`…
+- `Ctrl-v` = sélection rectangulaire
+
+… et `Esc` (ou même opérateur) pour revenir au mode *normal*.
+
+---
+## Action (« règle 0 »)
+
+`sélection opérateur`
+
+Une fois la sélection effectuée, les opérateurs déclenchent une action :
+
+- `d` : delete (couper)
+- `y` : yank (copier)
+- `p` : paste (coller)
+- `c` : change (couper + passer en mode *insertion*)
+
+Démo !
+
+---
+## À envisager
+
+Pour les faibles :
+- `:set clipboard=unnamedplus`
+
+Pour les tricheurs :
+- `:help registers`
 
 ---
 ## Commande qui tue
@@ -330,6 +442,99 @@ En mode *normal* :
 - `.` : répète la dernière action
 
 ’nuf said.
+
+---
+template: inverse
+
+# Étape #2 : éveil
+
+Arrivés ici, vous en êtes au niveau « caneton ». Félicitations, vous êtes
+autonomes avec Vim !
+
+Les diapos qui suivent visent à atteindre le niveau « colvert ». Ne clignez pas
+des yeux.
+
+---
+template: inverse
+background-image: url(images/flying_mallard.jpg)
+
+---
+## Poésie minimaliste
+
+>> On n'appuie pas sur des raccourcis clavier.
+>>
+>> On discute avec vim.
+>>
+>> On lui adresse des demandes précises sur quoi effectuer avec quel morceau.
+>>
+>> Tout ceci de manière annulable, répétable, factorisable, partageable !
+
+[@delapouite](https://twitter.com/Delapouite) — auteur de
+[« Vim en 10 vimutes »](http://delapouite.com/slides/vim-en-10-vimutes/#/vimutes)
+
+---
+## Règle 1
+
+`opérateur mouvement`
+
+- `dw` : efface jusqu’à la fin du mot (“delete word”)
+- `d$` : efface jusqu’à la fin de ligne
+- `yW` : copie jusqu’à la fin du MOT (“yank Word”)
+- `cw` : efface jusqu’à la fin du mot et passe en mode *insertion* (“change word”)
+
+Bonus : `.` pour répéter l’action.
+
+---
+## Règle 1bis
+
+`[répétition] operateur [répétition] mouvement`
+
+- `3dw` : efface un mot, trois fois
+- `d3w` : efface trois mots (bon, OK, c’est pareil)
+- `5d3w` : efface trois mots, cinq fois
+- `c3w` : efface trois mots et passe en mode *insertion*
+
+---
+## text-objects
+
+`modifieur objet`
+
+Modifieur :
+- `i`, `a` :  “in” ou “around”
+
+Objet :
+- `w`, `W` : mot
+- `s`, `p` : phrase, paragraphe (point / ligne vide)
+- `b`, `B` : bloc (parenthèses / accolades)
+- `t` : tag (html/xml)
+- `[`, `]`, `{`, `}`, `(`, `)`, `'`, `"`…
+
+---
+## Règle 2
+
+`opérateur objet`
+
+- `vaw` : sélectionne le mot
+- `daw` : supprime le mot
+- `dip` : supprime le paragraphe (*sans* la ligne de séparation)
+- `dap` : supprime le paragraphe (*avec* la ligne de séparation)
+- `ci'` : change le contenu d’une chaîne
+
+Bonus : `.` pour répéter l’action, encore et derechef.
+
+---
+## Idiomes
+
+Opérateur répété = action sur une ligne :
+
+- `dd` : couper toute la ligne
+- `yy` : copier toute la ligne
+- `cc` : changer toute la ligne
+
+Opérateur en majuscule = action jusqu’à la fin de ligne :
+
+- `D` : effacer jusqu’à la fin de ligne (d$)
+- `C` : changer jusqu’à la fin de ligne (c$)
 
 ---
 template: inverse
@@ -386,20 +591,6 @@ template: inverse
 « Ce n’est pas le chemin qui est difficile, c’est le difficile qui est chemin. »
 
 (et si c’est Bouddha qui le dit, c’est que c’est vrai)
-
----
-## Poésie minimaliste
-
->> On n'appuie pas sur des raccourcis clavier.
->>
->> On discute avec vim.
->>
->> On lui adresse des demandes précises sur quoi effectuer avec quel morceau.
->>
->> Tout ceci de manière annulable, répétable, factorisable, partageable !
-
-[@delapouite](https://twitter.com/Delapouite) — auteur de
-[« Vim en 10 vimutes »](http://delapouite.com/slides/vim-en-10-vimutes/#/vimutes)
 
 ---
 ## Le chemin de l’éveil
