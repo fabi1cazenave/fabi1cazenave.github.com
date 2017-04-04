@@ -11,7 +11,9 @@ set showcmd
 " recherche incrémentale
 set hlsearch
 set incsearch
-set inccommand=nosplit " Neovim only
+if has('nvim')
+  set inccommand=nosplit
+endif
 
 " auto-indentation à 2 espaces
 set autoindent
@@ -25,6 +27,10 @@ set wildmenu
 set wildmode=longest,full
 
 " options honteuses (pour les faibles)
-set mouse=a
 set clipboard=unnamedplus
+set mouse=a
+
+" un peu de cohérence dans un monde de brutes
+nmap Y y$
+nmap U <C-r>
 
