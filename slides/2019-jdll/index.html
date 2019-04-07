@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Ergonomie holistique du clavier</title>
+    <style type="text/css">
+      /*
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      */
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+      .inverse ul {
+        margin-top: 2.5em;
+      }
+      .inverse li {
+        text-align: left;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* kaze's stuff */
+      body, h1, h2, h3 {
+        font-family: "Liberation Sans", sans-serif;
+      }
+      h1, h2, h3 {
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; text-align: center; margin-bottom: 1em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slide-content {
+        background-size: contain;
+      }
+      p, li {
+        font-size: 1.4em;
+        margin-bottom: 1em;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      li li {
+        font-size: 0.8em;
+        margin-top: 0.3em;
+        margin-bottom: 0;
+      }
+      key {
+        display: inline-block;
+        padding: 2px;
+        border: 1px solid #888;
+        border-radius: 2px;
+        background-color: #eee;
+      }
+      .remark-code {
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-top: 0;
+      }
+      pre {
+        margin-bottom: 2em;
+      }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .inverse {
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+layout: false
+
+# Ergonomie holistique <br> du clavier
+
+- la bonne posture
+- le bon matériel
+- les bons gestes :
+  - applications &amp; environnements de bureau
+  - dispositions de clavier
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+---
+## Holistique
+
+>> « Qui relève de l’holisme, considérant l’objet comme constituant d’un tout. »
+
+https://fr.wiktionary.org/wiki/holistique
+
+>> « Un mot à placer pour crédibiliser un principe fumeux, issu de recettes de
+grand-mère, à l’heure de l’apéro. Exemple : thérapie holistique. »
+
+Michèle R., biologiste holistique
+
+---
+## Expertise holistique personnelle
+
+- plus de 0x20 ans de touch-typing
+  - Azerty, Qwerty, Dvorak, Bépo…
+- contribution à la conception du TMx 2030
+- animation d’ateliers Vim depuis 6 ans
+- solide expérience en bobologie appliquée
+  - (fractures, commotions, tendinopathies…)
+- référence mondiale en objectivité intellectuelle
+  - (référence nécessaire)
+
+---
+## Objectifs
+
+Supprimer les gestes inutiles :
+- moins d’efforts ⇒ confort, prévention des TMS
+- moins d’erreurs ⇒ efficacité, productivité
+
+La vitesse n’est **pas** un objectif !
+- <small>(… mais c’est une conséquence d’une bonne ergonomie)</small>
+- productivité ≠ vitesse de saisie <small>(sauf sténo-dactylo)</small>
+
+---
+template: inverse
+
+# Posture
+
+![évolution](images/evolution800.jpg)
+
+---
+## Posture générale — desktop
+
+- dos droit, haut de l’écran à hauteur des yeux
+- bras, bassin et genoux à &gt; 90°
+- pauses régulières (changement de position)
+
+![assise](images/ergonomic-basics.png)
+
+---
+## Posture générale — laptop
+
+Deux solutions pour avoir une posture « orthodoxe » :
+- laptop surélevé *(“lift stand”)* + clavier séparé
+- écran de bureau
+
+Points-clés à garder en tête :
+- épaules relâchées
+- coudes à &gt; 90°
+- faire des pauses régulières
+
+<!-- ![mauvaise position (humour)](images/bad_postures.png) -->
+
+---
+## Positionnement du clavier
+
+- clavier centré (« Ten Key Less » si possible) <br>
+  ![position du clavier](images/mouse-closer.png)
+- poignets bien dans l’axe <br>
+  ![axe des poignets](images/keyboard.gif)
+
+---
+## Position dactylo
+
+- doigts sur les positions de repos
+  - chaque touche du clavier est associée à un doigt précis
+- les poignets restent dans l’axe
+  - si la position est inconfortable, abaisser ou éloigner le clavier
+
+![position des mains](images/basic-position.png)
+
+---
+## Regarder l’écran, pas le clavier
+
+- dactylographie = apprentissage indispensable (~20h)
+  - de nombreux logiciels existent (e.g. Klavaro, [Web Typist]()…)
+- apprendre par mots plutôt que par lettres
+  - pro-tip : <key>Ctrl</key> <key>Backspace</key>
+  - objectif = précision (et non vitesse)
+
+![posture avec/sans dactylographie](images/touch-type.png)
+(⇒ démo !)
+
+---
+template: inverse
+
+# Matériel
+
+Petit bestiaire de claviers exotiques.
+
+Attention : nerd pr0n.
+
+---
+## Claviers splittés
+
+- généralement une mauvaise idée
+  - souvent une mauvaise solution à un problème simple : <br>le clavier est trop haut
+  - mais ouais, une plus grande séparation des mains <br> peut apporter du confort
+
+![clavier MS 4000](images/ms4000ergo.jpg)
+
+---
+## Claviers compacts : 60% &amp; 40%
+
+- moins de déplacements des mains
+  - e.g. flèches en <key>Fn</key> +
+  <key>I</key> <key>J</key> <key>K</key> <key>L</key> ou <key>W</key> <key>A</key> <key>S</key> <key>D</key>
+- favorisent un bon agencement du poste de travail
+  - on est bien centré devant son clavier
+  - la souris reste dans l’axe de l’épaule
+
+![clavier Vortex POK3R](images/VortexPOK3R.jpg)
+
+---
+## Claviers ortholinéaires
+
+- parfaits pour apprendre à taper en dactylo
+  - intuitifs : chaque colonne est associée à un doigt
+  <!-- - moins de typos -->
+- confortables :
+  - les poignets restent dans l’axe
+  - sur certains modèles, moins de charge sur les auriculaires
+
+![clavier TMx 2030 USB](images/typematrix.jpg)
+
+---
+## Claviers mécaniques : quel intérêt ?
+
+Chers, mais :
+
+- moins de fatigue musculaire <br>(si contacts souples)
+- meilleur potentiel de vitesse de saisie <br>
+  (pas d’effet « ghost key » et meilleur rebond)
+- possibilité d’emmerder tout l’open-space ♥ <br> (si contacts à clic)
+- durables
+
+---
+## Thumb shifting
+
+- les modifieurs sous les pouces, c’est bien
+  - Alt, Super, Ctrl, voire Shift…
+  - *Apple did it first*, cf. touche Commande
+  - variante hardcore : footswitch
+
+![Fujitsu Oyayubi Shift](images/oyayubi-shift.jpg)
+
+---
+## 1 + 2 + 3 + 4 + 5 = clavier parfait ?
+
+- Kinesis Contour, Ergodox… boarf.
+- keyboard.io ♥ ♥
+
+![clavier keyboard.io](images/keyboardio.jpg)
+
+---
+## My .02$
+
+Après avoir testé de nombreux claviers :
+
+- les moins intuitifs sont ceux qui soulagent le mieux les TMS
+  - … parce qu’on tape **beaucoup** moins vite avec :-)
+- caractéristiques à rechercher :
+  - confort en position dactylo (ortholinéarité)
+  - réduire les déplacements (compacité)
+  - réduire la charge des auriculaires
+- la rédemption vient moins du clavier que des logiciels
+
+---
+## Keep it simple, stupid
+
+Quel que soit le clavier $$$, il ne sera utile que si :
+- on sait s’en servir
+  - saisie dactylo (idéalement : clavier sans marquage)
+  - ergonomie logicielle
+- on a une posture correcte
+
+![clavier ThinkPad](images/thinkpad.jpg)
+
+---
+template: inverse
+
+# Applications
+
+Se défaire de sa souris.
+
+Limiter les mouvements inutiles.
+
+Progresser sur le chemin de l’éveil.
+
+---
+## Clavier + souris
+
+Ergonomie classique :
+
+- main droite sur la souris, voire sur les flèches
+- main gauche sur le clavier
+  - <key>Ctrl</key> <key>z</key> <key>x</key> <key>c</key> <key>v</key>
+  - <key>Alt</key> <key>Tab</key>
+
+Problèmes :
+
+- TMS à craindre si actions trop répétitives
+- beaucoup de mouvements inutiles
+- posture asymétrique
+
+---
+## La souris, c’est mal
+
+- utiliser les raccourcis clavier plutôt que la souris dans les applications graphiques
+- utiliser des applications en ligne de commande plutôt que des applications graphiques
+  - TUI : Ranger, Tig, Cmus, Mutt, Weechat, Emacs, Vim…
+  - commandes shell
+  - http://tuppervim.org/ <small>(= groupe de soutien)</small>
+
+Oublier la souris pour :
+
+- garder les mains sur le clavier
+- utiliser des outils plus simples <small>*(nerd factor !)*</small>
+- gagner en productivité
+
+---
+## Les flèches, c’est mal
+
+… parce qu’on quitte la position de repos.
+
+- Vim-style : <key>H</key> <key>J</key> <key>K</key> <key>L</key> <small>(entre autres…)</small>
+  - utilisé dans nombre d’applications, y compris sur le web
+  - un mode Vim est disponible dans quasi tous les IDEs :
+  <br> - Visual Studio Code : [VSCodeVim](https://github.com/VSCodeVim/Vim)
+  <br> - Emacs : [Viper mode](https://www.emacswiki.org/emacs/ViperMode) et [Spacemacs]()
+- alternative : <key>W</key> <key>A</key> <key>S</key> <key>D</key> ou <key>I</key> <key>J</key> <key>K</key> <key>L</key>
+  - plus intuitif, on reprend le T inversé du pavé de flèches
+  - Emacs : voir [ErgoEmacs](http://ergoemacs.org/) et les [Xah Fly Keys](http://ergoemacs.org/misc/ergoemacs_vi_mode.html)
+
+Claviers 60% / 40% : flèches en <key>Fn</key> +
+  <key>H</key> <key>J</key> <key>K</key> <key>L</key> /
+  <key>I</key> <key>J</key> <key>K</key> <key>L</key>.
+
+My .02$ : ** Vim >> * **
+
+---
+## Raccourcis clavier : Emacs vs. Vim
+
+Raccourcis en « accords » :
+
+- intuitifs (= standard de fait)
+- OK en thumb shifting (Mac ou clavier spécifique),<br>
+  risque de TMS sinon (« [Emacs pinky](http://ergoemacs.org/emacs/emacs_pinky.html) »)
+
+Raccourcis « modaux » (séquences de touches) :
+
+- temps d’apprentissage plus long
+- fonctionnent sur tous les claviers
+- (my2¢) permettent d’aller plus vite, plus précisément
+
+---
+## Environnements de bureau
+
+- passer d’une app à l’autre sans souris ni <key>Alt</key> <key>Tab</key>
+  - Windows : ?
+  - OSX : touchpad gestures
+  - GNU/Linux : tiling WMs ♥ ([i3](https://i3wm.org/), [Awesome](https://awesomewm.org/)…)
+- lancer une app sans souris
+  - Windows : <key>Super</key> + 3 lettres + <key>Enter</key>
+  - OSX : Spotlight, [Quicksilver](https://qsapp.com/)
+  - GNU/Linux : [dmenu](https://tools.suckless.org/dmenu/), [ULauncher](https://ulauncher.io/)…
+- alternative : multiplexeur de terminal
+  - tmux, screen, dvtm…
+  - Vim + [suckless.vim](https://github.com/fabi1cazenave/suckless.vim)
+  - Emacs
+
+---
+## Le chemin de l’éveil
+
+1. repérer une tâche qu’on pourrait mieux faire
+2. trouver une façon de mieux la faire
+3. en faire une habitude
+4. GOTO 1
+
+---
+template: inverse
+
+# Dispositions de clavier
+
+Pour les esthètes de la saisie de texte.
+
+Pourquoi l’AZERTY est pourri.
+
+En quoi les alternatives peuvent être pires.
+
+---
+## QWERTY
+
+- le layout de référence
+  - créé en 1873 pour Remington &amp; Sons
+- non optimisé…
+  - alphabétique + *“typewriter quote”* sur le 1er rang
+  - quelques ajustements pour éviter le blocage des marteaux
+- … mais adapté à un usage technique…
+  - les raccourcis clavier et les symboles de programmation viennent du Qwerty
+- … et décliné dans de nombreuses langues
+  - l’Azerty et le Qwertz ne sont que des variantes mineures
+
+---
+## AZERTY
+
+- le layout de référence en France et en Belgique
+  - normalisation très récente (AFNOR)
+- quelques dégradations par rapport au QWERTY
+  - le déplacement de <key>A</key> <key>Q</key> <key>M</key> <key>W</key> <key>Z</key> n’a aucune justification
+  - des caractères peu utiles sont en accès direct (§, µ, °, ²)
+  - le point est en <key>Shift</key> <small>(corrigé dans la version AFNOR)</small>
+- des choix discutables, comparés aux autres dérivés du QWERTY
+  - symboles en <key>AltGr</key> + rangée des chiffres main droite
+  - chiffres en <key>Shift</key>
+- mauvais support typographique
+
+---
+## Alternatives standard à l’AZERTY
+
+- QWERTY-intl
+  - idem ANSI, mais <key>'</key> <key>"</key> <key>`</key> <key>^</key> sont des accents morts (fastidieux…)
+- QWERTY canadien ♥
+  - <key>é</key> en accès direct, accent morts pour le reste
+- QWERTZ suisse ♥ ♥
+  - <key>é</key>, <key>è</key>, <key>à</key>, <key>ç</key> en accès direct, accent mort pour « ù »
+- avantages par rapport à AZERTY :
+  - chiffres en direct
+  - symboles de programmation bien placés <br> (en direct ou en <key>AltGr</key>)
+  - accents morts pour les autres langues latines et les majuscules accentuées : <key>`</key> <key>´</key> <key>~</key>
+
+---
+
+<!-- - <small>QWERTY québécois :</small> -->
+  ![Qwerty canadien](images/qwerty-ca.png)
+
+<!-- - <small>QWERTZ suisse :</small> -->
+  ![Qwertz suisse](images/qwertz-ch.png)
+
+---
+## Dvorak Simplified Keyboard
+
+- optimisation du QWERTY pour l’anglais
+  - breveté en 1936, disponible partout de nos jours
+- principes :
+  - alternance des lettres entre mains gauche &amp; droite
+  - lettres fréquentes sur la rangée de base (~70%)
+    <br> 22% sur la rangée du haut, 8% sur celle du bas
+  - les doigts forts sont plus chargés que les doigts faibles
+
+![disposition Dvorak](images/dvorak.png)
+
+---
+## Bépo
+
+- alternative à l’AZERTY pour le français
+  - version 1.0 figée en 2008, normalisée AFNOR depuis peu
+- principes :
+  - alternance des lettres entre mains gauche &amp; droite
+  - lettres fréquentes sur la rangée de base
+  - les doigts les plus chargés sont les index et auriculaires (!)
+  - support typographique aussi complet que possible
+
+![disposition Bépo](images/bepo.png)
+
+---
+## Limites des dispositions « optimisées »
+
+- les bénéfices ne sont pas évidents…
+  - il semble y avoir un léger bénéfice de vitesse
+  - pas de consensus scientifique sur la prévention des TMS
+- … et surtout liés à l’apprentissage dactylo
+  - la plupart des utilisateurs Dvorak / Bépo ne savaient pas taper en dactylo en Qwerty / Azerty
+  - le temps d’apprendre (~1 an), on tape moins vite… ce qui soulage les TMS
+- les raccourcis clavier doivent être repensés
+  - <key>Ctrl</key> <key>Z</key> <key>X</key> <key>C</key> <key>V</key> n’est plus faisable d’une main (sauf Colemak)
+  - <key>H</key> <key>J</key> <key>K</key> <key>L</key> nécessite d’être remappé partout (sauf clavier 60%)
+
+⇒ sympa en saisie, mais pas ouf au général
+
+---
+## Limites du Bépo (my2¢)
+
+Le Bépo a certains inconvénients sur l’Azerty :
+
+- charge importante des auriculaires (!)
+- placement de <key>M</key> <key>Z</key> <key>W</key> <key>Ç</key>
+  - mauvaise compatibilité avec certains claviers
+  - <key>Ctrl</key> <key>Z</key> et <key>Ctrl</key> <key>W</key> sont pénibles
+
+Et ne résoud pas certains désagréments :
+
+- chiffres en <key>Shift</key>
+  - ≠ Qwertz suisse / Qwerty québécois
+- caractères français en <key>AltGr</key>
+  - e.g. « œ », « æ », « … » + « ù »
+
+---
+background-image: url(images/leodagan.jpg)
+
+<!-- ![Léodagan](images/leodagan.jpg) -->
+
+---
+## Des bases saines (my2¢)
+
+- toutes les lettres dans les 3*10 touches principales
+  - (+ touches mortes pour les caractères accentués)
+  - (idéalement, il faudrait optimiser ces 30 touches…)
+- les chiffres en direct
+  - on n’est pas des sauvages :-)
+- les touches restantes sont optionnelles
+  - on peut y accéder via <key>AltGr</key> + main gauche
+
+![Qwerty alternatif](images/qwerty_alt.png)
+
+---
+## Touche morte vs. AltGr (my2¢)
+
+- Même débat que « raccourcis Vim vs. Emacs » :
+  - les séquences de touches (touche morte + caractère) ne sont pas intuitives,
+    mais faciles à enchaîner rapidement une fois apprises
+  - les « accords » <key>AltGr</key> sont parfaits pour des caractères isolés
+- Principe = utiliser la mémoire musculaire pour :
+  - mémoriser des **mots** en enchaînant caractères directs et touches mortes ;
+  - mémoriser des **symboles** en maintenant AltGr :
+
+```
++=, -=, -&gt;, =&gt; [''], (''), </, />, <!--, -->, ~/
+```
+
+- Démo : *“one dead key to rule them all”*
+  - https://github.com/fabi1cazenave/kalamine
+  - https://github.com/fabi1cazenave/1dk/tree/master/layouts/qwerty42
+
+---
+## Faut-il utiliser un layout optimisé ?
+
+- faible ROI pour Dvorak ou Bépo
+  - beaucoup plus utile &amp; rapide d’apprendre des bases Vim
+  - mais si tout le reste est déjà optimisé, pourquoi pas !
+
+Il y a des layouts très faciles à apprendre :
+
+- certaines dispositions standard sont très bien
+  - QWERTZ suisse &amp; QWERTY canadien francophone
+- l’AZERTY peut être personnalisé
+  - e.g. couche AltGr dédiée aux symboles de programmation
+- le QWERTY est facile à adapter au français
+  - AltGr + touche morte ⇒ [qwerty-lafayette](https://qwerty-lafayette.org/)
+
+---
+template: inverse
+
+# Conclusion
+
+Garantie 100% holistique.
+
+---
+## 7 commandements
+
+1. Une posture correcte, tu adopteras.
+2. ** La dactylographie, tu apprendras. **
+3. ** La dactylographie, tu apprendras. ** Vraiment.
+4. D’un clavier compact, tu t’équiperas.
+5. De la souris et des flèches, tu t’abstiendras.
+6. ** De Vim, tu t’inspireras. **
+7. De dispositions hasardeuses, nul besoin tu n’auras.
+
+---
+template: inverse
+background-image: url(images/superduck.jpg)
+
+# Ayé.
+
+https://qwerty-lafayette.org/
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+    </textarea>
+    <script src="remark.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
