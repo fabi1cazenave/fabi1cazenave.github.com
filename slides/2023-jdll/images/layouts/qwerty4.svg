@@ -1,0 +1,458 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="ansi" platform="mac" theme="reach"
+     viewBox="0 0 900 300">
+
+  <style>
+    rect, path {
+      stroke: #666;
+      stroke-width: .5px;
+      fill: #fff;
+    }
+    .specialKey,
+    .specialKey rect,
+    .specialKey path {
+      fill: #e4e4e4;
+    }
+    text {
+      fill: #333;
+      font: normal 20px sans-serif;
+      text-align: center;
+    }
+    #Backspace text {
+      font-size: 12px;
+    }
+
+    #row_AE { transform: translate(4px, 4px); }
+    #row_AD { transform: translate(4px, 64px); }
+    #row_AC { transform: translate(4px, 124px); }
+    #row_AB { transform: translate(4px, 184px); }
+    #row_AA { transform: translate(4px, 244px); }
+
+    /* Backslash + Enter */
+    #Enter     .iso,
+    #Backslash .iso,
+    .iso #Enter rect.ansi,
+    .iso #Enter text.ansi,
+    .iso #Backslash .ansi { display: none; }
+    #Enter text.ansi,
+    .iso #Enter     .iso,
+    .iso #Backslash .iso { display: block; }
+    .iso #Backslash { transform: translate(765px, 60px); }
+
+    /* ShiftLeft + IntlBackslash */
+    #IntlBackslash, #ShiftLeft .iso,
+    .intlBackslash  #ShiftLeft .ansi { display: none; }
+    .intlBackslash  #ShiftLeft .iso,
+    .intlBackslash  #IntlBackslash { display: block; }
+
+    .specialKey .win,
+    .specialKey .gnu {
+      display: none;
+      font-size: 14px;
+    }
+
+    /* display MacOSX by default */
+    [platform="gnu"] .specialKey .win,
+    [platform="gnu"] .specialKey .mac,
+    [platform="win"] .specialKey .gnu,
+    [platform="win"] .specialKey .mac { display: none; }
+    [platform="mac"] .specialKey .mac,
+    [platform="gnu"] .specialKey .gnu,
+    [platform="win"] .specialKey .win { display: block; }
+
+    /* swap Alt/Meta for MacOSX */
+    [platform="gnu"] #MetaLeft,
+    [platform="win"] #MetaLeft,  #AltLeft   { transform: translate(75px, 0px); }
+    [platform="gnu"] #AltLeft,
+    [platform="win"] #AltLeft,   #MetaLeft  { transform: translate(150px, 0px); }
+    [platform="gnu"] #AltRight,
+    [platform="win"] #AltRight,  #MetaRight { transform: translate(600px, 0px); }
+    [platform="gnu"] #MetaRight,
+    [platform="win"] #MetaRight, #AltRight  { transform: translate(675px, 0px); }
+
+    [theme="reach"] .pinkyKey  rect { fill: hsl(  0, 100%, 90%); }
+    [theme="reach"] .numberKey rect { fill: hsl( 42, 100%, 90%); }
+    [theme="reach"] .letterKey rect { fill: hsl(122, 100%, 90%); }
+    [theme="reach"] .homeKey   rect { fill: hsl(122, 100%, 75%); }
+    [theme="reach"] .press     rect { fill: #aaf; }
+  </style>
+
+  <g id="row_AE">
+    <g class="left">
+      <g id="Backquote" class="pinkyKey">
+        <rect width="52" height="52" class="ansi iso" rx="5" ry="5"/>
+        <g class="ansi key" text-anchor="middle">
+        </g>
+      </g>
+      <g id="Digit1" class="numberKey" transform="translate(60)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">1</text>
+        </g>
+      </g>
+      <g id="Digit2" class="numberKey" transform="translate(120)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">2</text>
+        </g>
+      </g>
+      <g id="Digit3" class="numberKey" transform="translate(180)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">3</text>
+        </g>
+      </g>
+      <g id="Digit4" class="numberKey" transform="translate(240)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">4</text>
+        </g>
+      </g>
+      <g id="Digit5" class="numberKey" transform="translate(300)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">5</text>
+        </g>
+      </g>
+    </g>
+    <g class="right">
+      <g id="Digit6" class="numberKey" transform="translate(360)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">6</text>
+        </g>
+      </g>
+      <g id="Digit7" class="numberKey" transform="translate(420)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">7</text>
+        </g>
+      </g>
+      <g id="Digit8" class="numberKey" transform="translate(480)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">8</text>
+        </g>
+      </g>
+      <g id="Digit9" class="numberKey" transform="translate(540)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">9</text>
+        </g>
+      </g>
+      <g id="Digit0" class="numberKey" transform="translate(600)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">0</text>
+        </g>
+      </g>
+      <g id="Minus" class="pinkyKey" transform="translate(660)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+        </g>
+      </g>
+      <g id="Equal" class="pinkyKey" transform="translate(720)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+        </g>
+      </g>
+      <g id="Backspace" class="specialKey" transform="translate(780)">
+        <rect width="112" height="52" class="ansi" rx="5" ry="5"/>
+        <text x="16.4" y="42.8" class="ansi" text-anchor="middle">⌫</text>
+      </g>
+    </g>
+  </g>
+  <g id="row_AD">
+    <g class="left">
+      <g id="Tab" class="specialKey">
+        <rect width="82" height="52" rx="5" ry="5"/>
+        <text x="16.4" y="42.8" text-anchor="middle">↹</text>
+      </g>
+      <g id="KeyQ" class="letterKey" transform="translate(90)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">Q</text>
+        </g>
+      </g>
+      <g id="KeyW" class="letterKey" transform="translate(150)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">W</text>
+        </g>
+      </g>
+      <g id="KeyE" class="letterKey" transform="translate(210)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">E</text>
+        </g>
+      </g>
+      <g id="KeyR" class="letterKey" transform="translate(270)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">R</text>
+        </g>
+      </g>
+      <g id="KeyT" class="letterKey" transform="translate(330)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">T</text>
+        </g>
+      </g>
+    </g>
+    <g class="right">
+      <g id="KeyY" class="letterKey" transform="translate(390)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">Y</text>
+        </g>
+      </g>
+      <g id="KeyU" class="letterKey" transform="translate(450)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">U</text>
+        </g>
+      </g>
+      <g id="KeyI" class="letterKey" transform="translate(510)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">I</text>
+        </g>
+      </g>
+      <g id="KeyO" class="letterKey" transform="translate(570)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">O</text>
+        </g>
+      </g>
+      <g id="KeyP" class="letterKey" transform="translate(630)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">P</text>
+        </g>
+      </g>
+      <g id="BracketLeft" class="pinkyKey" transform="translate(690)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+        </g>
+      </g>
+      <g id="BracketRight" class="pinkyKey" transform="translate(750)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+        </g>
+      </g>
+      <g id="Backslash" class="pinkyKey" transform="translate(810)">
+        <rect width="82" height="52" class="ansi" rx="5" ry="5"/>
+        <rect width="52" height="52" class="iso" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="row_AC">
+    <g class="left">
+      <g id="CapsLock" class="specialKey">
+        <rect width="97" height="52" rx="5" ry="5"/>
+        <text x="16.4" y="42.8" class="ansi" text-anchor="middle">⇪</text>
+      </g>
+      <g id="KeyA" class="letterKey homeKey" transform="translate(105)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">A</text>
+        </g>
+      </g>
+      <g id="KeyS" class="letterKey homeKey" transform="translate(165)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">S</text>
+        </g>
+      </g>
+      <g id="KeyD" class="letterKey homeKey" transform="translate(225)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">D</text>
+        </g>
+      </g>
+      <g id="KeyF" class="letterKey homeKey" transform="translate(285)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">F</text>
+        </g>
+      </g>
+      <g id="KeyG" class="letterKey" transform="translate(345)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">G</text>
+        </g>
+      </g>
+    </g>
+    <g class="right">
+      <g id="KeyH" class="letterKey" transform="translate(405)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">H</text>
+        </g>
+      </g>
+      <g id="KeyJ" class="letterKey homeKey" transform="translate(465)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">J</text>
+        </g>
+      </g>
+      <g id="KeyK" class="letterKey homeKey" transform="translate(525)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">K</text>
+        </g>
+      </g>
+      <g id="KeyL" class="letterKey homeKey" transform="translate(585)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">L</text>
+        </g>
+      </g>
+      <g id="Semicolon" class="letterKey homeKey" transform="translate(645)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">;</text>
+          <text x="12.8" y="20.6" class="level2">:</text>
+        </g>
+      </g>
+      <g id="Quote" class="pinkyKey" transform="translate(705)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+        </g>
+      </g>
+      <g id="Enter" class="specialKey" transform="translate(765)">
+        <path d="M50-60h72a5 5 0 0 1 5 5V47a5 5 0 0 1-5 5H65a5 5 0 0 1-5-5V-3a5 5 1 0 0-5-5h-5a5 5 0 0 1-5-5v-42a5 5 0 0 1 5-5z" class="iso"/>
+        <rect width="127" height="52" class="ansi" rx="5" ry="5"/>
+        <text x="16.4" y="42.8" class="ansi" text-anchor="middle">⏎</text>
+        <text x="16.4" y="42.8" class="iso" text-anchor="middle" transform="translate(60)">⏎</text>
+      </g>
+    </g>
+  </g>
+  <g id="row_AB">
+    <g class="left">
+      <g id="ShiftLeft" class="specialKey">
+        <rect width="127" height="52" class="ansi" rx="5" ry="5"/>
+        <rect width="67" height="52" class="iso" rx="5" ry="5"/>
+        <text x="16.4" y="42.8" text-anchor="middle">⇧</text>
+      </g>
+      <g id="IntlBackslash" class="pinkyKey" transform="translate(75)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">&lt;</text>
+          <text x="12.8" y="20.6" class="level2">&gt;</text>
+        </g>
+      </g>
+      <g id="KeyZ" class="letterKey" transform="translate(135)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">Z</text>
+        </g>
+      </g>
+      <g id="KeyX" class="letterKey" transform="translate(195)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">X</text>
+        </g>
+      </g>
+      <g id="KeyC" class="letterKey" transform="translate(255)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">C</text>
+        </g>
+      </g>
+      <g id="KeyV" class="letterKey" transform="translate(315)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">V</text>
+        </g>
+      </g>
+      <g id="KeyB" class="letterKey" transform="translate(375)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">B</text>
+        </g>
+      </g>
+    </g>
+    <g class="right">
+      <g id="KeyN" class="letterKey" transform="translate(435)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">N</text>
+        </g>
+      </g>
+      <g id="KeyM" class="letterKey" transform="translate(495)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="20.6" class="level2">M</text>
+        </g>
+      </g>
+      <g id="Comma" class="letterKey" transform="translate(555)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">,</text>
+        </g>
+      </g>
+      <g id="Period" class="letterKey" transform="translate(615)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+          <text x="12.8" y="43.4" class="level1">.</text>
+        </g>
+      </g>
+      <g id="Slash" class="letterKey" transform="translate(675)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g class="key" text-anchor="middle">
+        </g>
+      </g>
+      <g id="ShiftRight" class="specialKey" transform="translate(735)">
+        <rect width="157" height="52" class="ansi" rx="5" ry="5"/>
+        <text x="16.4" y="42.8" class="ansi" text-anchor="middle">⇧</text>
+      </g>
+    </g>
+  </g>
+  <g id="row_AA">
+    <g class="left">
+      <g id="ControlLeft" class="specialKey">
+        <rect width="67" height="52" rx="5" ry="5"/>
+        <text x="11.0" y="42.8" class="win gnu">Ctrl</text>
+        <text x="16.4" y="42.8" class="mac" text-anchor="middle">⌃</text>
+      </g>
+      <g id="MetaLeft" class="specialKey" transform="translate(75)">
+        <rect width="67" height="52" rx="5" ry="5"/>
+        <text x="11.0" y="42.8" class="win">Win</text>
+        <text x="11.0" y="42.8" class="gnu">Super</text>
+        <text x="16.4" y="42.8" class="mac" text-anchor="middle">⌘</text>
+      </g>
+      <g id="AltLeft" class="specialKey" transform="translate(150)">
+        <rect width="67" height="52" rx="5" ry="5"/>
+        <text x="11.0" y="42.8" class="win gnu">Alt</text>
+        <text x="16.4" y="42.8" class="mac" text-anchor="middle">⌥</text>
+      </g>
+    </g>
+    <g id="Space" class="homeKey" transform="translate(225)">
+      <rect width="367" height="52" class="ansi" rx="5" ry="5"/>
+    </g>
+    <g class="right">
+      <g id="AltRight" class="specialKey" transform="translate(600)">
+        <rect width="67" height="52" rx="5" ry="5"/>
+        <text x="11.0" y="42.8" class="win gnu">AltGr</text>
+        <text x="16.4" y="42.8" class="mac" text-anchor="middle">⌥</text>
+      </g>
+      <g id="MetaRight" class="specialKey" transform="translate(690)">
+        <rect width="67" height="52" rx="5" ry="5"/>
+        <text x="11.0" y="42.8" class="win">Win</text>
+        <text x="11.0" y="42.8" class="gnu">Super</text>
+        <text x="16.4" y="42.8" class="mac" text-anchor="middle">⌘</text>
+      </g>
+      <g id="ContextMenu" class="specialKey" transform="translate(750)">
+        <rect width="67" height="52" rx="5" ry="5"/>
+        <text x="16.4" y="42.8" text-anchor="middle">☰</text>
+      </g>
+      <g id="ControlRight" class="specialKey" transform="translate(825)">
+        <rect width="67" height="52" rx="5" ry="5"/>
+        <text x="11.0" y="42.8" class="win gnu">Ctrl</text>
+        <text x="16.4" y="42.8" class="mac" text-anchor="middle">⌃</text>
+      </g>
+    </g>
+  </g>
+</svg>
