@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Kalamine &amp; Kanata</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+layout: false
+
+# Kalamine &amp; Kanata
+
+![Arsenik](images/arsenik.svg)
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+---
+## Credo
+
+> Azerty c’est pourri
+
+[qwerty-lafayette.org](https://qwerty-lafayette.org) / [ergol.org](https://ergol.org)
+
+> D’un clavier compact, tu t’équiperas.
+
+[Ergonomie holistique du clavier](https://fabi1cazenave.github.io/slides/2019-jdll/),
+JdLL 2019
+
+> L’art de faire venir les touches sous les doigts.
+
+[Ergonomie minimaliste du clavier](https://fabi1cazenave.github.io/slides/2023-jdll/),
+JdLL 2023
+
+---
+## Bonheur (allégorie)
+
+![Ferris34](images/ferris34.jpg)
+
+Objectif : la même ergonomie sur un clavier standard.
+
+---
+## Kalamine
+
+- générateur Python de pilotes de clavier
+- dispositions de clavier en ASCII art
+- interface web de prévisualisation / test
+- (WiP) analyseur de dispositions
+
+Installation :
+
+```bash
+pipx install kalamine
+```
+
+https://github.com/OneDeadKey/kalamine
+
+---
+## Kalamine
+
+Créer une dispo from scratch :
+
+```bash
+kalamine new qwerty.toml
+kalamine watch qwerty.toml &amp;
+vim qwerty.toml
+```
+
+Exemples de dispositions à bricoler :
+
+```bash
+wget http://ergol.org/layouts/azerty.yaml
+wget http://ergol.org/layouts/bepo.yaml
+wget http://ergol.org/layouts/ergol.toml
+wget http://ergol.org/layouts/lafayette.yaml
+```
+
+---
+## Kanata
+
+- émulation QMK / ZMK pour Linux, macOS, Windows
+- (activement) développé en Rust
+- alternatives : KMonad, keyd
+
+```bash
+wget https://github.com/jtroo/kanata/releases/download/v1.6.1/kanata
+chmod +x kanata
+sudo ./kanata --cfg [cfg_file]`
+```
+
+https://github.com/jtroo/kanata
+
+---
+## Arsenik
+
+- configuration Kanata « mix and match »
+- inspiré par Miryoku (36 touches)
+- pensé pour les claviers standard (33 touches)
+
+```bash
+git clone https://github.com/OneDeadKey/arsenik
+```
+
+https://github.com/OneDeadKey/arsenik
+
+---
+## Enjoy !
+
+- https://github.com/jtroo/kanata
+- https://github.com/OneDeadKey/kalamine
+- https://github.com/OneDeadKey/arsenik
+- https://ergol.org
+
+** Présentation Ergo‑L à 14h ! **
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+    </textarea>
+    <script src="js/remark.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

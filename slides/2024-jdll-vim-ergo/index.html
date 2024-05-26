@@ -85,7 +85,7 @@ On utilise essentiellement ces quatre modes :
 En mode *insertion*, Vim se comporte comme un Notepad… mais sans aucun raccourci
 clavier.
 
-Objectif : travailler en mode *normal* ou *visuel*.
+Objectif : travailler en mode *normal*.
 
 ---
 ## Mode *visuel*
@@ -128,7 +128,8 @@ On peut aussi utiliser les actions sans passer par le mode visuel
 <small>(sauf Kakoune / Helix)</small> :
 `opérateur portée`
 
-- <kbd>c</kbd><kbd>w</kbd> : “change word”, remplacer le mot
+- <kbd>d</kbd><kbd>w</kbd> : <i>“delete word”</i>, effacer le mot
+- <kbd>c</kbd><kbd>w</kbd> : <i>“change word”</i>, remplacer le mot
 - <kbd>y</kbd><kbd>y</kbd> : copier la ligne courante
 - <kbd>c</kbd><kbd>c</kbd> : remplacer la ligne courante
 
@@ -137,10 +138,10 @@ On peut aussi utiliser les actions sans passer par le mode visuel
 
 Les indispensables :
 
-- `:w` : “write”
+- `:w` = “write”
 - `:saveas [nom_de_fichier]`
-- `:wq` : “write and quit”
-- `:cq` : “cancel and quit”
+- `:wq` = “write and quit”
+- `:cq` = “cancel and quit”
 
 (+ <kbd>Enter</kbd> pour valider et revenir au mode *normal*)
 
@@ -157,10 +158,10 @@ continued: true
 
 <img style="float: right; width: 25%;" src="images/imotep.jpg">
 
-Pas de combos type <kbd>Ctrl</kbd><kbd>★</kbd> ou <kbd>Meta</kbd><kbd>★</kbd> :
+Les mains restent en position dactylo :
+- ➡ pas de combos type <kbd>Ctrl</kbd><kbd>★</kbd>
 - ➡ pas de déviations ulnaires
 - ➡ pas de TMS « Emacs pinky »
-- ➡ les mains restent en position dactylo
 
 <div style="clear: both;"></div>
 
@@ -183,17 +184,17 @@ template: inverse
 
 Standard ASCII (1963) :
 
-- <kbd>Ctrl</kbd>-<kbd>H</kbd> = Backspace
-- <kbd>Ctrl</kbd>-<kbd>J</kbd> = Line Feed
+- <kbd>Ctrl</kbd>-<kbd>h</kbd> = Backspace
+- <kbd>Ctrl</kbd>-<kbd>j</kbd> = Line Feed
 
 <img style="float: right; width: 50%;" src="images/adm-3a.jpg">
 
 Terminal [ADM-3A](https://en.wikipedia.org/wiki/ADM-3A#Legacy) (1976) :
 
-- <kbd>Ctrl</kbd>-<kbd>K</kbd> = Up
-- <kbd>Ctrl</kbd>-<kbd>L</kbd> = Right
+- <kbd>Ctrl</kbd>-<kbd>k</kbd> = Up
+- <kbd>Ctrl</kbd>-<kbd>l</kbd> = Right
 - <kbd>Ctrl</kbd>-<kbd>^</kbd> = Home
-- <kbd>Ctrl</kbd>-<kbd>Z</kbd> = Clear Screen
+- <kbd>Ctrl</kbd>-<kbd>z</kbd> = Clear Screen
 
 ---
 ## HJKL ❤️
@@ -309,8 +310,8 @@ Comment ?
 - un *layer* pour <kbd>←</kbd><kbd>↓</kbd><kbd>↑</kbd><kbd>→</kbd>
   (e.g. [Arsenik](https://github.com/OneDeadKey/arsenik) ou QMK)
   <br><small>➡ disponible pour toutes les applications</small>
-- mapper `+`/`-` en <kbd>AltGr</kbd>-<kbd>j</kbd><kbd>k</kbd>
-  (e.g. [Ergo‑L](https://ergol.org) ou via [Kalamine](https://github.com/OneDeadKey/kalamine))
+- mapper `+`/`-` en <kbd>AltGr</kbd>-<kbd>j</kbd>/<kbd>k</kbd>
+  (e.g. [Ergo‑L](https://ergol.org) ou [Kalamine](https://github.com/OneDeadKey/kalamine))
   <br><small>➡ appliquable aussi aux autres commandes de déplacement</small>
 - demain :
   Kalamine &amp; Arsenik [à 13h](https://pretalx.jdll.org/jdll2024/talk/EWE3LW/),
@@ -451,7 +452,8 @@ Comment passer d’un fichier à un autre ?
 ## Panneau latéral
 
 - ergonomie classique Visual Studio &amp; co
-- Vim : [NERDTree](https://github.com/preservim/nerdtree)
+- [NERDTree](https://github.com/preservim/nerdtree) (Vim),
+  [Neo-Tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (Neovim)
 
 ![NERDTree](images/nerdtree.png)
 
@@ -524,13 +526,13 @@ Greffons pour filtrer des fichiers, buffers, textes… :
 
 Neovim + [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) :
 
-- <kbd>Espace</kbd><kbd>s</kbd><kbd>f</kbd> : **S**earch **F**iles
-- <kbd>Espace</kbd><kbd>g</kbd><kbd>f</kbd> : search **G**it **F**iles
+- <kbd>Espace</kbd><kbd>s</kbd><kbd>f</kbd> : [s]earch [f]iles
+- <kbd>Espace</kbd><kbd>g</kbd><kbd>f</kbd> : search [g]it [f]iles
 - <kbd>Espace</kbd><kbd>?</kbd> : fichiers récents
 - <kbd>Espace</kbd><kbd>/</kbd> : recherche dans le buffer courant
 - <kbd>Espace</kbd><kbd>Espace</kbd> : buffers ouverts
 
-Le greffon indispensable pour Neovim. ❤️
+Le greffon indispensable pour Neovim ! ❤️
 
 **Démo !**
 
@@ -548,7 +550,8 @@ Neovim + [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) :
 - <kbd>Espace</kbd><kbd>s</kbd><kbd>d</kbd> : [s]earch [d]iagnostics
 - <kbd>Espace</kbd><kbd>d</kbd><kbd>s</kbd> : [d]ocument [s]ymbols
 
-La grosse « nouveauté » avec DAP et TreeSitter. Indispensable.
+La grosse « nouveauté » avec DAP et TreeSitter.
+<br>Indispensable pour les dévs.
 
 ---
 ## Parcimonie
@@ -580,7 +583,7 @@ Fuzzy-matcher : `fzf` ou équivalent (`fzy`, `skim`…)
 `autojump` ou équivalent (`zoxide`…) :
 - `j [morceau_de_chemin]`
 
-Explorateur de fichier :
+Explorateur de fichiers :
 - `ranger`, `yazi`
 
 Édition modale de la ligne de commande :
@@ -641,7 +644,7 @@ continued: true
 
 - fonctions avancées
 <br>– <small><kbd>Espace</kbd> en touche `Leader`</small>
-<br>– <small>navigation via fuzzy-matching et LSP</small>
+<br>– <small>navigation via fuzzy-matching, LSP, <kbd>Ctrl</kbd>-<kbd>o</kbd></small>
 
 ---
 continued: true
