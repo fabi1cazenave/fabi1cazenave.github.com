@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> x-keyboard </title>
+  <style>
+    html {
+      height: 100%;
+      width: 100%;
+      font-family: sans-serif;
+      background-color: #ddd;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 25px;
+      margin: auto;
+      max-width: 51em;
+      height: 100%;
+      border-left: 1px solid #aaa;
+      border-right: 1px solid #aaa;
+      box-shadow: 0px 1px 10px #888;
+      background-color: #fff;
+    }
+    div {
+      text-align: center;
+    }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      margin-bottom: .5em;
+      text-align: center;
+      font-size: 1.3em;
+    }
+    /*
+    input, select { color-scheme: light dark; }
+    @media (prefers-color-scheme: dark) {
+      html {
+        background-color: #333;
+      }
+      body {
+        background-color: #222;
+        border-color: #111;
+        box-shadow: 0px 1px 10px #111;
+      }
+    }
+    */
+  </style>
+  <script src="js/x-keyboard.js"></script>
+  <script src="js/demo.js"></script>
+</head>
+<body>
+  <header></header>
+
+  <div>
+    <input spellcheck="false">
+    <x-keyboard id="keyboard"></x-keyboard>
+    <form>
+      <select id="layout">
+        <option value="" selected>(no layout)</option>
+        <option>qwerty</option>
+        <option>azerty</option>
+        <option>bepo</option>
+        <option>lafayette</option>
+        <option>ergol</option>
+      </select>
+      <select id="geometry">
+        <option value="" selected> (auto) </option>
+        <option value="iso">        ISO   </option>
+        <option value="ansi">       ANSI  </option>
+        <option value="ol50">       50%   </option>
+        <option value="ol40">       40%   </option>
+      </select>
+      <select id="platform">
+        <option value="" selected> (auto) </option>
+        <option value="win">        win   </option>
+        <option value="mac">        mac   </option>
+        <option value="linux">      linux </option>
+      </select>
+      <select id="theme">
+        <option value="" selected>(no theme)</option>
+        <option>reach</option>
+        <option>hints</option>
+      </select>
+    </form>
+  </div>
+
+  <footer></footer>
+</body>
+</html>

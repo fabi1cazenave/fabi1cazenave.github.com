@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 180">
+
+  <style>
+    rect {
+      fill: #ddd;
+      stroke: #666;
+      stroke-width: .5px;
+    }
+    text {
+      fill: #222;
+      font: normal 20px sans-serif;
+      text-align: center;
+      text-anchor: middle;
+    }
+
+    #row_AD text, #row_AC text { opacity: 0; }
+
+    /* 'hints' theme */
+    .m1 rect { fill: hsl(  0, 100%, 95%); }
+    .l2 rect { fill: hsl( 42, 100%, 85%); }
+    .r2 rect { fill: hsl( 61, 100%, 85%); }
+    .l3 rect,
+    .r3 rect { fill: hsl(136, 100%, 85%); }
+    .l4 rect,
+    .r4 rect { fill: hsl(200, 100%, 85%); }
+    .l5 rect,
+    .r5 rect { fill: hsl(230, 100%, 85%); }
+  </style>
+
+  <defs>
+    <g id="row_AD">
+      <g transform="translate(0)" class="l5">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">Q</text>
+      </g>
+      <g transform="translate(60)" class="l4">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">C</text>
+      </g>
+      <g transform="translate(120)" class="l3">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">O</text>
+      </g>
+      <g transform="translate(180)" class="l2">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">P</text>
+      </g>
+      <g transform="translate(240)" class="l2">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">W</text>
+      </g>
+    </g>
+
+    <g id="row_AC">
+      <g transform="translate(0)" class="l5">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">A</text>
+      </g>
+      <g transform="translate(60)" class="l4">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">S</text>
+      </g>
+      <g transform="translate(120)" class="l3">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">E</text>
+      </g>
+      <g transform="translate(180)" class="l2">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">N</text>
+      </g>
+      <g transform="translate(240)" class="l2">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">F</text>
+      </g>
+    </g>
+
+    <g id="row_AB">
+      <g transform="translate(0)" class="l5">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">Z</text>
+      </g>
+      <g transform="translate(60)" class="l4">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">X</text>
+      </g>
+      <g transform="translate(120)" class="l3">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">C</text>
+      </g>
+      <g transform="translate(180)" class="l2">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">V</text>
+      </g>
+      <g transform="translate(240)" class="l2">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">B</text>
+      </g>
+    </g>
+  </defs>
+
+  <g transform="translate(8)">
+    <use x="16" y="0" href="#row_AD" />
+    <use x="32" y="60" href="#row_AC" />
+    <use x="60" y="120" href="#row_AB" />
+    <use x="0" y="120" href="#iso" class="l5" />
+    <g transform="translate(0 120)" class="l5">
+      <rect width="52" height="52" rx="5" ry="5"/>
+    </g>
+  </g>
+
+  <g transform="translate(400 92)">
+    <text style="font-size: 92px; dominant-baseline: middle; fill: brown;">➤</text>
+  </g>
+
+  <g transform="translate(440)">
+    <use x="16" y="0" href="#row_AD" />
+    <use x="32" y="60" href="#row_AC" />
+    <use x="0" y="120" href="#row_AB" />
+    <g transform="translate(300 120)" opacity="0.7">
+      <rect width="52" height="52" rx="5" ry="5"/>
+    </g>
+  </g>
+
+</svg>
