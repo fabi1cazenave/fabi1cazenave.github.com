@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Arsenik, l’ergonomie clavier libre et gratuite</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+layout: false
+
+# Arsenik, l’ergonomie clavier libre et gratuite
+
+- <small>[intro : posture générale](#6)</small>
+- [Arsenik sur clavier de laptop](#13)
+- [Arsenik sur clavier ergonomique](#30)
+- [Arsenik avec les layouts ergonomiques](#59)
+- <small>[conclusion](#82)</small>
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+---
+## Expérience personnelle
+
+- développement logiciel
+- 4 décennies de touch-typing
+  - Azerty, Qwerty, Dvorak, Bépo…
+- participation à la conception du TMx 2030
+- animation d’ateliers Vim depuis 12 ans
+- auteur de [QWERTY-Lafayette](https://qwerty-lafayette.org)
+- contributeur actif d’[Ergo‑L](https://ergol.org) depuis 4 ans
+
+… et principal auteur d’[Arsenik](https://ergol.org/claviers/arsenik)
+
+---
+## Ergonomie clavier ?
+
+- favoriser une posture correcte
+- supprimer les mouvements inconfortables
+  <br>(susceptibles de causer des TMS)
+  - déviations ulnaires
+  - extensions latérales des auriculaires
+- diminuer le travail des doigts
+  - Travail = Force × Déplacement
+- faciliter les actions rapides
+  - <kbd>Alt</kbd>-<kbd>Tab</kbd>,
+  <kbd>Ctrl</kbd>-<kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd>,
+  <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>…
+- réduire les erreurs de saisie
+
+---
+## Arsenik ?
+
+- une **configuration** ergonomique de clavier pour :
+  - favoriser une posture correcte
+  - supprimer les mouvements inconfortables
+  - diminuer le travail des doigts
+  - faciliter les actions rapides
+  - réduire les erreurs
+- “**laptop first**” : pensée d’abord pour les claviers ISO
+- inspirée des configurations de claviers programmables<br>
+  (notamment [Miryoku](https://github.com/manna-harbour/miryoku))
+- prévue pour un **apprentissage pas-à-pas**
+
+---
+## Pourquoi Arsenik ?
+
+Les utilisateurs et utilisatrices avancées convergent toutes vers une solution
+similaire (TL;DR: [Miryoku](https://github.com/manna-harbour/miryoku)-like).
+
+Arsenik cherche à :
+
+- faciliter cet apprentissage ;
+- proposer sur un clavier de laptop une saisie aussi proche que possible que sur
+  un clavier ergonomique ;
+- éviter l’achat de claviers hors de prix.
+
+Votre clavier actuel peut offrir une ergonomie très poussée.
+
+---
+template: inverse
+
+# Posture
+
+![Évolution](images/evolution.jpg)
+
+---
+## Posture générale – desktop
+
+- dos droit, haut de l’écran à hauteur des yeux
+- bras, bassin et genoux à &gt; 90°
+- pauses régulières (changement de position)
+
+![assise](images/posture/ergonomic-basics.png)
+
+---
+## Posture générale – laptop
+
+Deux solutions pour avoir une posture « orthodoxe » :
+- laptop surélevé *(“lift stand”)* + clavier séparé
+- écran de bureau
+
+**On n’est jamais bien posé sur un laptop.**
+
+Points-clés à garder en tête :
+- épaules relâchées
+- coudes à &gt; 90°
+- faire des pauses régulières
+
+**La seule bonne position, c’est le mouvement.**
+
+<!-- ![mauvaise position (humour)](images/posture/bad_postures.png) -->
+
+---
+## Positionnement du clavier
+
+- clavier centré (« Ten Key Less » si possible) <br>
+  ![position du clavier](images/posture/mouse-closer.png)
+- poignets bien dans l’axe <br>
+  ![axe des poignets](images/posture/keyboard.gif)
+
+---
+## Position dactylo
+
+- doigts sur les positions de repos
+  - chaque touche du clavier est associée à un doigt précis
+- les poignets restent dans l’axe
+  - si la position est inconfortable, abaisser ou éloigner le clavier
+
+![position des mains](images/posture/basic-position.png)
+
+---
+## Regarder l’écran, pas le clavier
+
+- dactylographie = **apprentissage indispensable** (~20h)
+  - de nombreux logiciels existent (e.g.
+  [Duck Typist](https://ergol.org/dactylo/), [Keybr](https://keybr.com)…)
+- apprendre par mots plutôt que par lettres
+  - pro-tip : <kbd>Ctrl</kbd>-<kbd>Backspace</kbd>
+  - objectif = précision (et non vitesse)
+
+![posture avec/sans dactylographie](images/posture/touch-type.png)
+
+---
+## Indispensable, on a dit !
+
+Chaque touche est associée à un doigt et un seul :
+
+![QWERTY en mode dactylo](images/dactylo.png)
+
+---
+template: inverse
+
+# Arsenik sur laptop
+
+![Arsenik sur clavier ISO](images/arsenik_isoa.svg)
+
+---
+## Kanata
+
+Sur laptop, Arsenik repose sur [Kanata](https://github.com/jtroo/kanata) :
+
+- émulateur de fonctionnalités QMK/ZMK :
+  - réaffectation de touches
+  - “layers” <small>(similaires à la touche <kbd>Fn</kbd>)</small>
+  - mod-taps, layer-taps, macros…
+- multiplate-formes, libre (LGPL-3), écrit en Rust
+
+https://github.com/jtroo/kanata
+
+---
+## Étape 1 : angle-mod
+
+= permutation circulaire des 6 touches gauches de la rangée inférieure :
+
+![angle-mod](images/angle_mod.svg)
+
+- on se rapproche d’un clavier ortholinéaire
+- les déviations ulnaires de la main gauche sont résolues
+
+Compter 2 h à 2 jours pour s’y faire.<br>
+Après on ne peut plus revenir en arrière.
+
+---
+## Étape 2a : barre d’espace
+
+[![Couche NavNum](images/arsenik_navnum.svg)](images/arsenik_navnum.svg)
+
+<kbd>Espace</kbd> maintenue ➔ couche “NavNum” <small>(LT : layer-tap)</small>
+
+- navigation à gauche, pavé numérique à droite
+- on reste en dactylo ➔ plus de confort, moins d’erreurs
+
+Compter 1 jour à 1 semaine pour s’y faire.
+
+---
+## Étape 2b : Entrée, Backspace
+
+[![Couche NavNum](images/arsenik_lt.svg)](images/arsenik_lt.svg)
+
+<kbd>Alt</kbd> pressée/relâchée ➔ <kbd>Backspace</kbd> <br>
+<kbd>AltGr</kbd> pressée/relâchée ➔ <kbd>Entrée</kbd> <small>(MT : mod-tap)</small>
+
+- résolution des déviations ulnaires de la main droite
+
+Compter 2 h à 2 jours pour s’y faire.
+
+---
+## Étape 2c : symboles
+
+[![Couche Symboles](images/arsenik_sym.svg)](images/arsenik_sym.svg)
+
+<kbd>AltGr</kbd> ➔ 30 symboles de programmation ANSI
+
+- placement optimisé fréquence / enchainements
+- on reste en dactylo ➔ plus de confort, moins d’erreurs
+
+Immédiat avec un layout Lafayette ; compter un mois sinon.
+
+---
+## Corona #3 (1912)
+
+![Corona #3](images/keyboards/1912_Corona3.png)
+
+<!-- Utilisée par Hemingway quand il était journaliste. -->
+
+---
+## Étape 3 : home-row mods (HRM)
+
+<kbd>S</kbd> <kbd>D</kbd> <kbd>F</kbd> maintenus ➔
+<kbd>Super</kbd> <kbd>Ctrl</kbd> <kbd>Alt</kbd> /
+<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⌃</kbd> 
+
+[![Couche NavNum](images/arsenik_iso_hrm.svg)](images/arsenik_iso_hrm.svg)
+
+- <kbd>Alt</kbd> devient <kbd>Shift</kbd>,
+  33 touches suffisent !
+- réduction des mouvements et combinaisons facilitées
+
+Compter un mois pour s’y faire.
+
+---
+## [Space Cadet](https://docs.qmk.fm/features/space_cadet) vs
+   [Permissive Hold](https://zmk.dev/docs/keymaps/behaviors/hold-tap)
+
+Le timing des HRM est **très** délicat.
+
+- layer-taps : <kbd>Shift</kbd> et <kbd>Sym</kbd> sous les pouces
+  - priorité au “hold”
+  - Entrée/Backspace ne sont émis que si la touche est relâchée sans
+    chevauchement avec une autre touche (= Space Cadet)
+  - aucune pénalité de vitesse pour Shift et Sym
+- home-row mods : <kbd>S</kbd> <kbd>D</kbd> <kbd>F</kbd> /  <kbd>L</kbd> <kbd>K</kbd> <kbd>J</kbd>
+  - priorité au “tap”
+  - Super/Alt/Ctrl ne sont émis que si la touche est maintenue au moins 300 ms
+    (voire 150 ms avec la pratique)
+  - certain·e·s préfèrent qu’ils soient émis dès chevauchement avec une autre
+    touche (= Permissive Hold)
+  - on accepte une pénalité de vitesse pour les raccourcis clavier
+
+---
+## Apprentissage pas-à-pas
+
+Les options s’activent une à une dans `kanata.kbd` :
+
+1. angle-mod (activé par défaut)
+2. layer-taps : NavNum, Entrée/Backspace, Symboles
+3. home-row mods
+
+**Ne pas griller les étapes !**
+
+Chaque étape apporte un **gros** gain de confort.
+
+Tout le monde n’arrive pas à maitriser les HRM<br> => les [Callum
+mods](https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum)
+peuvent être une alternative.
+
+---
+## Évaluation ergonomique
+
+---
+continued: true
+
+- favoriser une posture correcte
+
+---
+continued: true
+
+- <span class="green">supprimer les mouvements inconfortables ✅</span>
+  <br>(susceptibles de causer des TMS)
+  - <span class="green">déviations ulnaires ✅</span>
+  - <span class="green">extensions latérales des auriculaires ✅</span>
+
+---
+continued: true
+
+- <span class="green">diminuer le travail des doigts ✅</span>
+  - Travail = Force × <span class="green">Déplacement</span>
+
+---
+continued: true
+
+- <span class="green">faciliter les actions rapides ✅</span>
+  - <kbd>Alt</kbd>-<kbd>Tab</kbd>,
+  <kbd>Ctrl</kbd>-<kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd>,
+  <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>…
+
+---
+continued: true
+
+- <span class="green">réduire les erreurs de saisie ✅</span>
+
+---
+## Limites du clavier “standard”
+
+- barre d’espace parfois trop grande
+  - 5u c’est OK — mais 6.25u non, 7u vraiment pas
+  - <kbd>Shift</kbd> et <kbd>Sym</kbd> pourraient être plus confort
+- keyboard ghosting
+  - certains combos peuvent être bloqués par la membrane
+- géométrie perfectible
+
+Arsenik via Kanata se veut une *bonne* solution sur laptop :
+
+- grâce à la barre d’espace en 5u ;
+- pour *la plupart* des utilisateurices.
+
+Pour une *très bonne* solution, il faut un clavier ergonomique.
+
+---
+template: inverse
+
+# Arsenik sur clavier ergo
+
+![Arsenik sur clavier ergo](images/arsenik_ortho.svg)
+
+---
+## QMK, ZMK, Oryx, Chrysalis…
+
+Arsenik est applicable au *firmware* des claviers programmables :
+
+- QMK : libre (GPL), supporte quasi tous les claviers
+  - gère l’émulation de pointeur
+- ZMK : libre (MIT), un peu moins de claviers supportés
+  - gère les claviers sans fil via une bibliothèque non libre
+
+Certains sont configurables via des interfaces graphiques :
+
+- Vial : fork libre de QMK
+- ZMK Studio (TODO)
+- Chrysalis : libre, pour les claviers de Keyboardio
+- Oryx : non-libre, pour les claviers de la marque ZSA
+
+
+---
+## Ergo ? Par ergo ?
+
+Petit jeu : les claviers suivants…
+
+- … sont-ils ergonomiques ?
+- … sont-ils meilleurs qu’un clavier ISO + Arsenik ?
+
+Trois notes possibles :
+
+- ✅ apport ergonomique *très* significatif sur ISO + Arsenik
+- 🐮 compromis ergonomie/prix moins significatif
+- ❌ pas vraiment ergonomique
+
+---
+## MS 4000 Ergo
+
+![MS 4000 Ergo](images/keyboards/ms4000ergo.jpg)
+
+---
+continued: true
+
+❌ Léger gain de posture mais non, vraiment pas.
+
+---
+## Kinesis Contour / Advantage
+
+![kinesis](images/keyboards/kinesis.png)
+
+---
+continued: true
+
+🐮 $$$, très épais, touches de pouce mal placées<br>
+❤️  1992, premier clavier vraiment ergonomique !
+
+---
+## TypeMatrix 2030
+
+![typematrix](images/keyboards/typematrix.png)
+
+---
+continued: true
+
+🐮 $, membrane, non programmable <small>(mais OK avec Arsenik)</small><br>
+❤️  2007, Entrée et Backspace au centre
+
+---
+## ErgoDox <small>(ZSA Moonlander, Dygma Defy…)</small>
+
+![ErgoDox](images/keyboards/ergodox.png)
+
+---
+continued: true
+
+🐮 $$, croisement Kinesis &amp; TypeMatrix<br>
+❤️  2010, open hardware
+
+---
+## 4×6 : OLKB Preonic ❤️
+
+![OLKB Preonic](images/keyboards/preonic.png)
+
+---
+continued: true
+
+🐮 $, mains rapprochées<br>
+❤️  2015, open hardware, QMK, prise en main facile
+
+---
+## 3×6 : OLKB Planck ❤️
+
+![OLKB Planck](images/keyboards/planck_drop.png)
+
+---
+continued: true
+
+🐮 $, mains rapprochées<br>
+❤️  2015, open hardware, QMK, 1DFH
+
+---
+## Aucun clavier noté ✅ ?!
+
+---
+continued: true
+
+Un *très bon* clavier ergonomique :
+
+- a un décalage **vertical**<br>(moins de mouvement et d’erreurs, apprentissage)
+- permet d’avoir de l’**angle** entre les mains (posture)
+- a des contacts **mécaniques** (réduction de l’effort)
+- est **compact** (réduction de mouvement… et de prix !)
+
+---
+continued: true
+
+Bonus pour les expert·e·s :
+
+- gros décalage vertical (réduction de mouvements)
+- contacts légers (réduction d’effort)
+- en deux parties (split + tenting : moins de pronation)
+
+---
+## 4×6 : ✅ Keyboardio Model 01/100 ❤️
+
+![Model01](images/keyboards/keyboardio.jpg)
+
+---
+## 4×6 : ✅ Iris56 (Lily58…)
+
+![Iris](images/keyboards/iris.jpg)
+
+---
+## 3×6 : ✅ Corne42
+
+![Corne42](images/keyboards/corne42.png)
+
+42 touches, split, petit décalage vertical
+
+Le plus gros clavier qui reste 1DFH !
+
+---
+## 3×5 : ✅ Ferris ❤️
+
+![Ferris34](images/keyboards/ferris34.jpg)
+
+34 touches, split, gros décalage vertical
+
+Alternative monobloc : Keyboardio Atreus
+
+---
+## Selenium
+
+Une variante d’Arsenik pour 34+ touches :
+
+[![Selenium](images/selenium.svg)](images/selenium.svg)
+
+- couche “NumRow” : chiffres en home-row
+- couche “VimNav” : HJKL à droite, raccourcis à gauche
+  - => adapté aux dispositions non QWERTY
+
+---
+## Évaluation ergonomique
+
+---
+continued: true
+
+- <span class="green">favoriser une posture correcte ✅</span>
+
+---
+continued: true
+
+- <span class="green">supprimer les mouvements inconfortables</span>
+  <br>(susceptibles de causer des TMS)
+  - <span class="green">déviations ulnaires</span>
+  - <span class="green">extensions latérales des auriculaires</span>
+
+---
+continued: true
+
+- <span class="green">diminuer le travail des doigts</span>
+  - Travail = <span class="green">Force</span> ✅
+    × <span class="green">Déplacement</span>
+
+---
+continued: true
+
+- <span class="green">faciliter les actions rapides</span>
+  - <kbd>Alt</kbd>-<kbd>Tab</kbd>,
+  <kbd>Ctrl</kbd>-<kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd>,
+  <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>…
+
+---
+continued: true
+
+- <span class="green">réduire les erreurs de saisie</span>
+
+---
+template: inverse
+
+# Dispositions ergonomiques
+
+Arsenik est une **configuration** de clavier.<br>
+Quelles sont les **dispositions** ergonomiques ?
+
+---
+## Ergo ? Pas Ergo ?
+
+Les dispositions suivantes sont-elles ergonomiques ?
+
+- QWERTY
+- Dvorak
+- AZERTY
+- Bépo
+
+---
+## Critères supplémentaires
+
+![Accessibilité selon Workman](images/layouts/access.svg)
+
+- accessibilité des touches (Workman)
+  - les lettres fréquentes vont en priorité sur les bons emplacements
+  - <small>fun fact : Workman ne cherche même pas à qualifier les touches
+    excentrées</small>
+- confort des enchainements — on veut limiter :
+  - le taux de digrammes de même doigt (SFU)
+  - les ciseaux et extensions (LSB)
+
+---
+class: fullscreen
+![Qwerty](images/layouts/qwerty_en.png)
+---
+class: fullscreen
+![Dvorak](images/layouts/dvorak_en.png)
+
+---
+## QWERTY vs Dvorak
+
+- QWERTY est très mal équilibré :
+  - index souvent en extension
+  - beaucoup de bigrammes de même doigt (SFU = 5,7 % en anglais)
+- Dvorak résout certain problèmes…
+  - diminue la distance parcourue
+  - divise par 2 le taux de bigrammes de même doigt (SFU = 2,7 %)
+- … mais en crée d’autres :
+  - explose la charge de l’auriculaire droit
+  - perd les raccourcis ZXCV et HJKL<br>
+    (Arsenik/Selenium permet de contourner)
+
+---
+## Dvorak ?
+
+- breveté en 1936
+- développé pour les machines à écrire mécaniques
+  - l’alternance de mains est nécessaire (course des touches)
+  - les raccourcis clavier n’existent pas
+
+Aucune étude scientifique n’a pu démontrer un intérêt ergonomique — même à
+l’époque des machines à écrire.
+
+Le gain de confort est réel, à condition de supporter la charge de l’auriculaire
+droit.
+
+---
+class: fullscreen
+![Azerty (fr)](images/layouts/azerty_fr.png)
+---
+class: fullscreen
+![Bépo (fr)](images/layouts/bepo_fr.png)
+---
+class: fullscreen
+![Bépo (en)](images/layouts/bepo_en.png)
+
+---
+## AZERTY vs Bépo
+
+- AZERTY est un QWERTY dégradé :
+  - index souvent en extension
+  - beaucoup de bigrammes de même doigt (SFU = 7,9 % en français)
+  - <kbd>A</kbd> et <kbd>É</kbd> sont très mal placés
+- Bépo résout certain problèmes…
+  - diminue la distance parcourue
+  - divise par 3 le taux de bigrammes de même doigt (SFU = 2,7 %)
+  - améliore le support typographique
+- … mais en crée d’autres :
+  - explose la charge de l’auriculaire droit en français
+  - devient totalement rédhibitoire en anglais
+  - perd les raccourcis ZXCV et HJKL<br>
+    (Arsenik/Selenium permet de contourner)
+  - **requiert 7 colonnes sous la main droite**<br>
+    => incompatible avec les claviers ergonomiques compacts
+
+---
+## Évaluation ergonomique
+
+---
+continued: true
+
+- favoriser une posture correcte
+
+---
+continued: true
+
+- <span class="red">supprimer les mouvements inconfortables ❌</span>
+  <br>(susceptibles de causer des TMS)
+  - <span class="red">déviations ulnaires ❌</span>
+  - <span class="red">extensions latérales des auriculaires ❌</span>
+
+---
+continued: true
+
+- <span class="green">diminuer le travail des doigts ✅</span>
+  - Travail = Force × <span class="green">Déplacement</span>
+
+---
+continued: true
+
+- <span class="red">faciliter les actions rapides ❌</span>
+  - <kbd>Alt</kbd>-<kbd>Tab</kbd>,
+  <kbd>Ctrl</kbd>-<kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd>,
+  <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>…
+
+---
+continued: true
+
+- réduire les erreurs de saisie
+
+---
+## Bépo, c’est pas ergo. 😥
+
+<small>(Ayant fait partie des contributeurs, je suis fautif aussi.)</small>
+
+- On n’a pas remis en question l’approche Dvorak :
+  - “Dvorak c’est ergo, on fait un Dvorak francophone, donc c’est ergo”
+  - finalisé en 2008, deux ans après Colemak
+- On a fait des choix discutables :
+  - les claviers ISO sont privilégiés aux claviers ergonomiques
+  - beaucoup de lettres affectées à l’auriculaire droit
+  - pas d’équilibrage de charge des doigts
+  - l’anglais est hors-sujet
+- C’était avant la révolution 1DFH.
+
+Voir cette conférence du CdL 2023 :<br>
+[Ergonomie des dispositions de claviers : l’ère
+post-Dvorak](https://nuclear-squid.github.io/slides/cdl2023/)
+
+---
+## Arsenik, c’est ergo.
+
+Arsenik est pensé pour diverses dispositions :
+
+- QWERTY et Dvorak côté anglophone
+- AZERTY et Bépo côté francophone
+
+Et il y a des dispositions qui sont pensées pour Arsenik !<br>
+<small>(conception 1DFH et couche de symboles en AltGr)</small>
+
+- [QWERTY-Lafayette](https://qwerty-lafayette.org),
+  une adaptation de QWERTY pour les francophones
+- [Bépolar](https://ergol.org/lafayette/#b%C3%A9polar),
+  une adaptation de Bépo pour les claviers compacts
+- [Ergo‑L](https://ergol.org), qui est présenté demain à 15h
+
+https://ergol.org/alternatives
+
+---
+class: fullscreen
+![Dvorak](images/layouts/dvorak_en.png)
+---
+class: fullscreen
+![Ergo‑L](images/layouts/ergol_en.png)
+---
+class: fullscreen
+![Bépo](images/layouts/bepo_fr.png)
+---
+class: fullscreen
+![Ergo‑L](images/layouts/ergol_fr.png)
+
+---
+## Compatibilité clavier / disposition
+
+<!-- ![Adaptations](images/layouts/adaptations.png) -->
+Arsenik facilite l’utilisation de claviers ergonomiques.
+
+- claviers 4×6 :
+  - **Azerty** : couche Sym (remplace AltGr)
+  - **Bépo** : couche Sym (en sus) + layer-taps + <kbd>W</kbd> <kbd>Ç</kbd> à déplacer
+  - **Ergo‑L**, **Bépolar**, **Lafayette** : 🚀
+- claviers 3×6 : ❤️
+  - **Bépo** : couche Sym (en sus) + layer-taps + <kbd>W</kbd> <kbd>Ç</kbd> à déplacer
+  - **Ergo‑L**, **Bépolar**, **Lafayette** : 🚀
+- claviers 3×5 : ❤️ ❤️ ❤️
+  - **Ergo‑L**, **Bépolar**, **Lafayette** : layer-taps + home-row mods
+
+https://ergol.org/claviers
+
+---
+template: inverse
+
+# Lunch is coming
+
+![Coin-coin et toutou](images/duck.png)
+
+---
+## Vim, Vimium, i3/Sway
+
+Un autre axe d’amélioration de l’ergonomie clavier :
+
+- Vim, Neovim, Kakoune, Helix, Doom-Emacs…
+  - gain d’ergonomie **énorme** pour un usage tech
+- Vimium : naviguer au clavier sur Firefox ou Chrome
+- i3/Sway : gérer ses fenêtres au clavier
+  - ou Aerospace (macOS), GlazeWM (Windows), PaperWM (Linux)
+
+Vaste sujet !
+
+- JdLL 2024 : [Ergonomie vimiste](https://fabi1cazenave.github.io/slides/2024-jdll-vim-ergo/)
+- Paris, Lyon, Grenoble : https://tuppervim.org
+- Atelier Vim demain de 14h à 16h
+
+On peut complètement se passer de souris.
+
+---
+## Ergonomie clavier : la sobriété heureuse
+
+- pré-requis : posture + dactylo
+- **Arsenik** : supprimer les touches excentrées
+- bonus : apprendre Vim*
+- bonus : passer à une disposition 1DFH
+  - Azerty ➜ Qwerty-Lafayette
+  - Bépo ➜ Bépolar
+  - Ergo‑L 🚀
+
+Sobriété ? Ergonomie minimaliste ?
+
+- les meilleurs claviers sont les plus compacts
+- l’achat du clavier est à faire en dernier<br>
+  <small>(ou en même temps que l’apprentissage d’une dispo ?)</small>
+
+Pour creuser le sujet :
+[JdLL 2023](https://pretalx.jdll.org/jdll2023/talk/CMY3E8/)
+([diaporama](https://fabi1cazenave.github.io/slides/2023-jdll/),
+[vidéo](https://videos-libr.es/w/rG2R4pSRHBrCJ7cfadw78S)).
+
+---
+## Les Ergonautes ❤️
+
+🚀 [ergol.org](https://ergol.org)
+/ 🦆 [discord.gg/5xR5K3nAFX](https://discord.gg/5xR5K3nAFX)
+
+- communauté francophone active et enthousiaste
+- utilisation et conception :
+  - de dispositions de clavier (Ergo‑L, Bépolar, Lafayette…)
+  - de configurations de clavier (Arsenik, r39…)
+  - de claviers tout court ^^
+- libriste, diverse, inclusive
+
+✪ [github.com/OneDeadKey](https://github.com/OneDeadKey)
+
+- développement (en anglais) d’outils liés à l’ergo clavier
+- présentation [Kalamine](https://github.com/OneDeadKey) aujourd’hui à 17h30
+
+---
+## Conclusion
+
+- apprendre à taper en dactylo
+  - angle-mod 🚀
+- faire venir les touches sous les doigts, et non l’inverse
+  - layer-taps 🚀 🚀
+  - homerow-mods 🚀 🚀 🚀
+- les meilleurs claviers sont les plus compacts
+  - et votre clavier actuel est déjà très bon !
+- Bépo et Dvorak n’apportent rien de net en ergonomie
+  - ils restent intéressants pour la dactylographie (SFU)
+
+**Ne ratez pas la présentation d’[Ergo‑L](https://ergol.org) demain à 15h !**<br>
+Infos sur les stands OneDeadKey et Ergodis.
+
+[github.com/OneDeadKey/arsenik](https://github.com/OneDeadKey/arsenik)<br>
+[ergol.org/claviers/arsenik](https://ergol.org/claviers/arsenik)
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+    </textarea>
+    <script src="js/remark.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
