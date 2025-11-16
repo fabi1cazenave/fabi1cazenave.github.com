@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="130 60 640 240">
+
+  <style>
+    rect {
+      fill: #fdfdfd;
+      stroke: #333;
+      stroke-width: .5px;
+    }
+    text {
+      fill: #666;
+      font: normal 20px sans-serif;
+      text-align: center;
+      text-anchor: middle;
+    }
+    .dualKey {
+      fill: #eee;
+      transform: translateY(26px); /* ignored by Inkscape */
+    }
+    path.symbol {
+      stroke: #888;
+      stroke-width: 3px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    #row_AD { transform: translate(64px,  64px); }
+    #row_AC { transform: translate(64px, 124px); }
+    #row_AB { transform: translate(64px, 184px); }
+    #row_AA { transform: translate(64px, 244px); }
+    .left   { transform: translate(-15px, 0); }
+    .right  { transform: translate(+15px, 0); }
+
+    .shortcut { font-size: 10px; transform: translate(-3px,  -1px); }
+    .layerSym { font-weight: normal; }
+    .layerMod { font-weight: normal; font-size: 14px; }
+    .layerNav { font-weight: bold; transform: translate(-2px, 22px); }
+
+    .layerMod, .colorMod { fill: #333; }
+    .layerSym, .colorSym { fill: blue; }
+    .layerNav, .colorNav { fill: #e33; }
+    #row_AA    .level2   { fill: #333; display: none; }
+  </style>
+
+  <!-- custom icons, 48x48, inspired by Denali -->
+  <defs>
+    <path class="symbol" transform="scale(0.5)" id="glyph_backspace" d="M22,19l10,10 M22,29l10-10 M6,24l10,13h26v-26h-26z"/>
+    <path class="symbol" transform="scale(0.5)" id="glyph_return"    d="M42,13V27H6 m8-8l-8,8l8,8"/>
+    <path class="symbol" transform="scale(0.5)" id="glyph_tab"       d="M6,24h27 m-6-8l8,8l-8,8 M42,12V36"/>
+    <path class="symbol" transform="scale(0.5)" id="glyph_shift"     d="M24,7l14,20h-7v16h-14v-16h-7l14,-20"/>
+    <path class="symbol" transform="scale(0.5)" id="glyph_caps"      d="M24,7l14,20h-7v6h-14v-6h-7l14,-20 M31,38v5h-14v-5z"/>
+  </defs>
+
+  <g id="row_AD">
+    <g class="left">
+      <g transform="translate(90)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <!-- <rect width="48" height="26" rx="2" ry="2" class="dualKey"/> -->
+        <text x="12.8" y="20.6" class="level2">Q</text>
+        <!-- <text x="38.0" y="20.6" class="layerNav shortcut">caps</text> -->
+        <!-- <text x="25.5" y="42.8" class="layerNav shortcut">NumPad</text> -->
+      </g>
+      <g transform="translate(150)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">W</text>
+        <text x="38.0" y="20.6" class="layerNav shortcut">close</text>
+      </g>
+      <g transform="translate(210)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">E</text>
+        <text x="38.0" y="20.6" class="layerNav">⎗</text>
+      </g>
+      <g transform="translate(270)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">R</text>
+        <text x="38.0" y="20.6" class="layerNav">⎘</text>
+      </g>
+      <g transform="translate(330)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">T</text>
+      </g>
+    </g>
+    <g class="right">
+      <g transform="translate(390)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">Y</text>
+        <text x="38.0" y="20.6" class="layerNav">⇱</text>
+      </g>
+      <g transform="translate(450)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">U</text>
+        <text x="38.0" y="20.6" class="layerNav">⇟</text>
+      </g>
+      <g transform="translate(510)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">I</text>
+        <text x="38.0" y="20.6" class="layerNav">⇞</text>
+      </g>
+      <g transform="translate(570)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">O</text>
+        <text x="38.0" y="20.6" class="layerNav">⇲</text>
+      </g>
+      <g transform="translate(630)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">P</text>
+      </g>
+    </g>
+  </g>
+
+  <g id="row_AC">
+    <g class="left">
+      <g transform="translate(90)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">A</text>
+        <text x="38.0" y="20.6" class="layerNav shortcut">all</text>
+      </g>
+      <g transform="translate(150)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">S</text>
+        <text x="38.0" y="20.6" class="layerNav shortcut">save</text>
+      </g>
+      <g transform="translate(210)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">D</text>
+        <text x="38.0" y="20.6" class="layerNav">⇤</text>
+      </g>
+      <g transform="translate(270)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">F</text>
+        <text x="38.0" y="20.6" class="layerNav">⇥</text>
+      </g>
+      <g transform="translate(330)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">G</text>
+      </g>
+    </g>
+    <g class="right">
+      <g transform="translate(390)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">H</text>
+        <text x="38.0" y="20.6" class="layerNav">←</text>
+      </g>
+      <g transform="translate(450)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">J</text>
+        <text x="38.0" y="20.6" class="layerNav">↓</text>
+      </g>
+      <g transform="translate(510)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">K</text>
+        <text x="38.0" y="20.6" class="layerNav">↑</text>
+      </g>
+      <g transform="translate(570)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">L</text>
+        <text x="38.0" y="20.6" class="layerNav">→</text>
+      </g>
+      <g transform="translate(630)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <!-- <rect width="25" height="26" rx="2" ry="2" class="dualKey"/> -->
+        <text x="12.8" y="20.6" class="level2">:</text>
+        <!-- <text x="15" y="43.4" class="layerNav shortcut" style="font-weight: bold;">Fn</text> -->
+      </g>
+    </g>
+  </g>
+
+  <g id="row_AB">
+    <g class="left">
+      <g transform="translate(90)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g>
+          <text x="12.8" y="20.6" class="level2">Z</text>
+          <text x="38.0" y="20.6" class="layerNav shortcut">undo</text>
+        </g>
+      </g>
+      <g transform="translate(150)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g>
+          <text x="12.8" y="20.6" class="level2">X</text>
+          <text x="38.0" y="20.6" class="layerNav shortcut">cut</text>
+        </g>
+      </g>
+      <g transform="translate(210)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g>
+          <text x="12.8" y="20.6" class="level2">C</text>
+          <text x="38.0" y="20.6" class="layerNav shortcut">copy</text>
+        </g>
+      </g>
+      <g transform="translate(270)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g>
+          <text x="12.8" y="20.6" class="level2">V</text>
+          <text x="38.0" y="20.6" class="layerNav shortcut">paste</text>
+        </g>
+      </g>
+      <g transform="translate(330)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <g>
+          <text x="12.8" y="20.6" class="level2">B</text>
+        <text x="38.0" y="20.6" class="layerNav shortcut">redo</text>
+        </g>
+      </g>
+    </g>
+    <g class="right">
+      <g transform="translate(390)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">N</text>
+        <text x="38.0" y="20.6" class="layerNav">🖰</text>
+        <text x="38.0" y="30.6" class="layerNav">←</text>
+      </g>
+      <g transform="translate(450)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="20.6" class="level2">M</text>
+        <text x="30.0" y="20.6" class="layerNav">🖰</text>
+        <text x="42.0" y="20.6" class="layerNav">↓</text>
+      </g>
+      <g transform="translate(510)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="43.4" class="level1">,</text>
+        <text x="12.8" y="20.6" class="level2">&lt;</text>
+        <text x="30.0" y="20.6" class="layerNav">🖰</text>
+        <text x="42.0" y="20.6" class="layerNav">↑</text>
+      </g>
+      <g transform="translate(570)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="43.4" class="level1">.</text>
+        <text x="12.8" y="20.6" class="level2">&gt;</text>
+        <text x="38.0" y="20.6" class="layerNav">🖰</text>
+        <text x="38.0" y="30.6" class="layerNav">→</text>
+      </g>
+      <g transform="translate(630)">
+        <rect width="52" height="52" rx="5" ry="5"/>
+        <text x="12.8" y="43.4" class="level1">/</text>
+        <text x="12.8" y="20.6" class="level2">?</text>
+      </g>
+    </g>
+  </g>
+
+  <g id="row_AA">
+    <g transform="translate(180)">
+      <rect width="82" height="52" rx="5" ry="5"/>
+      <rect width="41" height="26" rx="2" ry="2" class="dualKey"/>
+      <text x="20.5" y="42.8" class="layerMod">shift</text>
+      <use x="8" y="2" xlink:href="#glyph_backspace"/>
+    </g>
+    <g transform="translate(270)">
+      <rect width="232" height="52" rx="5" ry="5"/>
+      <rect width="41" height="26" rx="2" ry="2" class="dualKey" style="fill: #fbb;"/>
+      <text x="20.5" y="42.8" class="layerMod colorNav">nav</text>
+    </g>
+    <g transform="translate(510)">
+      <rect width="82" height="52" rx="5" ry="5"/>
+      <rect width="41" height="26" rx="2" ry="2" class="dualKey"/>
+      <text x="20.5" y="42.8" class="layerMod colorSym">altgr</text>
+      <use x="8" y="2" xlink:href="#glyph_return"/>
+    </g>
+  </g>
+
+</svg>

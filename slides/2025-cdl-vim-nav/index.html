@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Navigation Vim : la vie après HJKL</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+layout: false
+
+# Navigation Vim :<br> la vie après HJKL
+Vim, Neovim, Doom-Emacs, Kakoune, Helix…
+
+1. [les déplacements](#7)
+2. [les dispositions optimisées](#16)
+3. [manipulation de <i>text-objects](#27)</i>
+5. [navigation dans un projet](#32)
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+
+---
+## Prérequis : édition modale
+
+---
+continued: true
+
+- <kbd>Esc</kbd> **normal** : afficher et manipuler du texte
+- <kbd>v</kbd> **visuel** : visualiser une sélection de texte
+- <kbd>i</kbd> **insertion** : ajouter (et supprimer) du texte
+- <kbd>:</kbd> **commande** : options et commandes complexes
+
+---
+continued: true
+
+On passe l’essentiel du temps en mode *normal* :
+
+- organisation, reformatage…
+- **déplacements** dans un document
+- **navigation** dans une base de code
+
+---
+## Prérequis : flèches, souris
+
+---
+continued: true
+
+![no](images/no.jpg)
+
+---
+template: inverse
+
+# Les déplacements
+
+![ADM-3A](images/adm-3a-keyboard.jpg)
+
+---
+## L’héritage
+
+Standard ASCII (1963) :
+
+- <kbd>Ctrl</kbd>-<kbd>h</kbd> = Backspace
+- <kbd>Ctrl</kbd>-<kbd>j</kbd> = Line Feed
+
+<img style="float: right; width: 50%;" src="images/adm-3a.jpg">
+
+Terminal [ADM-3A](https://en.wikipedia.org/wiki/ADM-3A#Legacy) (1976) :
+
+- <kbd>Ctrl</kbd>-<kbd>k</kbd> = Up
+- <kbd>Ctrl</kbd>-<kbd>l</kbd> = Right
+- <kbd>Ctrl</kbd>-<kbd>^</kbd> = Home
+- <kbd>Ctrl</kbd>-<kbd>z</kbd> = Clear Screen
+
+---
+## HJKL ❤️
+
+= commandes **positionnelles** de déplacement :
+- quasi en homerow (position dactylo)
+- bien plus efficaces que les flèches ou la souris en mode *normal*
+
+Ça fonctionne avec d’autres applications :
+- <kbd>j</kbd><kbd>k</kbd> : gmail, Xitter, emacs, screen, less/more/most…
+- <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd> : i3/Sway (*ahem*), Niri, Ranger/Yazi, NetHack…
+
+<small>Nota, les GUIs ont aussi des commandes positionnelles :<br>
+  <kbd>Ctrl</kbd>-<kbd>z</kbd><kbd>x</kbd><kbd>c</kbd><kbd>v</kbd> (≠ sémantiques)</small>
+---
+## JK, vraiment ?
+
+TL;PL : oui, avec modération (= sans répétitions)
+
+- <kbd>/</kbd>, <kbd>?</kbd> : rechercher vers le haut / vers le bas (+ <kbd>n</kbd>, <kbd>N</kbd>)
+- <kbd>*</kbd>, <kbd>#</kbd> : idem, avec le mot sous le curseur (PRO-TIP !)
+- <kbd>{</kbd>, <kbd>}</kbd> : sauter à la ligne vide précédente / suivante
+- <kbd>g</kbd><kbd>g</kbd>, <kbd>G</kbd> : sauter en début / fin de fichier
+
+`~/.vimrc`
+```vim
+    " recherche incrémentale
+    set hlsearch
+    set incsearch
+```
+
+---
+## HL, vraiment ?
+
+Mouahahahahaha, nope.
+
+- <kbd>w</kbd>, <kbd>b</kbd> : mot suivant / précédent
+- <kbd>W</kbd>, <kbd>B</kbd> : MOT suivant / précédent
+  <small>(= délimité par des espaces)</small>
+- <kbd>e</kbd>, <kbd>g</kbd><kbd>e</kbd> : fin de mot suivant / précédent
+- <kbd>E</kbd>, <kbd>g</kbd><kbd>E</kbd> : fin de MOT suivant / précédent
+  <small>(= délimité par des espaces)</small>
+- <kbd>^</kbd>, <kbd>$</kbd> : début / fin de ligne
+
+---
+continued: true
+
+**Tip :** corriger mot par mot plutôt que caractère par caractère fait
+progresser en dactylo, réduisant ainsi les erreurs.
+
+---
+## Mieux que WBE ?
+
+Pour éviter les répétitions de <kbd>w</kbd>, <kbd>b</kbd>, <kbd>e</kbd>…
+
+- <kbd>f</kbd>×, <kbd>F</kbd>× : chercher la lettre [×] suivante / précédente
+- <kbd>t</kbd>×, <kbd>T</kbd>× : atteindre la lettre [×] suivante / précédente
+- <kbd>;</kbd>, <kbd>,</kbd> : occurrence suivante / précédente
+
+---
+continued: true
+
+Greffons utiles :
+
+- Vim : [EasyMotion](https://github.com/easymotion/vim-easymotion) <br>
+  <small></sma>Fanf,ingTastic;, sneak, improvedft, clever-f, vim-extended-ft…</small>
+- Neovim : [flash](https://github.com/folke/flash.nvim),
+    [leap](https://github.com/ggandor/leap.nvim)
+- Kakoune : [Hop.kak](https://github.com/hadronized/hop.kak)
+
+TL;PL : <kbd>s</kbd> remplace <kbd>f</kbd> et <kbd>t</kbd> de façon
+bidirectionnelle et non limitée à la ligne courante (Vimium-like).
+
+---
+## 8 mouvements indispensables
+
+Les indispensables, verticalement :
+
+- <kbd>j</kbd>, <kbd>k</kbd> : ligne à ligne
+- <kbd>/</kbd>, <kbd>?</kbd> : recherche
+
+Les indispensables, horizontalement :
+
+- <kbd>w</kbd>, <kbd>b</kbd> : mot à mot
+- <kbd>^</kbd>, <kbd>$</kbd> : début / fin de ligne
+
+Tous les autres :
+
+`:help navigation`
+
+---
+template: inverse
+
+# HJKL et dispos optimisées
+
+![Ergo‑L](images/ergol_altgr.svg)
+
+Dvorak, Bépo, Ergol…
+
+---
+## Dispositions optimisées
+
+- Dvorak (1936), [Bépo](https://bepo.fr)…
+  - contexte = machines à écrire + optimisation naïve
+  - ⇒ favoriser l’alternance des mains
+- Colemak (2006), Workman, [Ergol](https://ergol.org)…
+  - contexte = claviers informatique + optimisation poussée
+  - ⇒ favoriser les roulements et enchaînements
+  - ⇒ préserver les raccourcis usuels <small>(copier, coller…)</small>
+
+---
+continued: true
+
+Problème :
+
+- aucune ne préserve un pavé <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd>
+- <kbd>j</kbd> et <kbd>k</kbd> sont deux des quatre lettres les plus rares <br>
+  en français et en anglais
+
+---
+## Remapper HJKL
+
+![Bépo vim](images/vim-bepo-066.png)
+
+---
+## Remapper HJKL
+
+![no](images/no.jpg)
+
+---
+## Ne PAS remapper HJKL !
+
+Pourquoi ?
+- remapper <kbd>c</kbd><kbd>t</kbd><kbd>s</kbd><kbd>r</kbd> (Bépo) ou
+  <kbd>l</kbd><kbd>r</kbd><kbd>t</kbd><kbd>i</kbd> (Ergol) déplace
+  des commandes **sémantiques**
+- les déplacements Vim ne se limitent pas à
+<kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd>
+- seuls <kbd>j</kbd><kbd>k</kbd> sont réellement utiles en *homerow*
+
+---
+continued: true
+
+Constat après ~15 ans d’ateliers Vim :
+- remapper ralentit fortement l’apprentissage
+- beaucoup de vimistes <small>(et quasi tous les Bépoètes…)</small><br>
+  sont limités aux déplacements case-à-case
+
+---
+## Alternative : layer de navigation
+
+![Arsenik/Selenium](images/vim_navigation.svg)
+
+- [Kanata](https://github.com/jtroo/kanata) +
+  [Arsenik](https://github.com/OneDeadKey/arsenik)/Selenium côté PC (software)
+- QMK / ZMK / Keyberon côté clavier (firmware)
+- ➔ disponible pour toutes les applications
+- ➔ recommandé *aussi* en Qwerty / Azerty
+
+---
+## Alternative : disposition *ergonomique*
+
+![Ergo‑L](images/ergol_altgr.svg)
+
+- [Ergol](https://ergol.org) a `+`/`-` en <kbd>AltGr</kbd>-<kbd>[j]</kbd>/<kbd>[k]</kbd>
+  <br> <small>= quasi-équivalent à <kbd>j</kbd> <kbd>k</kbd> </small>
+  <br> <small>+ commandes de déplacements en <kbd>AltGr</kbd> + main gauche</small>
+- Bépolar = adaptation de Bépo avec le <kbd>AltGr</kbd> d’Ergol
+- on peut utiliser [Kalamine](https://github.com/OneDeadKey/kalamine) pour modifier sa dispo
+
+---
+## Mappings utiles
+
+Pour les dispos optimisées :
+- Ergol, Bépo : inverser <kbd>,</kbd> et <kbd>;</kbd>
+- Ergol : mapper <kbd>+</kbd> et <kbd>-</kbd> sur <kbd>gj</kbd> et <kbd>gk</kbd>.
+- Bépo : mapper <kbd>é</kbd> sur <kbd>w</kbd>.
+
+Dans le cas général :
+- mapper <kbd>U</kbd> sur <kbd>Ctrl</kbd>-<kbd>r</kbd>
+- mapper <kbd>Backspace</kbd> sur <kbd>Ctrl</kbd>-<kbd>w</kbd> en mode insertion
+
+---
+## Témoignage
+
+> Après une semaine de test y a pas photo : ne pas utiliser <kbd>h</kbd> et <kbd>l</kbd> c’est le pied !
+>
+> Le fait de ne pas remapper les touches par défaut en Ergo‑L est LE *game changer* :
+> ça facilite énormément l’apprentissage sans avoir à se dire « ah mais ce truc,
+> ça se fait comment avec mes mappings ? ».
+>
+> J’ai plus progressé en Vim en quelques jours grâce à ça qu’en quelques années
+> avec mes mappings Bépo hasardeux.
+
+— [Vincent Jousse](https://ergol.org/articles/vim_pour_les_ergonautes/vjousse),
+auteur de [Vim pour les humains](https://vimebook.com/fr)
+
+---
+template: inverse
+
+# Les text-objects
+
+![colvert](images/flying_mallard.jpg)
+
+---
+## text-objects : définition
+
+`modifieur objet`
+
+Modifieur :
+- <kbd>i</kbd>, <kbd>a</kbd> :  “in” ou “around”
+
+Objet :
+- <kbd>w</kbd>, <kbd>W</kbd> : mot
+- <kbd>s</kbd>, <kbd>p</kbd> : phrase, paragraphe (point / ligne vide)
+- <kbd>b</kbd>, <kbd>B</kbd> : bloc (parenthèses / accolades)
+- <kbd>t</kbd> : tag (html/xml)
+- <kbd>[</kbd><kbd>]</kbd>, <kbd>{</kbd><kbd>}</kbd>, <kbd>(</kbd><kbd>)</kbd>, <kbd>'</kbd>, <kbd>"</kbd>…
+
+---
+## text-objects : utilisation
+
+`opérateur modifieur objet`
+
+- <kbd>v</kbd><kbd>a</kbd><kbd>w</kbd> : sélectionne le mot
+- <kbd>d</kbd><kbd>a</kbd><kbd>w</kbd> : supprime le mot
+- <kbd>d</kbd><kbd>i</kbd><kbd>p</kbd> : supprime le paragraphe <br> (*sans* la ligne de séparation)
+- <kbd>d</kbd><kbd>a</kbd><kbd>p</kbd> : supprime le paragraphe <br> (*avec* la ligne de séparation)
+- <kbd>c</kbd><kbd>i</kbd><kbd>'</kbd> : change le contenu d’une chaîne
+
+Bonus : <kbd>.</kbd> pour répéter l’action, encore et derechef.
+
+**Démo !**
+
+---
+## Greffons
+
+Pour ajouter de nouveaux text-objects dans Vim :
+
+- [vim-textobj-user](https://github.com/kana/vim-textobj-user)
+- [targets.vim](https://github.com/wellle/targets.vim)
+- [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object)
+
+Dans Neovim :
+
+- [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+
+---
+## Poésie minimaliste
+
+> On n’appuie pas sur des raccourcis clavier.
+>
+> On discute avec Vim.
+>
+> On lui adresse des demandes précises sur quoi effectuer avec quel morceau.
+>
+> Tout ceci de manière annulable, répétable, factorisable, partageable !
+
+[@delapouite](https://twitter.com/Delapouite) – auteur de
+[« Vim en 10 vimutes »](http://delapouite.com/slides/vim-en-10-vimutes/#/vimutes)
+<br><small>(+ Jim Dennis,
+[“Your problem with Vim is that you don’t grok vi”](https://stackoverflow.com/a/1220118/3001761))
+</small>
+
+Objectif = « touch-typer » l’édition de code.
+
+---
+template: inverse
+
+# Navigation projet
+
+![plein de coincoins](images/multi_ducks.webp)
+
+Comment passer d’un fichier à un autre ?
+
+---
+## Panneau latéral
+
+- ergonomie classique Visual Studio &amp; co
+- [NERDTree](https://github.com/preservim/nerdtree) (Vim),
+  [Neo-Tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (Neovim)
+
+![NERDTree](images/nerdtree.png)
+
+---
+## Panneau latéral
+
+![no](images/no.jpg)
+
+---
+## PAS de panneau latéral !
+
+Ce type d’ergonomie se prête mal à Vim :
+- nécessite beaucoup de déplacements avant d’atteindre l’item
+  <small>(sauf à utiliser la souris, mais plutôt mourir)</small>
+- difficilement compatible avec la notion de fenêtres Vim
+
+---
+continued: true
+
+Alternative :
+- activer la sélection de fichier à la demande
+  <br><small>– soit dans la fenêtre courante</small>
+  <br><small>– soit dans une nouvelle fenêtre</small>
+  <br><small>– soit dans une fenêtre flottante</small>
+- faciliter le passage d’un buffer à l’autre
+  <br>plutôt que multiplier les fenêtres
+
+---
+## [Ranger](https://github.com/ranger/ranger)
+
+Un explorateur de fichiers en TUI (Python)
+- affichage en [colonnes de Miller](https://fr.wikipedia.org/wiki/Colonnes_de_Miller) :
+  parent, courant, prévisu
+- navigation avec HJKL ❤️
+
+Alternatives asynchrones :
+- minimaliste : [lf](https://github.com/gokcehan/lf) (Go)
+- étendue : [Yazi](https://github.com/sxyazi/yazi) (Rust) 🦆
+
+Intégration dans (Neo)Vim via l’API `:term`
+- alternative facile :
+[fabi1cazenave/TermOpen.vim](https://github.com/fabi1cazenave/termopen.vim)
+
+**Démo !**
+
+---
+## Fuzzy-matching
+
+= filtrer une liste de chaînes par quelques caractères
+- implémentation la plus connue :
+    [fzf](https://github.com/junegunn/fzf) <small>(Go)</small>
+- alternatives :
+    [fzy](https://github.com/jhawthorn/fzy) <small>(C)</small>,
+    [skim](https://github.com/lotabout/skim) <small>(Rust)</small>,
+    [peco](https://github.com/peco/peco) <small>(Go)</small>,
+    [pick](https://github.com/mptre/pick) <small>(C)</small>,
+    [selecta](https://github.com/garybernhardt/selecta) <small>(Ruby)</small>,
+    [icepick](https://github.com/felipesere/icepick) <small>(Rust)</small>,
+    [hf](https://github.com/hugows/hf) <small>(Go)</small>…
+- utilisation dans le terminal… ou depuis Vim
+
+Greffons pour filtrer des fichiers, buffers, textes… :
+
+- Vim : [fzf.vim](https://github.com/junegunn/fzf.vim)
+- Neovim : [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- Helix : inclus
+
+---
+## Fuzzy-matching : telescope.nvim
+
+Neovim + [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) :
+
+- <kbd>Espace</kbd><kbd>s</kbd><kbd>f</kbd> : [s]earch [f]iles
+- <kbd>Espace</kbd><kbd>g</kbd><kbd>f</kbd> : search [g]it [f]iles
+- <kbd>Espace</kbd><kbd>?</kbd> : fichiers récents
+- <kbd>Espace</kbd><kbd>/</kbd> : recherche dans le buffer courant
+- <kbd>Espace</kbd><kbd>Espace</kbd> : buffers ouverts
+
+Le greffon indispensable pour Neovim ! ❤️
+
+**Démo !**
+
+---
+## Language Server Protocol (LSP)
+
+Neovim + [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) :
+<small>(Telescope + Mason + lsp-config…)</small>
+
+- <kbd>g</kbd><kbd>d</kbd> : [g]oto [d]efinition
+- <kbd>g</kbd><kbd>D</kbd> : [g]oto [D]eclaration
+- <kbd>g</kbd><kbd>r</kbd> : [g]oto [r]eferences
+- <kbd>g</kbd><kbd>i</kbd> : [g]oto [i]mplementation
+- <kbd>[</kbd><kbd>d</kbd> / <kbd>]</kbd><kbd>d</kbd> : prev / next [d]iagnostic
+- <kbd>Espace</kbd><kbd>s</kbd><kbd>d</kbd> : [s]earch [d]iagnostics
+- <kbd>Espace</kbd><kbd>d</kbd><kbd>s</kbd> : [d]ocument [s]ymbols
+
+La grosse « nouveauté » avec DAP et TreeSitter.
+<br>Indispensable pour les dévs.
+
+---
+## Pile de sauts
+
+Utiliser des buffers plutôt que des fenêtres / onglets <br>
+permet de profiter de la pile de sauts :
+
+- <kbd>Ctrl</kbd>-<kbd>o</kbd> = remonter la pile de sauts
+- <kbd>Ctrl</kbd>-<kbd>i</kbd> = descendre la pile de sauts <br>
+  <small>(tip Ergol: mapper <kbd>Ctrl</kbd>-<kbd>c</kbd> sur <kbd>Ctrl</kbd>-<kbd>i</kbd>)</small>
+- `:ls` = liste des buffers
+
+➡ plus idiomatique, plus efficace
+
+---
+template: inverse
+
+# Conclusion
+
+![Super Coin-Coin !](images/superduck.jpg)
+
+---
+## Navigation Vim
+
+---
+continued: true
+
+- <kbd>j</kbd><kbd>k</kbd> oui, <kbd>h</kbd><kbd>l</kbd> bof,
+  <kbd>←</kbd><kbd>↓</kbd><kbd>↑</kbd><kbd>→</kbd> non
+<br>– <small>déplacements verticaux avec <kbd>{</kbd><kbd>}</kbd>, <kbd>/</kbd><kbd>?</kbd>, <kbd>*</kbd><kbd>#</kbd>… </small>
+<br>– <small>déplacements horizontaux avec <kbd>w</kbd><kbd>b</kbd><kbd>e</kbd>, <kbd>^</kbd><kbd>$</kbd>,
+      <kbd>f</kbd><kbd>F</kbd><kbd>t</kbd><kbd>T</kbd><kbd>,</kbd><kbd>;</kbd>… </small>
+<br>– <small>édition de <i>text-objects</i> et non de caractères</small>
+<br>– <small>layer de navigation sur <kbd>Espace</kbd> avec
+      [Kanata](https://github.com/jtroo/kanata) + [Arsenik](https://github.com/OneDeadKey/arsenik) </small>
+
+---
+continued: true
+
+- fonctions avancées
+<br>– <small><strong>une seule fenêtre, plein de buffers</strong>
+      <small>(et pas de panneau latéral…)</small></small>
+<br>– <small>sélection via fuzzy-matching</small>
+<br>– <small>navigation via LSP ❤️ </small>
+<br>– <small>pile de sauts : <kbd>Ctrl</kbd>-<kbd>o</kbd> et <kbd>Ctrl</kbd>-<kbd>i</kbd> ❤️❤️ </small>
+
+---
+continued: true
+
+- on ne remappe pas les commandes sémantiques !
+
+---
+continued: true
+
+** Happy vimming ! **
+<br> https://tuppervim.org
+
+.footnote[:kazé / [@fabi1cazenave](https://github.com/fabi1cazenave)]
+
+    </textarea>
+    <script src="js/remark.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
