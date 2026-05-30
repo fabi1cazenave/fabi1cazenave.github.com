@@ -1,0 +1,134 @@
+/**
+ * ╭───────────────────────────────────────────────────────────────╮
+ * │                         Color Palette                         │
+ * ╰───────────────────────────────────────────────────────────────╯
+**/
+
+:root {
+  /* <h2|a|code> and specific emphasis */
+  --bg-accent:        #b884;
+  --fg-accent-border: #4493f8aa;
+  --fg-accent:        #4493f8;
+
+  /* <kbd> and special inline content */
+  --bg-key:           #8884;
+  --fg-key-border:    #888;
+
+  /* flavor menu */
+  --bg-menu-head: rgba(130, 156, 175, 0.4);
+  --bg-menu-cell: rgba(130, 156, 175, 0.2);
+}
+
+
+/**
+ * ╭───────────────────────────────────────────────────────────────╮
+ * │                          Main Layout                          │
+ * ╰───────────────────────────────────────────────────────────────╯
+**/
+
+:root {
+  --main-padding: 12px;
+  --list-indent: 1.5em;
+}
+
+html {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  margin: 1em auto;
+  max-width: 64em;
+  width: 100%;
+  font-family: sans-serif;
+  line-height: 1.8em;
+}
+header, footer {
+  text-align: center;
+}
+header, footer, section {
+  padding: 1em;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+h1 + p {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+h2 {
+  color: var(--fg-accent);
+  border-bottom: 1px inset var(--fg-accent-border);
+}
+
+form {
+  text-align: center;
+}
+svg {
+  width: 100%;
+}
+
+nav {
+  text-align: left;
+}
+
+a[href] {
+  color: var(--fg-accent);
+  text-decoration: none;
+}
+
+a[href]:hover {
+  text-decoration: underline;
+}
+
+
+/**
+ * ╭───────────────────────────────────────────────────────────────╮
+ * │                           Keyboard                            │
+ * ╰───────────────────────────────────────────────────────────────╯
+**/
+
+/* keyboard geometry (XXX magic numbers) */
+#left  { transform: translate(-12px, 45px); }
+#right { transform: translate(908px, 45px); }
+#board { transform: translate(478px, 191px) scale(3.338, -3.338); }
+
+#left  .matrix { transform-origin:  0px   56px; }
+#left  .thumb  { transform-origin: -14px -62px; }
+#right .matrix { transform-origin:  70px  56px; }
+#right .thumb  { transform-origin:  74px -62px; }
+
+/* color theme */
+rect {
+  fill: #fff;
+  stroke: #999;
+}
+text {
+  fill: #444;
+  font: normal 11px sans-serif;
+  text-align: center;
+  text-anchor: middle;
+}
+.dualKey {
+  fill: #ddd;
+}
+#board use,
+#board path {
+  fill:   rgba(130, 156, 175, 0.60);
+  stroke: rgba(130, 156, 175, 0.20);
+  stroke-width: 1.0px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.col1 rect,
+.col2 rect,
+.col3 rect,
+.col4 rect,
+.col5 rect,
+.col6 rect {
+  stroke-width: 0.6px !important;
+}

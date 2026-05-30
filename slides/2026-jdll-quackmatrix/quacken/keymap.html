@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>Selenium</title>
+    <meta name="viewport"     content="width=device-width, initial-scale=1">
+    <meta name="description"  content="A configurable Arsenik variant for split keyboards.">
+    <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any">
+    <link rel="stylesheet" href="style.css">
+    <script src="select.js" defer></script>
+    <script src="keymap.js"></script>
+    <svg style="display: none;">
+      <defs>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_backspace" d="M22,19l10,10 M22,29l10-10 M6,24l10,13h26v-26h-26z"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_delete"    d="M16,19l10,10 M16,29l10-10 M42,24l-10,13h-26v-26h26z"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_return"    d="M42,13V27H6 m8-8l-8,8l8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_space"     d="M42,24V32H6V24"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_escape"    d="M24,24l-18-18 m0,10v-10h10 M24,6A18,18,0,1,1,6,24"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_tab"       d="M6,24h27 m-6-8l8,8l-8,8 M42,12V36"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_btab"      d="M42,24h-27 m6-8l-8,8l8,8 M6,12V36"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_shift"     d="M23,7l14,20h-7v16h-14v-16h-7l14,-20"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_caps"      d="M24,7l14,20h-7v6h-14v-6h-7l14,-20 M31,38v5h-14v-5z"/>
+        <g class="thumb" id="sticky-shift">
+          <rect/>
+          <rect class="colorMod sticky"/>
+          <text class="colorMod sticky pc">shift</text>
+          <use  class="layerVim" href="#glyph_caps"/>
+          <text class="layerSym pc">num</text>
+        </g>
+        <g class="thumb" id="sticky-sym">
+          <rect/>
+          <rect class="colorSym sticky"/>
+          <text class="colorSym sticky pc">sym</text>
+          <text class="layerNav shortcut">altgr</text>
+        </g>
+        <g class="thumb" id="nav-left">
+          <rect/>
+          <rect class="holdTap colorNav"/>
+          <text class="level1  colorNav pc">nav</text>
+          <use  class="level2"   href="#glyph_backspace"/>
+          <use  class="layerNav" href="#glyph_delete"/>
+          <use  class="layerSym" href="#glyph_space"/>
+        </g>
+        <g class="thumb" id="nav-right">
+          <rect/>
+          <rect class="holdTap borderNav tap-pref"/>
+          <text class="level1  borderNav pc">nav</text>
+          <use  class="level2" href="#glyph_space"/>
+          <text class="layerNav shortcut">fn</text>
+        </g>
+      </defs>
+    </svg>
+  </head>
+  <body>
+    <form>
+      <select name="flavor">
+        <option>EZ</option>
+        <option>TT</option>
+        <option>HRM</option>
+        <option>2TK</option>
+      </select>
+      <select name="layout">
+        <option>QWERTY</option>
+        <option>Colemak</option>
+        <option>Sturdy</option>
+        <option>Ergol</option>
+      </select>
+      <select name="geometry">
+        <option value="ortho">Ortho</option>
+        <option value="flex" selected>Quacken</option>
+      </select>
+      <input type="checkbox" name="vim" id="option-vim" value="vim">
+      <label for="option-vim">Vim variant</label>
+    </form>
+
+    <object type="image/svg+xml" data="keymap.svg" class="main"></object>
+</html>

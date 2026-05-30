@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Quacken</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="A libre, ergonomic, polymorphic keyboard.">
+    <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="keeb.js" defer></script>
+  </head>
+  <body>
+    <form>
+      <select onchange="setConfig(this.value.toLowerCase())">
+        <option>Raven</option>        <!-- Corbeau  -->
+        <option>Owl</option>          <!-- Chouette -->
+        <option>Sparrowhawk</option>  <!-- Épervier -->
+        <option>Hoopoe</option>       <!-- Huppe    -->
+        <!-- 34 keys -->
+        <option>Bluejay</option>      <!-- Geai bleu  -->
+        <option>Wallcreeper</option>  <!-- Tichodrome -->
+        <option>Bluethroat</option>   <!-- Gorgebleue -->
+        <option>Swift</option>        <!-- Martinet   -->
+        <option>Swallow</option>      <!-- Hirondelle -->
+        <!-- 32 keys -->
+        <option>Kingfisher</option>   <!-- Martin-pêcheur -->
+        <option>Finch</option>        <!-- Pinson         -->
+      </select>
+    </form>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="38 -12 880 380">
+      <g id="board">
+        <path id="flex-half" d="m0 42 q-51 28-131 10 v-68 q86 0 112 -35 l19 15z"/>
+        <use href="#flex-half" transform="scale(-1 1)"/>
+      </g>
+
+      <g id="left">
+        <g class="outer matrix">
+          <g class="col6">
+            <g class="key top"/>
+            <g class="key home"/>
+            <g class="key bottom"/>
+          </g>
+          <g class="col6m">
+            <g class="key top"/>
+            <g class="key home"/>
+          </g>
+
+          <g class="pinky matrix">
+            <g class="col5">
+              <g class="key top"/>
+              <g class="key home"/>
+              <g class="key bottom"/>
+            </g>
+            <g class="col5m">
+              <g class="key top"/>
+              <g class="key home"/>
+            </g>
+
+            <g class="ring matrix">
+              <g class="col4">
+                <g class="key top"/>
+                <g class="key home dual"/>
+                <g class="key bottom"/>
+              </g>
+
+              <g class="middle matrix">
+                <g class="col3">
+                  <g class="key top"/>
+                  <g class="key home dual"/>
+                  <g class="key bottom"/>
+                </g>
+
+                <g class="index matrix">
+                  <g class="col2">
+                    <g class="key top"/>
+                    <g class="key home dual"/>
+                    <g class="key bottom"/>
+                  </g>
+
+                  <g class="thumbCluster">
+                    <g class="tucked thumb">
+                      <g class="key"/>
+                      <g class="comfy thumb">
+                        <g class="key"/>
+                        <g class="reachy thumb">
+                          <g class="key"/>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+
+                  <g class="inner matrix">
+                    <g class="col1">
+                      <g class="key top"/>
+                      <g class="key home"/>
+                      <g class="key bottom"/>
+                    </g>
+                    <g class="col1m">
+                      <g class="key top"/>
+                      <g class="key home"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <g id="right">
+        <g class="outer matrix">
+          <g class="col6">
+            <g class="key top"/>
+            <g class="key home"/>
+            <g class="key bottom"/>
+          </g>
+          <g class="col6m">
+            <g class="key top"/>
+            <g class="key home"/>
+          </g>
+
+          <g class="pinky matrix">
+            <g class="col5">
+              <g class="key top"/>
+              <g class="key home"/>
+              <g class="key bottom"/>
+            </g>
+            <g class="col5m">
+              <g class="key top"/>
+              <g class="key home"/>
+            </g>
+
+            <g class="ring matrix">
+              <g class="col4">
+                <g class="key top"/>
+                <g class="key home dual"/>
+                <g class="key bottom"/>
+              </g>
+
+              <g class="middle matrix">
+                <g class="col3">
+                  <g class="key top"/>
+                  <g class="key home dual"/>
+                  <g class="key bottom"/>
+                </g>
+
+                <g class="index matrix">
+                  <g class="col2">
+                    <g class="key top"/>
+                    <g class="key home dual"/>
+                    <g class="key bottom"/>
+                  </g>
+
+                  <g class="thumbCluster">
+                    <g class="tucked thumb">
+                      <g class="key"/>
+                      <g class="comfy thumb">
+                        <g class="key"/>
+                        <g class="reachy thumb">
+                          <g class="key"/>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+
+                  <g class="inner matrix">
+                    <g class="col1">
+                      <g class="key top"/>
+                      <g class="key home"/>
+                      <g class="key bottom"/>
+                    </g>
+                    <g class="col1m">
+                      <g class="key top"/>
+                      <g class="key home"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </body>
+</html>

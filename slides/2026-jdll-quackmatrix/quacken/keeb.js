@@ -1,0 +1,107 @@
+// keyboard geometry -- could be hard-coded in the stylesheet
+const columns = [ "outer", "pinky", "ring", "middle", "index", "inner" ];
+const thumbs = [ "tucked", "comfy", "reachy" ];
+const rows = [ "top", "home", "bottom" ];
+
+// Ergogen values, relative to one another, from outer/pinky to inner/index
+const col_stagger = [ 0, 0.195, 0.600, 0.350, -0.250, -0.195 ];
+const alt_stagger = [ 0.305, 0.695, 0.0, 0.0, 0.0, 0.305 ]; // median keys
+const col_splay = [ 0, 0, 9, 6, 0, 0 ];
+const thumb_stagger = [ -3.4, 0, 0 ];
+const thumb_spread = [ -1, 0, 0 ];
+const thumb_splay = [ 0, 16, 16 ];
+
+// choc spacing = 18*17mm, scaled to stay close to x-keyboard's 60*60px
+const kw = 60.0;
+const kh = 56.67;
+
+// apply geometry
+let sheet = window.document.styleSheets[0];
+const cssTransform = (selector, transform) => {
+  sheet.insertRule(`${selector} { transform: ${transform} }`);
+}
+const svgTransform = (selector, transform) => {
+  document.querySelectorAll(selector).forEach(element => {
+    element.setAttribute("transform", transform);
+  });
+}
+
+const matrix = (dx, dy, angle) => {
+  const rad = angle * Math.PI / 180.0;
+  const cos = Math.cos(rad);
+  const sin = Math.sin(rad);
+  const tx = kw * (dx + sin * 2);
+  const ty = kh * dy;
+  return [
+    `matrix(${cos}, ${sin}, ${-sin}, ${cos}, ${tx}, ${-ty})`,
+    `matrix(${cos}, ${-sin}, ${sin}, ${cos}, ${-tx}, ${-ty})`
+  ];
+}
+
+columns.forEach((name, i) => {
+  const [left, right] = matrix(1, col_stagger[i], col_splay[i]);
+  svgTransform(`#left  .${name}`, left);
+  svgTransform(`#right .${name}`, right);
+  svgTransform(`.col${6 - i}m`, `translate(0 ${alt_stagger[i] * kh})`);
+});
+rows.forEach((name, i) => { // XXX ends up with a lot of unused rules
+  cssTransform(`.${name}`, `translateY(${i * kh}px)`);
+});
+
+const leftThumb  = document.querySelector("#left  .thumbCluster");
+const rightThumb = document.querySelector("#right .thumbCluster");
+leftThumb.setAttribute("x", -kw);
+leftThumb.setAttribute("y", 3 * kh);
+rightThumb.setAttribute("x", kw);
+rightThumb.setAttribute("y", 3 * kh);
+thumbs.forEach((name, i) => {
+  const [left, right] = matrix(1 + thumb_spread[i], thumb_stagger[i], thumb_splay[i]);
+  svgTransform(`#left  .thumbCluster .${name}`, left);
+  svgTransform(`#right .thumbCluster .${name}`, right);
+});
+
+// keyboard configuration
+const birds = {
+  // hummingbird-like, 32-34 keyx
+  bluethroat:  [ ".col1", ".col5m", ".col6m", ".col6",                        ], // gorgebleue
+  swift:       [ ".col1", ".col5m", ".col5 .bottom", ".col6", ".col6m .home", ], // martinet
+  finch:       [ ".col1", ".col5m", ".col5 .bottom", ".col6", ".col6m",       ], // pinson
+  swallow:     [ ".col1", ".col5", ".col6m", ".col6 .top", ".col6 .bottom",   ], // hirondelle
+  kingfisher:  [ ".col1", ".col5", ".col6m", ".col6",                         ], // martin-pecheur
+  wallcreeper: [ ".col1m", ".col5",  ".col6", ".col6m",                       ], // tichodrome
+  bluejay:     [ ".col1m", ".col5m", ".col5 .bottom", ".col6", ".col6m",      ], // geai bleu
+  // classic", [ "36-42 keyx
+  hoopoe:      [ ".col1m", ".col5m", ".col6", ".col6m",      ], // huppe
+  sparrowhawk: [ ".col1m", ".col5m", ".col6", ".col6m .top", ], // epervier
+  owl:         [ ".col1m", ".col5m", ".col6",                ], // chouette
+  raven:       [ ".col1m", ".col5m", ".col6m",               ], // corbeau
+};
+const showBird = (name) => {
+  const selector = birds[name].map(sel => `${sel} rect`).join(", ");
+  sheet.insertRule(`${selector} { fill: none; stroke-width: 0; }`, 0);
+};
+showBird("owl");
+const setConfig = (name) => {
+  sheet.deleteRule(0);
+  showBird(name);
+};
+
+// keyboard layout
+document.querySelectorAll(".matrix .key").forEach(key => {
+  const dual = key.classList.contains("dual") ? `
+    <rect width="${kw/2}" height="${kh/2}" rx="2" ry="2" y="${kh/2}" class="dualKey"/>
+  ` : "";
+  key.innerHTML = `
+    <rect width="${kw}" height="${kh}" rx="5" ry="5"/>${dual}
+    <text x="12.8" y="20.6" class="level2"></text>
+    <text x="38.0" y="43.4" class="num"></text>
+    <text x="38.0" y="43.4" class="nav"></text>
+  `;
+});
+document.querySelectorAll(".thumb .key").forEach(key => {
+  key.innerHTML = `
+    <rect width="${kw}" height="${kh}" rx="5" ry="5"/>
+    <rect width="${kw}" height="${kh/2}" rx="2" ry="2" y="${kh/2}" class="dualKey"/>
+  `;
+});
+document.querySelector("select").selectedIndex = 1;

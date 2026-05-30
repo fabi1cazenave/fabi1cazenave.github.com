@@ -1,0 +1,48 @@
+:root {
+  --bg-color:  #fefefe;
+  --fg-color:  #666;
+  --dead-key:  red;
+  --layer-odk: green;
+  --color-odk: #5d58;
+  --layer-sym: blue;
+  --color-sym: #99f8;
+}
+
+rect {
+  fill:   var(--bg-color);
+  stroke: var(--fg-color);
+  stroke-width: .75px;
+}
+text {
+  fill: var(--fg-color);
+  font: normal 20px sans-serif;
+  text-anchor: middle;
+}
+
+.deadKey  { fill: var(--dead-key);  }
+.layerOdk { fill: var(--layer-odk); }
+.colorOdk { fill: var(--color-odk); }
+.layerSym { fill: var(--layer-sym); }
+.colorSym { fill: var(--color-sym); }
+
+.dualKey {
+  fill: #ddd;
+  transform: translateY(26px);
+}
+
+#row_AD { transform: translate(64px,   4px); }
+#row_AC { transform: translate(64px,  64px); }
+#row_AB { transform: translate(64px, 124px); }
+#row_AA { transform: translate(64px, 184px); }
+.left   { transform: translate(-15px, 0); }
+.right  { transform: translate(+15px, 0); }
+
+
+.layerSym { font-weight: normal; opacity: 0.6; }
+.layerMod { font-weight: bold; font-size: 14px; }
+.layerNav { font-weight: bold; }
+.right .layerNav { font-weight: normal; }
+
+.layerMod, .colorMod { fill: #333; }
+.layerNav, .colorNav { fill: #e83; }
+#row_AA    .level2   { fill: #333; }

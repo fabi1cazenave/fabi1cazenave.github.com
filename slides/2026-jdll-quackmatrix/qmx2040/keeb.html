@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>QMx 2040</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="The Extremely Normal Keyboard. The natural evolution of the TypeMatrix 2020 and 2030 series.">
+    <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="keeb.css">
+    <script type="text/javascript" defer src="keeb.js"></script>
+    <style>
+      .step1, .step2 {
+        #board path, #board use, .thumbCluster, .tmx { display: none; }
+        #left  { transform: translate( 70px, 0px); }
+        #right { transform: translate(910px, 0px); }
+      }
+      .step3, .step4 {
+        #board rect { display: none; }
+      }
+      .step1 {
+        .extra > .col, .outer > .col { display: none; }
+      }
+      .step3 {
+        .tmx { display: none; }
+      }
+      text {
+        font-weight: normal;
+        font-size: 20px;
+        transform: translate(0px 4px);
+      }
+    </style>
+    <script>
+      document.documentElement.className = window.location.hash.substr(1);
+    </script>
+  </head>
+  <body>
+    <form>
+      <select onchange="setKeebLayout(this.value)">
+        <option value="be">AZERTY-be</option>
+        <option value="fr" selected>AZERTY-fr</option>
+        <option value="br">QWERTY-br</option>
+        <option value="dk">QWERTY-dk</option>
+        <option value="fr(lafayette)">QWERTY-fr</option>
+        <option value="gr">QWERTY-gr</option>
+        <option value="it">QWERTY-it</option>
+        <option value="no">QWERTY-no</option>
+        <option value="pt">QWERTY-pt</option>
+        <option value="ru">QWERTY-ru</option>
+        <option value="se">QWERTY-se</option>
+        <option value="ua">QWERTY-ua</option>
+        <option value="us">QWERTY-us</option>
+        <option value="ch">QWERTZ-ch</option>
+        <option value="de">QWERTZ-de</option>
+        <option disabled> - optimized layouts - </option>
+        <option value="fr(bepo)">Bépo</option>
+        <option value="us(colemak)">Colemak</option>
+        <option value="us(dvorak)">Dvorak</option>
+        <option value="fr(ergol)">Ergo‑L</option>
+        <option value="us(workman)">Workman</option>
+      </select>
+    </form>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="45 -45 940 400">
+
+      <g id="board">
+        <rect style="width: 940px; height: 252px; transform: translate(45px, -41px);"/>
+        <path id="qmx-half" d="M-15-40 h500 v340 l-50,50 q-80-100 -220-90 H-15z"/>
+        <use href="#qmx-half" transform="translate(970 0) scale(-1 1)"/>
+      </g>
+
+      <defs>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_backspace" d="M22,19l10,10 M22,29l10-10 M6,24l10,13h26v-26h-26z"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_delete"    d="M16,19l10,10 M16,29l10-10 M42,24l-10,13h-26v-26h26z"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_return"    d="M42,13V27H6 m8-8l-8,8l8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_space"     d="M42,24V32H6V24"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_escape"    d="M24,24l-18-18 m0,10v-10h10 M24,6A18,18,0,1,1,6,24"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_up"        d="M24,42v-36 m-8,6l8-8l8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_down"      d="M24,6v36 m-8,-6l8,8l8-8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_pgup"      d="M16,32h16 M16,24h16 M24,42v-36 m-8,6l8-8l8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_pgdown"    d="M16,16h16 M16,24h16 M24,6v36 m-8,-6l8,8l8-8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_left"      d="M42,24h-36 m6-8l-8,8l8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_right"     d="M6,24h36 m-6-8l8,8l-8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_tab"       d="M6,24h27 m-6-8l8,8l-8,8 M42,12V36"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_btab"      d="M42,24h-27 m6-8l-8,8l8,8 M6,12V36"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_home"      d="M42,42l-28-28 m0,10v-10h10 m8-8h-26v26"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_end"       d="M6,6l28,28 m0-10v10h-10 m-8,8h26v-26"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_prev"      d="M24,6A18,18,0,1,1,24,42A18,18,0,1,1,24,6 M26,16l-8,8l8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_next"      d="M24,6A18,18,0,1,1,24,42A18,18,0,1,1,24,6 M22,16l8,8l-8,8"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_shift"     d="M23,7l14,20h-7v16h-14v-16h-7l14,-20"/>
+        <path class="symbol" transform="scale(0.4) translate(-24, -30)" id="glyph_caps"      d="M24,7l14,20h-7v6h-14v-6h-7l14,-20 M31,38v5h-14v-5z"/>
+
+        <g class="leftThumb" id="leftThumb-ez">
+          <g class="tucked3 thumb">
+            <g class="specialKey">
+              <rect class="colorMod"/>
+            </g>
+            <g class="tucked2 thumb">
+              <g class="specialKey">
+                <rect class="colorMod"/>
+              </g>
+              <g class="tucked1 thumb">
+                <g class="specialKey">
+                  <rect class="colorSym"/>
+                  <text class="level0 pc">Shift</text>
+                </g>
+                <g class="comfy thumb">
+                  <g class="specialKey">
+                    <rect/>
+                  </g>
+                  <g class="reachy thumb">
+                    <g class="specialKey">
+                      <rect class="colorMod"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g class="rightThumb" id="rightThumb-ez">
+          <g class="tucked3 thumb">
+            <g class="specialKey">
+              <rect class="colorMod"/>
+            </g>
+            <g class="tucked2 thumb">
+              <g class="specialKey">
+                <rect class="colorMod"/>
+              </g>
+              <g class="tucked1 thumb">
+                <g class="specialKey">
+                  <rect class="colorSym"/>
+                  <text class="level0 pc">AltGr</text>
+                </g>
+                <g class="comfy thumb">
+                  <g class="specialKey">
+                    <rect/>
+                  </g>
+                  <g class="reachy thumb">
+                    <g class="specialKey">
+                      <rect class="colorMod"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </defs>
+
+      <g id="left">
+        <g class="outer matrix">
+          <g class="col">
+            <g id="Backquote" class="key num">
+              <rect/>
+              <text class="level1"/>
+              <text class="level2"/>
+            </g>
+            <g class="specialKey top">
+              <rect class="colorSpc"/>
+              <use class="level0" href="#glyph_tab"/>
+            </g>
+            <g id="IntlBackslash" class="key home">
+              <rect/>
+              <text class="level1"/>
+              <text class="level2"/>
+            </g>
+          </g>
+
+          <g class="pinky matrix">
+            <g class="col">
+              <g id="Digit1" class="key num">
+                <rect/>
+                <text class="level1"/>
+                <text class="level2"/>
+              </g>
+              <g id="KeyQ" class="key top">
+                <rect/>
+                <text class="level1"/>
+                <text class="level2"/>
+              </g>
+              <g id="KeyA" class="key home">
+                <rect/>
+                <text class="level1"/>
+                <text class="level2"/>
+              </g>
+              <g id="KeyZ" class="key bottom">
+                <rect/>
+                <text class="level1"/>
+                <text class="level2"/>
+              </g>
+            </g>
+
+            <g class="ring matrix">
+              <g class="col">
+                <g id="Digit2" class="key num">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+                <g id="KeyW" class="key top">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+                <g id="KeyS" class="key home dual">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+                <g id="KeyX" class="key bottom">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+              </g>
+
+              <g class="middle matrix">
+                <g class="col">
+                  <g id="Digit3" class="key num">
+                    <rect/>
+                    <text class="level1"/>
+                    <text class="level2"/>
+                  </g>
+                  <g id="KeyE" class="key top">
+                    <rect/>
+                    <text class="level1"/>
+                    <text class="level2"/>
+                  </g>
+                  <g id="KeyD" class="key home dual">
+                    <rect/>
+                    <text class="level1"/>
+                    <text class="level2"/>
+                  </g>
+                  <g id="KeyC" class="key bottom">
+                    <rect/>
+                    <text class="level1"/>
+                    <text class="level2"/>
+                  </g>
+                </g>
+
+                <g class="index matrix">
+                  <g class="col">
+                    <g id="Digit4" class="key num">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                    <g id="KeyR" class="key top">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                    <g id="KeyF" class="key home dual">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                    <g id="KeyV" class="key bottom">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                  </g>
+
+                  <use class="thumbCluster"/>
+
+                  <g class="inner matrix">
+                    <g class="col">
+                      <g id="Digit5" class="key num">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                      <g id="KeyT" class="key top">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                      <g id="KeyG" class="key home">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                      <g id="KeyB" class="key bottom">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                    </g>
+
+                    <g class="tmx matrix">
+                      <g class="col">
+                        <g class="specialKey top">
+                          <rect class="colorSpc"/>
+                          <text class="level0 pc">PrtScr</text>
+                        </g>
+                        <g class="specialKey home">
+                          <rect class="colorSpc"/>
+                          <use class="level0" href="#glyph_caps"/>
+                        </g>
+                        <g class="specialKey bottom">
+                          <rect class="colorSpc"/>
+                          <use class="level0" href="#glyph_escape"/>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <g id="right">
+        <g class="extra matrix">
+          <g class="col">
+            <g id="Equal" class="key num">
+              <rect/>
+              <text class="level1"/>
+              <text class="level2"/>
+            </g>
+            <g id="BracketRight" class="key top">
+              <rect/>
+              <text class="level1"/>
+              <text class="level2"/>
+            </g>
+            <g id="Backslash" class="key home">
+              <rect/>
+              <text class="level1"/>
+              <text class="level2"/>
+            </g>
+          </g>
+
+          <g class="outer matrix">
+            <g class="col">
+              <g id="Minus" class="key num">
+                <rect/>
+                <text class="level1"/>
+                <text class="level2"/>
+              </g>
+              <g id="BracketLeft" class="key top">
+                <rect/>
+                <text class="level1"/>
+                <text class="level2"/>
+              </g>
+              <g id="Quote" class="key home">
+                <rect/>
+                <text class="level1"/>
+                <text class="level2"/>
+              </g>
+            </g>
+
+            <g class="pinky matrix">
+              <g class="col">
+                <g id="Digit0" class="key num">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+                <g id="KeyP" class="key top">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+                <g id="Semicolon" class="key home">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+                <g id="Slash" class="key bottom">
+                  <rect/>
+                  <text class="level1"/>
+                  <text class="level2"/>
+                </g>
+              </g>
+
+              <g class="ring matrix">
+                <g class="col">
+                  <g id="Digit9" class="key num">
+                    <rect/>
+                    <text class="level1"/>
+                    <text class="level2"/>
+                  </g>
+                  <g id="KeyO" class="key top">
+                    <rect/>
+                    <text class="level1"/>
+                    <text class="level2"/>
+                  </g>
+                  <g id="KeyL" class="key home dual">
+                    <rect/>
+                    <text class="level2"/>
+                  </g>
+                  <g id="Period" class="key bottom">
+                    <rect/>
+                    <text class="level1"/>
+                    <text class="level2"/>
+                  </g>
+                </g>
+
+                <g class="middle matrix">
+                  <g class="col">
+                    <g id="Digit8" class="key num">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                    <g id="KeyI" class="key top">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                    <g id="KeyK" class="key home dual">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                    <g id="Comma" class="key bottom">
+                      <rect/>
+                      <text class="level1"/>
+                      <text class="level2"/>
+                    </g>
+                  </g>
+
+                  <g class="index matrix">
+                    <g class="col">
+                      <g id="Digit7" class="key num">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                      <g id="KeyU" class="key top">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                      <g id="KeyJ" class="key home dual">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                      <g id="KeyM" class="key bottom">
+                        <rect/>
+                        <text class="level1"/>
+                        <text class="level2"/>
+                      </g>
+                    </g>
+
+                    <use class="thumbCluster"/>
+
+                    <g class="inner matrix">
+                      <g class="col">
+                        <g id="Digit6" class="key num">
+                          <rect/>
+                          <text class="level1"/>
+                          <text class="level2"/>
+                        </g>
+                        <g id="KeyY" class="key top">
+                          <rect/>
+                          <text class="level1"/>
+                          <text class="level2"/>
+                        </g>
+                        <g id="KeyH" class="key home">
+                          <rect/>
+                          <text class="level1"/>
+                          <text class="level2"/>
+                        </g>
+                        <g id="KeyN" class="key bottom">
+                          <rect/>
+                          <text class="level1"/>
+                          <text class="level2"/>
+                        </g>
+                      </g>
+
+                      <g class="tmx matrix">
+                        <g class="col">
+                          <g class="specialKey top">
+                            <rect class="colorSpc"/>
+                            <use class="level0" href="#glyph_delete"/>
+                          </g>
+                          <g class="specialKey home">
+                            <rect class="colorSpc"/>
+                            <use class="level0" href="#glyph_backspace"/>
+                          </g>
+                          <g class="specialKey bottom">
+                            <rect class="colorSpc"/>
+                            <use class="level0" href="#glyph_return"/>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+
+    </svg>
+  </body>
+</html>
